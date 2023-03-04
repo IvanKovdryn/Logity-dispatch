@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let formReq = document.querySelectorAll("._req");
   formReq.forEach((item) => {
     item.addEventListener("click", () => {
+      input.parentElement.classList.remove("_error");
       item.classList.remove("_error");
       item.classList.add("satisfactory");
     });
