@@ -1,0 +1,34 @@
+<header class="header">
+  <div class="phone">
+    <span class="icon-phone"></span>
+  </div>
+  <div class="massage">
+    <span class="icon-message"></span>
+  </div>
+  <img
+    class="header-img"
+    src="/img/backgrounds/bg-<%- backgroundImage %>.jpg"
+    alt=""
+  />
+  <%- include("_nav") %>
+  <div class="navigation-wrapper">
+    <div class="container">
+      <div class="navigation">
+        <a href="/" class="navigation-item navigation-item-home">Home</a>
+
+        <% if(navPageMore){ %>
+        <span class="icon-chevrons-right"></span>
+        <a href="/<%- navPageLink %>" class="navigation-item"><%- navPage %></a>
+        <% } %>
+
+        <span class="icon-chevrons-right"></span>
+        <div
+          id="navigation-item-active"
+          class="navigation-item navigation-item-about"
+        >
+          <%- page %>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,130 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  gap: 10px;
+  padding: 20px 5px;
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid #939393;
+  color: #212121;
+}
+@media (max-width: 1200px) {
+  .navigation {
+    gap: calc(
+        5px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .navigation {
+    font-size: calc(
+        14px + 2 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.navigation-item-home span {
+  color: #74adc6;
+  transition: color 0.2s ease;
+}
+
+.navigation-item-home span:hover {
+  color: #147eac;
+}
+
+.careers-title {
+  margin-bottom: 35px;
+  color: #212121;
+}
+@media (max-width: 1200px) {
+  .careers-title {
+    margin-bottom: calc(
+        20px + 15 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.careers-subtitle {
+  display: inline;
+  font-size: 35px;
+  padding-bottom: 5px;
+  font-weight: 900;
+  position: relative;
+  color: #212121;
+}
+@media (max-width: 1200px) {
+  .careers-subtitle {
+    font-size: calc(
+        20px + 15 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.careers-subtitle::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background: #212121;
+}
+
+.careers-subtext {
+  padding-bottom: 40px;
+  padding-top: 40px;
+  font-size: 16px;
+  border-bottom: 1px solid #a2a2a2;
+}
+@media (max-width: 1200px) {
+  .careers-subtext {
+    padding-bottom: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .careers-subtext {
+    padding-top: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .careers-subtext {
+    font-size: calc(
+        14px + 2 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.careers-text {
+  padding-top: 40px;
+  line-height: 1.25;
+  font-size: 16px;
+}
+@media (max-width: 1200px) {
+  .careers-text {
+    padding-top: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .careers-text {
+    font-size: calc(
+        14px + 2 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}

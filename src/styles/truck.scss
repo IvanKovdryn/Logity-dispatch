@@ -1,0 +1,53 @@
+@import "mixin";
+
+.truck-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include adapt("gap", 30, 15, 1);
+  @include adapt("padding-top", 40, 20, 1);
+  @include adapt("padding-bottom", 40, 20, 1);
+  @media (max-width: 768px) {
+    padding-bottom: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 200px;
+    gap: 0;
+  }
+}
+.truck-img {
+  position: relative;
+  @include adapt("border-radius", 10, 5, 1);
+  overflow: hidden;
+  grid-row: 1;
+  @media (max-width: 768px) {
+    grid-row: 2;
+  }
+}
+.truck-img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.truck-text {
+  @include adapt("padding-top", 40, 20, 1);
+  @include adapt("padding-bottom", 40, 20, 1);
+  @media (max-width: 768px) {
+    grid-row: 1;
+  }
+}
+.truck-text li {
+  @include adapt("font-size", 17, 14, 1);
+  @include adapt("padding-left", 15, 5, 1);
+}
+.truck-text h2 {
+  @include adapt("font-size", 25, 16, 1);
+  font-weight: 700;
+}
+.truck-text h3 {
+  @include adapt("font-size", 18, 15, 1);
+  font-weight: 700;
+}
+.truck-text p {
+  @include adapt("font-size", 17, 14, 1);
+}
+@import "about/absec";

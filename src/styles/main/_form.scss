@@ -1,0 +1,150 @@
+.form {
+  background: #fff;
+  @include adapt("padding-top", 30, 15, 1);
+  @include adapt("padding-bottom", 30, 15, 1);
+  @include adapt("padding-right", 50, 10, 1);
+  @include adapt("padding-left", 50, 10, 1);
+  @include adapt("border-radius", 10, 5, 1);
+  @media (max-width: 768px) {
+    width: 75%;
+    margin: 0 auto;
+  }
+  @media (max-width: 425px) {
+    width: 90%;
+  }
+}
+.form-title {
+  @include adapt("font-size", 24, 16, 1);
+  font-weight: 700;
+}
+.form-inputs {
+  @include adapt("margin-top", 25, 10, 1);
+  @include adapt("margin-bottom", 20, 10, 1);
+  @include adapt("gap", 10, 0, 1);
+  display: flex;
+  flex-direction: column;
+}
+.form-name-wrapper,
+.form-number-wrapper,
+.form-email-wrapper {
+  display: flex;
+  flex-direction: column;
+  @include adapt("gap", 7, 2, 1);
+  @include adapt("padding", 5, 5, 1);
+  @include adapt("font-size", 16, 14, 1);
+  color: #000000e9;
+}
+.form-name-wrapper input,
+.form-number-wrapper input,
+.form-email-wrapper input {
+  font-family: "Lato", sans-serif;
+  @include adapt("font-size", 16, 14, 1);
+  @include adapt("padding", 10, 7, 1);
+  background: #f3f4f5;
+  border: unset;
+  outline: unset;
+}
+.form-name-wrapper label,
+.form-number-wrapper label,
+.form-email-wrapper label {
+  cursor: unset;
+  pointer-events: none;
+  @include adapt("font-size", 14, 12, 1);
+}
+.form-name-wrapper input:focus,
+.form-number-wrapper input:focus,
+.form-email-wrapper input:focus {
+  background: #e8f0fe;
+}
+.input.satisfactory {
+  background: #e8f0fe;
+}
+.form-agree {
+  @include adapt("margin-top", 20, 12, 1);
+  @include adapt("margin-bottom", 20, 12, 1);
+  @include adapt("font-size", 16, 14, 1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.form-agree._error .label-checkbox::before {
+  background: rgba(255, 0, 0, 0.15);
+}
+.form-agree input {
+  width: 20px;
+  height: 20px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.input-checkbox {
+  display: none;
+}
+.label-checkbox {
+  position: relative;
+  cursor: unset;
+  pointer-events: none;
+  padding: 0 0 0 35px;
+}
+.label-checkbox a {
+  color: #0000ff;
+  text-decoration: underline;
+}
+.label-checkbox::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  pointer-events: all;
+  border-radius: 3px;
+  border: 2px solid #979797;
+}
+.label-checkbox::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 1px;
+  background-color: #74adc6;
+  transform: scale(0);
+  transition: all 0.2s ease;
+}
+.input-checkbox:checked + .label-checkbox::after {
+  transform: scale(1);
+}
+.form-button {
+  @include adapt("padding-right", 40, 20, 1);
+  @include adapt("padding-left", 40, 20, 1);
+  @include adapt("padding-top", 20, 10, 1);
+  @include adapt("padding-bottom", 20, 10, 1);
+  @include adapt("font-size", 22, 16, 1);
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.input._error {
+  background: rgba(255, 0, 0, 0.15);
+}
+.status {
+  position: relative;
+}
+.status-text {
+  @include adapt("font-size", 16, 13, 1);
+  position: absolute;
+  left: 5px;
+  top: -5px;
+  font-weight: 700;
+  color: #147eac;
+  transition: all 0.4s ease;
+}
+.status-text.remove {
+  opacity: 0;
+}
+.email:required {
+  font-size: 50px;
+}

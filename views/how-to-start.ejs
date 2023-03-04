@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to start</title>
+    <%- include('include/links', {fileCss: "how-to-start"}) %>
+  </head>
+  <body>
+    <%- include('include/header', {backgroundImage: "how-to-start", page: `How
+    to start`, navPageMore: false}) %>
+
+    <main id="how-to-start" class="main main-howToStart">
+      <section class="section howStart">
+        <div class="container">
+          <div class="howStart-title title">How to start</div>
+          <div class="howStart-row">
+            <div class="howStart-col">
+              <div class="howStart-text">Step #1</div>
+              <div class="howStart-subtext">
+                Apply using <a href="#a">this form</a> or by phone call:
+                <a href="#a">+? (???) ???-??-??</a>
+              </div>
+            </div>
+            <div class="howStart-col">
+              <div class="howStart-text">Step #2</div>
+              <div class="howStart-subtext">
+                Make sure you have all the necessary documents:
+                <br />
+                - FMCSA operating authority (MC certificate),
+                <br />
+                - W9 form (request for Taxpayer Identification Number and
+                Certification),
+                <br />
+                - insurance (certificate with liability cargo policies with us
+                listed as a certificate holder).
+              </div>
+            </div>
+            <div class="howStart-col">
+              <div class="howStart-text">Step #3</div>
+              <div class="howStart-subtext">
+                Sign the dispatch agreement. It is the basis for our services
+                that comes along with limited PoA. It gives us a right to
+                represent the customer's company on its behalf among different
+                people.
+              </div>
+            </div>
+            <div class="howStart-col">
+              <div class="howStart-text">Step #4</div>
+              <div class="howStart-subtext">
+                We are all set. Let’s get to work.
+              </div>
+            </div>
+          </div>
+          <div class="absec-btns">
+            <a href="#a" class="absec-contact">Contact Us</a>
+            <a href="#a" class="absec-number">684 562 21 47</a>
+            <a href="#a" class="absec-email">???@gmail.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include("include/footer") %>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

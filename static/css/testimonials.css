@@ -1,0 +1,123 @@
+.testimonials-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 1200px) {
+  .testimonials-row {
+    gap: calc(
+        5px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 768px) {
+  .testimonials-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonials-col {
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+}
+@media (max-width: 1200px) {
+  .testimonials-col {
+    border-radius: calc(
+        3px + 2 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.testimonials-img {
+  width: 30%;
+}
+
+.testimonials-img img {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: all 0.2s ease;
+}
+
+.testimonials-col:hover .testimonials-img img {
+  filter: brightness(1);
+}
+
+.testimonials-col-content {
+  background: #181818;
+  color: #fff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 70%;
+}
+@media (max-width: 1200px) {
+  .testimonials-col-content {
+    padding: calc(
+        10px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.testimonials-col-name {
+  font-size: 25px;
+  font-weight: 900;
+}
+@media (max-width: 1200px) {
+  .testimonials-col-name {
+    font-size: calc(
+        16px + 9 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.testimonials-col-place {
+  font-size: 14px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  color: #94a9cb;
+}
+@media (max-width: 1200px) {
+  .testimonials-col-place {
+    font-size: calc(
+        11px + 3 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .testimonials-col-place {
+    padding-top: calc(
+        3px + 17 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .testimonials-col-place {
+    padding-bottom: calc(
+        10px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.testimonials-col-desc {
+  font-size: 16px;
+}
+@media (max-width: 1200px) {
+  .testimonials-col-desc {
+    font-size: calc(
+        13px + 3 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}

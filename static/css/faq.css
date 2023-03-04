@@ -1,0 +1,145 @@
+.faq-list {
+  border-bottom: 1px solid #a0a0a0;
+}
+
+.faq-li {
+  height: 65px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+@media (max-width: 1200px) {
+  .faq-li {
+    height: calc(
+        50px + 15 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.faq-li.active {
+  height: auto;
+}
+
+.faq-li-top {
+  border-top: 1px solid #a0a0a0;
+  height: 65px;
+  padding-right: 20px;
+  padding-left: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+@media (max-width: 1200px) {
+  .faq-li-top {
+    height: calc(
+        50px + 15 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .faq-li-top {
+    padding-right: calc(
+        10px + 10 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .faq-li-top {
+    padding-left: calc(
+        5px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .faq-li-top {
+    font-size: calc(
+        14px + 6 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 768px) {
+  .faq-li-top {
+    font-size: 15px;
+  }
+}
+@media (max-width: 768px) and (max-width: 1200px) {
+  .faq-li-top {
+    font-size: calc(
+        13px + 2 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.faq-li-bottom {
+  padding-right: 20px;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  font-size: 16px;
+}
+@media (max-width: 1200px) {
+  .faq-li-bottom {
+    padding-right: calc(
+        10px + 10 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .faq-li-bottom {
+    padding-left: calc(
+        5px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .faq-li-bottom {
+    padding-bottom: calc(
+        10px + 10 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .faq-li-bottom {
+    font-size: calc(
+        13px + 3 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.faq-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c94a4a;
+}
+
+.faq-li:hover .faq-icon {
+  color: #d52525;
+}
+
+.faq-li.active .faq-icon {
+  color: #d52525;
+}
+
+.faq-li.active .icon-plus {
+  opacity: 0;
+}
+
+.icon-plus,
+.icon-minuse {
+  position: absolute;
+  transition: all 0.2s ease;
+}

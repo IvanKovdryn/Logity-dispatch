@@ -1,0 +1,93 @@
+@import "mixin";
+
+.blog-row-wrapper {
+  min-width: 0;
+  overflow: hidden;
+  padding-bottom: 25px;
+}
+.blog-row-wrapper .swiper-pagination {
+  bottom: unset;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+.blog-pagination .swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  background: #2f2f2f;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.blog-pagination .swiper-pagination-bullet-active {
+  background: #212121;
+}
+.blog-slide {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include adapt("gap", 10, 5, 1);
+  color: #fff;
+  @media (max-width: 525px) {
+    grid-template-columns: 1fr;
+  }
+}
+.blog-col {
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  @include adapt("min-height", 250, 150, 1);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.sp {
+  flex: 1 1 auto;
+}
+.blog-col-img {
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  filter: brightness(0.6);
+}
+.blog-col-text {
+  @include adapt("font-size", 16, 14, 1);
+  font-weight: 900;
+  padding: 0 25px;
+}
+.blog-col-subtext {
+  padding: 0 25px;
+  @include adapt("padding-top", 10, 5, 1);
+  @include adapt("padding-bottom", 15, 10, 1);
+  @include adapt("font-size", 14, 12, 1);
+}
+.blog-col-more-wrap {
+  padding: 0 25px;
+  height: 0;
+  opacity: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  bottom: 0;
+  background: #74adc6;
+  transition: all 0.3s ease;
+}
+.blog-col:hover .blog-col-more-wrap {
+  @include adapt("height", 60, 35, 1);
+  opacity: 1;
+}
+.blog-col-more {
+  @include adapt("font-size", 16, 14, 1);
+  font-weight: 700;
+}
+.blog-col-arrow {
+  font-size: 25px;
+}

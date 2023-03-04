@@ -1,0 +1,41 @@
+@import "mixin";
+@import "about/absec";
+
+.brokerage-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include adapt("gap", 50, 20, 1);
+  @include adapt("font-size", 16, 14, 1);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+.brokerage-title {
+  position: relative;
+  font-weight: 700;
+  @include adapt("font-size", 20, 16, 1);
+  @include adapt("margin-bottom", 15, 10, 1);
+  @include adapt("padding-top", 10, 6, 1);
+}
+.brokerage-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #74adc6;
+}
+.brokerage-item {
+  padding: 0 0 3px 0;
+}
+.brokerage-icon-check {
+  color: #74adc6;
+  @include adapt("font-size", 20, 16, 1);
+}
+.absec-btns {
+  @media (max-width: 768px) {
+    padding-bottom: 20px;
+  }
+}

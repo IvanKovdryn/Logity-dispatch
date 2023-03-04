@@ -1,0 +1,97 @@
+.title-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.how-title {
+  color: #212121;
+}
+.title-more {
+  color: #c94a4a;
+  @include adapt("font-size", 18, 14, 1);
+  font-weight: 900;
+  position: relative;
+  @include adapt("padding-right", 55, 25, 1);
+}
+.title-more p,
+.title-more span {
+  color: #c94a4a;
+  transition: all 0.2s ease;
+}
+.title-more-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -47%);
+  @include adapt("font-size", 20, 14, 1);
+  font-size: 20px;
+  font-weight: 900;
+  transition: all 0.2s ease;
+}
+.title-more:hover p,
+.title-more:hover span {
+  color: #d52525;
+}
+.title-more:hover .title-icon-plus {
+  opacity: 0;
+}
+.title-icon-plus {
+  opacity: 1;
+}
+.how-row {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: unset;
+  }
+}
+.how-content {
+  flex: 1 1 40%;
+}
+.how-form {
+  flex: 1 1 40%;
+}
+.how-text {
+  color: #4a4a4a;
+  @include adapt("padding-bottom", 40, 20, 1);
+  @include adapt("font-size", 16, 14, 1);
+  border-bottom: 1px solid #acacac;
+}
+.how-list {
+  @include adapt("padding-top", 40, 20, 1);
+  @include adapt("font-size", 17, 14, 1);
+  font-weight: 700;
+}
+.how-item {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 15px 70px 15px 20px;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+  overflow: hidden;
+  @media (max-width: 575px) {
+    padding: 10px 70px 10px 15px;
+  }
+}
+.how-item:hover {
+  background-color: #fff;
+}
+.how-item-arrow-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+  position: absolute;
+  color: rgb(116, 173, 198);
+  width: 70px;
+  height: 100%;
+  top: 0;
+  transition: all 0.2s ease;
+}
+.how-item:hover .how-item-arrow-wrapper {
+  color: #fff;
+  background: #2f2f2f;
+}

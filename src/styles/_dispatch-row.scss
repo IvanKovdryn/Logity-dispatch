@@ -1,0 +1,32 @@
+.dispatch-row {
+  display: grid;
+  @include adapt("gap", 25, 10, 1);
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+.dispatch-form-wrapper {
+  @media (max-width: 575px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+.dispatch-col-list {
+  @include adapt("padding-top", 80, 30, 1);
+  @include adapt("font-size", 25, 14, 1);
+  @media (max-width: 575px) {
+    padding: unset;
+  }
+}
+.dispatch-col-li::before {
+  color: #74adc6;
+  font-weight: 700;
+  @include adapt("font-size", 30, 16, 1);
+}
+.dispatch-col-li {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  @include adapt("padding-bottom", 30, 10, 1);
+}

@@ -1,0 +1,103 @@
+@import "mixin";
+
+.services-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+.services-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  border-radius: 15px;
+  background: #efefef;
+  overflow: hidden;
+  @media (max-width: 525px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.5fr;
+  }
+}
+.services-col-content-reverse {
+  order: 1;
+  @media (max-width: 525px) {
+    order: 2;
+  }
+}
+.services-col-img-reverse {
+  order: 2;
+  @media (max-width: 525px) {
+    order: 1;
+  }
+}
+.services-col-img {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.services-col-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.services-col-content {
+  @include adapt("padding-top", 35, 20, 1);
+  @include adapt("padding-bottom", 35, 20, 1);
+  @include adapt("padding-left", 20, 10, 1);
+  @include adapt("padding-right", 20, 10, 1);
+}
+.services-col-number,
+.services-col-name {
+  @include adapt("font-size", 30, 16, 1);
+  font-weight: 900;
+}
+.services-col-name {
+  @include adapt("padding-top", 15, 5, 1);
+  @include adapt("padding-bottom", 25, 15, 1);
+}
+.services-col-desc {
+  @include adapt("font-size", 16, 13, 1);
+  @include adapt("padding-bottom", 25, 15, 1);
+}
+.title-more {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+  @include adapt("font-size", 20, 14, 1);
+  font-weight: 900;
+  position: relative;
+  @include adapt("padding-right", 55, 25, 1);
+  transition: all 0.2s ease;
+}
+.title-more-icons {
+  position: relative;
+  display: flex;
+  width: 22px;
+  margin: -1px 0 0;
+  align-items: center;
+  justify-content: center;
+}
+.title-more p,
+.title-more span {
+  color: #c94a4a;
+  transition: all 0.2s ease;
+}
+.title-more-icon {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -47%);
+  @include adapt("font-size", 20, 14, 1);
+  font-weight: 900;
+}
+.title-more:hover p,
+.title-more:hover span {
+  color: #d52525;
+}
+.title-more:hover .title-icon-plus {
+  opacity: 0;
+}
+.title-icon-plus {
+  opacity: 1;
+}

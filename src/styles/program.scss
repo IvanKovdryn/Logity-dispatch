@@ -1,0 +1,167 @@
+@import "mixin";
+
+.prog-row-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.prog-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fff;
+  @include adapt("border-radius", 10, 5, 1);
+  overflow: hidden;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    width: 75%;
+  }
+  @media (max-width: 525px) {
+    width: 90%;
+  }
+}
+.prog-col-left {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 2fr 1fr 2fr;
+  @include adapt("padding-top", 30, 15, 1);
+  @include adapt("padding-bottom", 30, 15, 1);
+  @include adapt("padding-right", 50, 10, 1);
+  @include adapt("padding-left", 50, 10, 1);
+  font-weight: 700;
+}
+.prog-col-img,
+.prog-col-content,
+.prog-col-text,
+.prog-col-number {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.prog-col-text {
+  @include adapt("font-size", 16, 12, 1);
+}
+.prog-col-number {
+  @include adapt("font-size", 16, 12, 1);
+  @include adapt("width", 35, 20, 1);
+  @include adapt("height", 35, 20, 1);
+  @include adapt("border-radius", 5, 2, 1);
+  background-color: #74adc6;
+  color: #fff;
+  justify-self: center;
+}
+.form {
+  background: #fff;
+  @include adapt("border-radius", 10, 5, 1);
+  @include adapt("padding-top", 30, 15, 1);
+  @include adapt("padding-bottom", 30, 15, 1);
+  @include adapt("padding-right", 50, 10, 1);
+  @include adapt("padding-left", 50, 10, 1);
+}
+.form-title {
+  @include adapt("font-size", 24, 16, 1);
+  font-weight: 700;
+}
+.form-inputs {
+  @include adapt("margin-top", 25, 10, 1);
+  @include adapt("mergin-bottom", 20, 10, 1);
+  @include adapt("gap", 10, 0, 1);
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 325px) {
+    .form-inputs {
+      margin: 7px 0 5px;
+    }
+  }
+}
+.form-name-wrapper,
+.form-number-wrapper,
+.form-email-wrapper {
+  display: flex;
+  flex-direction: column;
+  @include adapt("gap", 7, 2, 1);
+  @include adapt("padding", 5, 5, 1);
+  @include adapt("font-size", 16, 14, 1);
+  color: #000000e9;
+  @media (max-width: 325px) {
+    .form-name-wrapper,
+    .form-number-wrapper,
+    .form-email-wrapper {
+      gap: 0px;
+      padding: 3px;
+    }
+  }
+}
+.form-name-wrapper input,
+.form-number-wrapper input,
+.form-email-wrapper input {
+  font-family: "Lato", sans-serif;
+  @include adapt("font-size", 16, 14, 1);
+  @include adapt("padding", 10, 7, 1);
+  background: #f3f4f5;
+  border: unset;
+  outline: unset;
+}
+.form-name-wrapper label,
+.form-number-wrapper label,
+.form-email-wrapper label {
+  @include adapt("font-size", 14, 12, 1);
+}
+.form-name-wrapper input:focus,
+.form-number-wrapper input:focus,
+.form-email-wrapper input:focus {
+  background: #eaecef;
+}
+.form-agree {
+  @include adapt("margin-top", 20, 12, 1);
+  @include adapt("margin-bottom", 20, 12, 1);
+  @include adapt("font-size", 16, 14, 1);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.form-agree input {
+  width: 20px;
+  height: 20px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.form-check a {
+  color: #0000ff;
+  text-decoration: underline;
+}
+.form-button {
+  @include adapt("padding-right", 40, 20, 1);
+  @include adapt("padding-left", 40, 20, 1);
+  @include adapt("padding-top", 20, 10, 1);
+  @include adapt("padding-bottom", 20, 10, 1);
+  @include adapt("font-size", 22, 16, 1);
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+// PROG-DESCRIPTION
+
+.prog-description {
+  @include adapt("font-size", 16, 12, 1);
+}
+.prog-description-title {
+  @include adapt("font-size", 30, 18, 1);
+  font-weight: 900;
+  color: #212121;
+}
+.prog-description-subtitle {
+  @include adapt("font-size", 20, 16, 1);
+  font-weight: 900;
+  color: #212121;
+}
+.prog-form-bottom {
+  @include adapt("padding-top", 70, 35, 1);
+  @include adapt("padding-bottom", 70, 35, 1);
+}
+.prod-form-bottom-wrapper {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,5 @@
+@import "mixin";
+
+.terms-text {
+  @include adapt("font-size", 16, 12, 1);
+}

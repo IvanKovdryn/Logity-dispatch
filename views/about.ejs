@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+
+    <%- include('include/links', {fileCss: "about"}) %>
+  </head>
+  <body>
+    <%- include('include/header', {backgroundImage: "about", page: "About",
+    navPageMore: false}) %>
+
+    <main id="about" class="main main-about">
+      <section class="about">
+        <div class="container">
+          <div class="about-title title">About the company</div>
+          <div class="about-text">
+            <p>
+              Logity Dispatch provides dispatching services for owner-operators
+              and truck fleets since 2015.
+            </p>
+            <br />
+            <p>
+              We suggest not only searching for loads but an array of services
+              for drivers and carrier companies including billing, document
+              management, and paperwork, broker and shipper communications,
+              SAFETY DOT compliance, and much more.
+            </p>
+            <br />
+            <b> Drive, deliver, earn; we’ll do all the rest for you. </b>
+            <br />
+            <br />
+            <p>
+              One of the uncompromising key points for us is transparency. We
+              have clear pricing with no hidden payments or termination fees. We
+              charge our customers from 5 percent to 10 percent from every load
+              depending on the trailer type they are using: dry van, step deck,
+              reefer, flatbed, or hotshot (only 40’ trailers and CDL drivers).
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="what">
+        <div class="container">
+          <div class="title what-title">What is Logity Dispatch?</div>
+          <div class="video-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed/_1liE33WYUY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+      <section class="section absec">
+        <div class="container">
+          <div class="absec-text">
+            <p>
+              We give special attention and priority to all the drivers we are
+              working with. To ensure that you get the highest paying loads, we
+              provide every customer with a dedicated dispatcher and 24 / 7
+              support. You have the right to change your dispatcher and choose
+              another specialist if you’re not satisfied with them.
+            </p>
+            <br />
+            <p>
+              Logity Dispatch services include rate negotiation and all the
+              conversation with the brokers and shippers. We make every effort
+              to get the best freight by the highest price for our clients.
+              Though, there is no forced dispatch: drivers may decline any loads
+              if they want to.
+            </p>
+            <br />
+            <p>
+              Our head office is located in Wilmington, DE, although we dispatch
+              drivers from all across the US.
+            </p>
+            <br />
+            <p>
+              If you need any additional information about our business,
+              services, or privileges, feel free to contact us:
+            </p>
+          </div>
+          <div class="absec-btns">
+            <a href="#a" class="absec-contact">Contact Us</a>
+            <a href="#a" class="absec-number">684 562 21 47</a>
+            <a href="#a" class="absec-email">???@gmail.com</a>
+          </div>
+          <div class="absec-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2504585.148338821!2d-74.0942806026654!3d45.2636559738103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a541c64b70d%3A0x654e3138211fefef!2z0JzQvtC90YDQtdCw0LvRjCwg0JrQstC10LHQtdC6LCDQmtCw0L3QsNC00LA!5e0!3m2!1suk!2sua!4v1676893196429!5m2!1suk!2sua"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include("include/footer") %>
+
+    <script src="/js/script.js"></script>
+  </body>
+</html>

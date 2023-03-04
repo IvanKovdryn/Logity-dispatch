@@ -1,0 +1,296 @@
+.truck-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media (max-width: 1200px) {
+  .truck-row {
+    gap: calc(
+        15px + 15 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .truck-row {
+    padding-top: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .truck-row {
+    padding-bottom: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 768px) {
+  .truck-row {
+    padding-bottom: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 200px;
+    gap: 0;
+  }
+}
+
+.truck-img {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  grid-row: 1;
+}
+@media (max-width: 1200px) {
+  .truck-img {
+    border-radius: calc(
+        5px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 768px) {
+  .truck-img {
+    grid-row: 2;
+  }
+}
+
+.truck-img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.truck-text {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+@media (max-width: 1200px) {
+  .truck-text {
+    padding-top: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .truck-text {
+    padding-bottom: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 768px) {
+  .truck-text {
+    grid-row: 1;
+  }
+}
+
+.truck-text li {
+  font-size: 17px;
+  padding-left: 15px;
+}
+@media (max-width: 1200px) {
+  .truck-text li {
+    font-size: calc(
+        14px + 3 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .truck-text li {
+    padding-left: calc(
+        5px + 10 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.truck-text h2 {
+  font-size: 25px;
+  font-weight: 700;
+}
+@media (max-width: 1200px) {
+  .truck-text h2 {
+    font-size: calc(
+        16px + 9 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.truck-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+@media (max-width: 1200px) {
+  .truck-text h3 {
+    font-size: calc(
+        15px + 3 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.truck-text p {
+  font-size: 17px;
+}
+@media (max-width: 1200px) {
+  .truck-text p {
+    font-size: calc(
+        14px + 3 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.absec {
+  padding-bottom: 70px;
+}
+@media (max-width: 1200px) {
+  .absec {
+    padding-bottom: calc(
+        35px + 35 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.absec-text {
+  font-size: 17px;
+}
+@media (max-width: 1200px) {
+  .absec-text {
+    font-size: calc(
+        14px + 3 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.absec-btns {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 1200px) {
+  .absec-btns {
+    gap: calc(
+        5px + 15 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 575px) {
+  .absec-btns {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 575px) and (max-width: 1200px) {
+  .absec-btns {
+    margin-bottom: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.absec-contact,
+.absec-number,
+.absec-email {
+  border-radius: 3px;
+  font-weight: 700;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 22px;
+  transition: all 0.2s ease;
+}
+@media (max-width: 1200px) {
+  .absec-contact,
+  .absec-number,
+  .absec-email {
+    margin-top: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .absec-contact,
+  .absec-number,
+  .absec-email {
+    margin-bottom: calc(
+        20px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .absec-contact,
+  .absec-number,
+  .absec-email {
+    font-size: calc(
+        14px + 8 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 575px) {
+  .absec-contact,
+  .absec-number,
+  .absec-email {
+    margin: 0;
+    width: 75%;
+  }
+}
+@media (max-width: 325px) {
+  .absec-contact,
+  .absec-number,
+  .absec-email {
+    width: 100%;
+  }
+}
+
+.absec-contact {
+  background-color: #74adc6;
+}
+
+.absec-contact:hover {
+  background-color: #147eac;
+}
+
+.absec-number,
+.absec-email {
+  background-color: #fff;
+}
+
+.absec-number:hover,
+.absec-email:hover {
+  background-color: #74adc6;
+}
+
+.absec-map iframe {
+  width: 100%;
+  height: 400px;
+}
+@media (max-width: 1200px) {
+  .absec-map iframe {
+    height: calc(
+        200px + 200 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}

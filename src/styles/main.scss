@@ -1,0 +1,456 @@
+@import "mixin";
+
+* a {
+  color: inherit;
+  text-decoration: none;
+}
+body {
+  font-family: "Gilroy";
+  overflow-x: hidden;
+  background: #d9dbde;
+}
+body.lock {
+  overflow: hidden;
+}
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.phone {
+  cursor: pointer;
+  @include adapt("height", 70, 40, 1);
+  @include adapt("width", 70, 40, 1);
+  @include adapt("bottom", 70, 15, 1);
+  @include adapt("left", 70, 12, 1);
+  border-radius: 50%;
+  background: rgb(44 44 217);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 100;
+  opacity: 0.8;
+}
+.phone:hover,
+.massage:hover {
+  opacity: 1;
+}
+.icon-phone:before {
+  content: "\e942";
+  color: #fff;
+  @include adapt("font-size", 28, 22, 1);
+}
+.massage {
+  @include adapt("height", 70, 40, 1);
+  @include adapt("width", 70, 40, 1);
+  @include adapt("bottom", 70, 15, 1);
+  @include adapt("right", 70, 12, 1);
+  background: rgb(44 44 217);
+  position: fixed;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out 0s, box-shadow 300ms ease-in-out 0s;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 100;
+  opacity: 0.8;
+}
+.icon-message:before {
+  content: "\e900";
+  color: #fff;
+  @include adapt("font-size", 35, 25, 1);
+}
+.btn {
+  background: #74adc6;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  transition: all 0.2s ease;
+  color: #fff;
+  border-radius: 5px;
+}
+.btn:hover {
+  background: #147eac;
+}
+.section {
+  @include adapt("padding-top", 70, 35, 1);
+  @include adapt("padding-bottom", 70, 35, 1);
+}
+
+// NAV
+
+@import "nav";
+
+// HEADER
+
+.header {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+.header-img {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px) brightness(0.3);
+}
+.header-row {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header-title {
+  padding: 15px 0 30px;
+  @include adapt("font-size", 90, 30, 1);
+  font-weight: 900;
+  color: #fff;
+  position: relative;
+}
+.header-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #74adc6;
+  width: 150px;
+  height: 5px;
+  border-radius: 3px;
+}
+.header-contact-link {
+  @include adapt("font-size", 22, 16, 1);
+  @include adapt("padding-top", 20, 10, 1);
+  @include adapt("padding-bottom", 20, 10, 1);
+  @include adapt("padding-right", 40, 30, 1);
+  @include adapt("padding-left", 40, 30, 1);
+  font-weight: 700;
+  max-width: fit-content;
+}
+
+@import "main/form";
+
+// MAIN
+
+// SECTION SERVICES
+
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-right: 5px;
+  padding-left: 5px;
+  @include adapt("padding-top", 20, 10, 1);
+  @include adapt("padding-bottom", 20, 10, 1);
+  @include adapt("font-size", 16, 14, 1);
+  font-weight: 700;
+  border-bottom: 1px solid #939393;
+  color: #212121;
+}
+.title-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 100px;
+  @include adapt("margin-bottom", 40, 20, 1);
+}
+.title {
+  @include adapt("font-size", 50, 25, 1);
+  font-weight: 900;
+  position: relative;
+  padding: 10px 0 0;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 5px;
+  background-color: #74adc6;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+}
+.title:hover::before {
+  background-color: #009de0;
+}
+.services-title a {
+  color: #212121;
+}
+.services-sale a {
+  color: #c94a4a;
+  @include adapt("font-size", 18, 14, 1);
+  font-weight: 700;
+  text-shadow: #a3a3a3 0px 0px 10px;
+  transition: all 0.2s ease;
+}
+.services-sale a:hover {
+  color: #d52525;
+}
+.services-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @include adapt("gap", 10, 3, 1);
+}
+.services-col {
+  background: #181818;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  @include adapt("padding-right", 50, 20, 1);
+  @include adapt("padding-left", 50, 15, 1);
+  @include adapt("height", 175, 125, 1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.back-img {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  transition: opacity 0.4s ease;
+}
+.back-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.services-col:hover .back-img {
+  opacity: 1;
+}
+.services-col-content {
+  @include adapt("gap", 10, 7, 1);
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+.services-col-number {
+  @include adapt("font-size", 35, 25, 1);
+  font-weight: 900;
+}
+.services-col-text {
+  @include adapt("font-size", 17, 14, 1);
+
+  font-weight: 700;
+}
+.services-col-add {
+  @include adapt("font-size", 45, 25, 1);
+
+  font-size: 45px;
+  color: #fff;
+  font-weight: 700;
+}
+.services-col-less {
+  z-index: 10;
+  font-size: 25px;
+  font-weight: 700;
+  color: #fff;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0px;
+  background: rgb(116, 173, 198);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s ease;
+}
+.services-col:hover .services-col-less {
+  @include adapt("width", 120, 60, 1);
+}
+.services-col-icon {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.services-col:hover .services-col-icon {
+  opacity: 1;
+}
+
+// WHAT
+
+@import "main/what";
+
+// STAT
+
+.stat {
+  background: url("/img/main/what/home-stats-bg.webp") center;
+}
+.stat-title {
+  color: #fff;
+}
+.stat-row {
+  @include adapt("padding-top", 70, 0, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stat-col {
+  @include adapt("padding-right", 85, 20, 1);
+  @include adapt("padding-left", 85, 20, 1);
+  border-right: 1px solid #555555;
+}
+.stat-col:last-child {
+  border: unset;
+}
+.stat-icon {
+  @include adapt("font-size", 50, 25, 1);
+  color: rgb(48 84 48);
+}
+.stat-count {
+  @include adapt("font-size", 35, 18, 1);
+  font-weight: 900;
+  color: #fff;
+  margin: 15px 0 7px 0;
+}
+.stat-text {
+  color: #fff;
+  @include adapt("font-size", 18, 14, 1);
+  font-weight: 500;
+}
+
+// HOW
+
+@import "main/how";
+
+// CAN
+
+@import "main/can";
+
+// REVIEWS
+
+@import "main/reviews";
+
+// BLOG
+
+@import "main/blog";
+
+// FOOTER
+
+.footer {
+  color: #fff;
+  position: relative;
+  width: 100vw;
+}
+.footer-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(5px) brightness(0.1);
+  z-index: -1;
+}
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sub-wrap {
+  @include adapt("padding-top", 70, 35, 1);
+  @include adapt("padding-bottom", 40, 20, 1);
+}
+.sub-text {
+  text-align: center;
+  @include adapt("font-size", 19, 14, 1);
+  font-weight: 900;
+  margin: 0 0 20px;
+}
+.sub-input-wrap {
+  display: flex;
+  justify-content: center;
+}
+.sub-input {
+  color: #000;
+  background: #fff;
+  padding: 10px;
+  border: none;
+  @include adapt("font-size", 20, 16, 1);
+  outline: none;
+  border-radius: 5px;
+  margin: 0 5px 0 0;
+}
+.sub-btn {
+  cursor: pointer;
+  padding: 0 50px;
+  border: none;
+  font-size: 20px;
+  @include adapt("font-size", 20, 16, 1);
+  font-weight: 700;
+  color: #fff;
+}
+.footer-desc {
+  background: #0000008f;
+  padding: 10px;
+  border-radius: 10px;
+  @include adapt("height", 250, 150, 1);
+  overflow-y: auto;
+}
+.footer-mid {
+  @include adapt("padding-top", 40, 20, 1);
+  @include adapt("padding-bottom", 40, 20, 1);
+}
+.fot-mid-row {
+  display: flex;
+  justify-content: space-around;
+  @include adapt("row-gap", 50, 20, 1);
+}
+.fot-mid-col {
+  max-width: 275px;
+}
+.fot-mid-title {
+  @include adapt("margin-bottom", 25, 15, 1);
+  font-size: 20px;
+  font-weight: 700;
+}
+.fot-mid-list {
+  @include adapt("font-size", 16, 14, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  @include adapt("gap", 15, 10, 1);
+}
+.fot-mid-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.fot-mid-icon {
+  font-size: 22px;
+  color: rgb(116, 173, 198);
+}
+.footer-bottom {
+  border-top: 1px solid #515151;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include adapt("padding-top", 40, 20, 1);
+  @include adapt("padding-bottom", 40, 20, 1);
+}
+.fot-rights {
+  @include adapt("font-size", 16, 14, 1);
+}
+.fot-socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  @include adapt("gap", 15, 10, 1);
+  font-size: 24px;
+}
+.fot-facebook::before {
+  color: #322f95;
+}
+.fot-insta::before {
+  color: rgb(228, 0, 38);
+}
+
+@import "main/media.scss";

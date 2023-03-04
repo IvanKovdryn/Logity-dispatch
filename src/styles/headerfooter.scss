@@ -1,0 +1,269 @@
+@import "mixin";
+
+a,
+a:link,
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+body {
+  font-family: "Gilroy";
+  overflow-x: hidden;
+  background: #d9dbde;
+}
+body.lock {
+  overflow: hidden;
+}
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
+  @media (max-width: 325px) {
+    padding: 0 10px;
+  }
+}
+.phone {
+  cursor: pointer;
+  @include adapt("height", 70, 40, 1);
+  @include adapt("width", 70, 40, 1);
+  @include adapt("bottom", 70, 15, 1);
+  @include adapt("left", 70, 12, 1);
+  border-radius: 50%;
+  background: rgb(44 44 217);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 100;
+  opacity: 0.8;
+}
+.phone:hover,
+.massage:hover {
+  opacity: 1;
+}
+.icon-phone:before {
+  content: "\e942";
+  color: #fff;
+  @include adapt("font-size", 28, 22, 1);
+}
+
+.massage {
+  @include adapt("height", 70, 40, 1);
+  @include adapt("width", 70, 40, 1);
+  @include adapt("bottom", 70, 15, 1);
+  @include adapt("right", 70, 12, 1);
+  background: rgb(44 44 217);
+  position: fixed;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: transform 300ms ease-in-out 0s, box-shadow 300ms ease-in-out 0s;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 100;
+  opacity: 0.8;
+}
+.icon-message:before {
+  content: "\e900";
+  color: #fff;
+  @include adapt("font-size", 35, 25, 1);
+}
+@media (any-hover: hover) {
+  .phone.up,
+  .massage.up {
+    @include adapt("bottom", 120, 65, 1);
+  }
+}
+.btn {
+  background: #74adc6;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  color: #fff;
+  border-radius: 5px;
+}
+.btn:hover {
+  background: #147eac;
+}
+.section {
+  @include adapt("padding-top", 70, 35, 1);
+  @include adapt("padding-bottom", 70, 35, 1);
+}
+.title {
+  @include adapt("font-size", 50, 25, 1);
+  @include adapt("margin-bottom", 40, 20, 1);
+  font-weight: 900;
+  position: relative;
+  padding: 10px 0 0;
+  color: #212121;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 5px;
+  background-color: #74adc6;
+  transition: all 0.2s ease;
+  border-radius: 3px;
+}
+.can-title::before {
+  top: -10px;
+}
+
+// NAV
+
+@import "nav";
+
+// HEADER
+
+.header {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+}
+.header-img {
+  width: 100%;
+  @include adapt("height", 300, 175, 1);
+  object-fit: cover;
+  filter: blur(4px);
+}
+.navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  @include adapt("gap", 7, 3, 1);
+  padding: 20px 5px;
+  @include adapt("font-size", 16, 14, 1);
+  font-weight: 700;
+  border-bottom: 1px solid #939393;
+  color: #212121;
+}
+.navigation a {
+  color: #74adc6;
+  transition: color 0.2s ease;
+}
+.navigation a:hover {
+  color: #147eac;
+}
+
+// FOOTER
+
+.footer {
+  color: #fff;
+  position: relative;
+  width: 100vw;
+}
+.footer-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(5px) brightness(0.1);
+  z-index: -1;
+}
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sub-wrap {
+  @include adapt("padding-top", 70, 35, 1);
+}
+.sub-text {
+  text-align: center;
+  @include adapt("font-size", 19, 14, 1);
+  font-weight: 900;
+  margin: 0 0 10px;
+}
+.sub-input-wrap {
+  display: flex;
+  justify-content: center;
+}
+.sub-input {
+  color: #000;
+  background: #fff;
+  padding: 10px;
+
+  border: none;
+  @include adapt("font-size", 20, 16, 1);
+  outline: none;
+  border-radius: 5px;
+  margin: 0 5px 0 0;
+}
+.sub-btn {
+  cursor: pointer;
+  padding: 0 50px;
+  border: none;
+  font-size: 20px;
+  @include adapt("font-size", 20, 16, 1);
+  font-weight: 700;
+  color: #fff;
+}
+.footer-mid {
+  @include adapt("padding-top", 40, 20, 1);
+  @include adapt("padding-bottom", 40, 20, 1);
+}
+.fot-mid-row {
+  display: flex;
+  justify-content: space-around;
+  @include adapt("row-gap", 50, 20, 1);
+}
+.fot-mid-col {
+  max-width: 275px;
+}
+.fot-mid-title {
+  @include adapt("margin-bottom", 25, 15, 1);
+  margin: 0 0 25px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.fot-mid-list {
+  @include adapt("font-size", 16, 14, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  @include adapt("gap", 15, 10, 1);
+}
+.fot-mid-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.fot-mid-icon {
+  font-size: 22px;
+  color: rgb(116, 173, 198);
+}
+.footer-bottom {
+  border-top: 1px solid #515151;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include adapt("padding-top", 40, 20, 1);
+  @include adapt("padding-bottom", 40, 20, 1);
+}
+.footer-bottom:hover .massage {
+  bottom: 100px;
+}
+.fot-socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  @include adapt("gap", 15, 10, 1);
+  font-size: 24px;
+}
+.fot-facebook::before {
+  color: #322f95;
+}
+.fot-insta::before {
+  color: rgb(228, 0, 38);
+}
+
+@import "headerfooter/headerfooterMedia";

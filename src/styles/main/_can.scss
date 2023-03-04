@@ -1,0 +1,84 @@
+.can {
+  background: #181818;
+}
+.can-title p {
+  color: #fff;
+}
+.can-title::before {
+  top: -10px;
+}
+.can-row {
+  @include adapt("margin-top", 40, 20, 1);
+  @include adapt("gap", 15, 5, 1);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 575px) {
+    grid-template-columns: 1fr;
+  }
+}
+.can-col {
+  position: relative;
+}
+.can-col-img-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 60%;
+  overflow: hidden;
+  border-radius: 3px;
+  background: #000000a0;
+  z-index: 1;
+  @media (max-width: 992px) {
+    padding-bottom: 50%;
+  }
+  @media (max-width: 575px) {
+    padding-bottom: 40%;
+  }
+}
+.can-col-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  filter: brightness(0.5);
+  transition: filter 0.3s ease;
+}
+.can-col:hover .can-col-img {
+  filter: brightness(1);
+}
+.can-col-text {
+  border-radius: 3px;
+  position: absolute;
+  bottom: 7px;
+  left: -7px;
+  @include adapt("padding-right", 40, 10, 1);
+  @include adapt("padding-left", 40, 10, 1);
+  @include adapt("padding-top", 12, 5, 1);
+  @include adapt("padding-bottom", 12, 5, 1);
+  @include adapt("font-size", 18, 16, 1);
+  @include adapt("gap", 50, 25, 1);
+  background-color: transparent;
+  font-weight: 900;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  z-index: 2;
+  transition: background-color 0.3s ease;
+  @media (max-width: 992px) {
+    bottom: 5px;
+    left: -5px;
+  }
+}
+.can-col:hover .can-col-text {
+  background-color: #74adc6;
+}
+.can-col-arrow {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.can-col:hover .can-col-arrow {
+  opacity: 1;
+}

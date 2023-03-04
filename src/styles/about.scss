@@ -1,0 +1,53 @@
+@import "mixin";
+
+// MAIN
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  @include adapt("gap", 10, 5, 1);
+  padding: 20px 5px;
+  @include adapt("font-size", 16, 14, 1);
+  font-weight: 700;
+  border-bottom: 1px solid #939393;
+  color: #212121;
+}
+.navigation-item-home span {
+  color: #74adc6;
+  transition: color 0.2s ease;
+}
+.navigation-item-home span:hover {
+  color: #147eac;
+}
+
+// ABOUT
+
+.about {
+  @include adapt("padding-top", 70, 35, 1);
+}
+.about-text {
+  border-bottom: 1px solid #ababab;
+  @include adapt("padding-bottom", 70, 35, 1);
+  line-height: 1.25;
+  @include adapt("font-size", 18, 14, 1);
+}
+
+// WHAT
+
+.what {
+  @include adapt("padding-top", 70, 35, 1);
+}
+.video-wrapper {
+  border-bottom: 1px solid #939393;
+  @include adapt("padding-bottom", 70, 35, 1);
+}
+.video-wrapper iframe {
+  @include adapt("width", 900, 300, 1);
+  @include adapt("height", 506, 168.75, 1);
+  @media (max-width: 575px) {
+    width: 100%;
+  }
+}
+
+@import "about/absec";

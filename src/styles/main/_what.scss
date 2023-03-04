@@ -1,0 +1,15 @@
+.what {
+  padding: 0 0 75px 0;
+  @include adapt("padding-bottom", 70, 35, 1);
+}
+.what-title {
+  color: #212121;
+}
+.video-wrapper {
+  margin: 20px 0 0;
+  @include adapt("margin-top", 40, 20, 1);
+}
+.video-wrapper iframe {
+  width: 100%;
+  @include adapt("height", 675, 168.75, 1);
+}

@@ -1,0 +1,56 @@
+@import "mixin";
+
+.faq-list {
+  border-bottom: 1px solid #a0a0a0;
+}
+.faq-li {
+  @include adapt("height", 65, 50, 1);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+.faq-li.active {
+  height: auto;
+}
+.faq-li-top {
+  border-top: 1px solid #a0a0a0;
+  @include adapt("height", 65, 50, 1);
+  @include adapt("padding-right", 20, 10, 1);
+  @include adapt("padding-left", 10, 5, 1);
+  @include adapt("font-size", 20, 14, 1);
+  font-weight: 700;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    @include adapt("font-size", 15, 13, 1);
+  }
+}
+.faq-li-bottom {
+  @include adapt("padding-right", 20, 10, 1);
+  @include adapt("padding-left", 10, 5, 1);
+  @include adapt("padding-bottom", 20, 10, 1);
+  @include adapt("font-size", 16, 13, 1);
+}
+.faq-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c94a4a;
+}
+.faq-li:hover .faq-icon {
+  color: #d52525;
+}
+.faq-li.active .faq-icon {
+  color: #d52525;
+}
+.faq-li.active .icon-plus {
+  opacity: 0;
+}
+.icon-plus,
+.icon-minuse {
+  position: absolute;
+  transition: all 0.2s ease;
+}

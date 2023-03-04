@@ -1,0 +1,56 @@
+.absec {
+  @include adapt("padding-bottom", 70, 35, 1);
+}
+.absec-text {
+  @include adapt("font-size", 17, 14, 1);
+}
+.absec-btns {
+  display: flex;
+  @include adapt("gap", 20, 5, 1);
+  @media (max-width: 575px) {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    @include adapt("margin-bottom", 40, 20, 1);
+  }
+}
+.absec-contact,
+.absec-number,
+.absec-email {
+  border-radius: 3px;
+  font-weight: 700;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 0;
+  @include adapt("margin-top", 40, 20, 1);
+  @include adapt("margin-bottom", 40, 20, 1);
+  @include adapt("font-size", 22, 14, 1);
+  transition: all 0.2s ease;
+  @media (max-width: 575px) {
+    margin: 0;
+    width: 75%;
+  }
+  @media (max-width: 325px) {
+    width: 100%;
+  }
+}
+.absec-contact {
+  background-color: #74adc6;
+}
+.absec-contact:hover {
+  background-color: #147eac;
+}
+.absec-number,
+.absec-email {
+  background-color: #fff;
+}
+.absec-number:hover,
+.absec-email:hover {
+  background-color: #74adc6;
+}
+.absec-map iframe {
+  width: 100%;
+  @include adapt("height", 400, 200, 1);
+}
