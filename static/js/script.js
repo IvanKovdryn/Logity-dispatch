@@ -166,11 +166,11 @@ navSubcontentItem.forEach(function (item) {
 
   // TRUCKS
 
-  if (main.classList.contains("main-dryVan") && item.innerHTML === "Dry Van") {
+  if (main.classList.contains("main-dry-van") && item.innerHTML === "Dry Van") {
     item.classList.add("active");
   }
   if (
-    main.classList.contains("main-stepDeck") &&
+    main.classList.contains("main-step-deck") &&
     item.innerHTML === "Step Deck"
   ) {
     item.classList.add("active");
@@ -182,7 +182,7 @@ navSubcontentItem.forEach(function (item) {
     item.classList.add("active");
   }
   if (
-    main.classList.contains("main-powerOnly") &&
+    main.classList.contains("main-power-only") &&
     item.innerHTML === "Power Only"
   ) {
     item.classList.add("active");
@@ -191,13 +191,13 @@ navSubcontentItem.forEach(function (item) {
     item.classList.add("active");
   }
   if (
-    main.classList.contains("main-boxTruck") &&
+    main.classList.contains("main-box-truck") &&
     item.innerHTML === "Box Truck"
   ) {
     item.classList.add("active");
   }
   if (
-    main.classList.contains("main-straightTruck") &&
+    main.classList.contains("main-straight-truck") &&
     item.innerHTML === "Straight Truck"
   ) {
     item.classList.add("active");
@@ -210,6 +210,13 @@ if (menu) {
     document.body.classList.toggle("lock");
   });
 }
+window.addEventListener("resize", function () {
+  if (window.innerWidth >= 992) {
+    menu.classList.remove("active");
+    nav.classList.remove("active");
+    document.body.classList.remove("lock");
+  }
+});
 
 footerBottom.addEventListener("mouseover", (event) => {
   massage.classList.add("up");

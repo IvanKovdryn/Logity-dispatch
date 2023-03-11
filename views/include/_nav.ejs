@@ -64,16 +64,14 @@
             <span class="nav-text">Truck types</span>
           </a>
           <div class="nav-subcontent">
-            <a href="/dry-van" class="nav-subcontent-item">Dry Van</a>
-            <a href="/step-deck" class="nav-subcontent-item">Step Deck</a>
-            <a href="/reefer" class="nav-subcontent-item">Reefer</a>
-            <a href="/flatbed" class="nav-subcontent-item">Flatbed</a>
-            <a href="/power-only" class="nav-subcontent-item">Power Only</a>
-            <a href="/hotshot" class="nav-subcontent-item">Hotshot</a>
-            <a href="/box-truck" class="nav-subcontent-item">Box Truck</a>
-            <a href="/straight-truck" class="nav-subcontent-item"
-              >Straight Truck</a
+            <% trucks.forEach(function(truck) { %>
+            <a
+              href="/trucks/<%= truck.url %>"
+              class="nav-subcontent-item"
+              id="<%= truck.url %>"
+              ><%= truck.name %></a
             >
+            <% }); %>
           </div>
         </div>
         <div class="nav-item">

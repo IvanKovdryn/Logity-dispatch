@@ -1,3 +1,128 @@
+.blog-writers {
+  display: flex;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  background: #efefef;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: 25px;
+  border-radius: 10px;
+  font-size: 17px;
+  gap: 30px;
+}
+@media (max-width: 1200px) {
+  .blog-writers {
+    margin-top: calc(
+        15px + 15 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .blog-writers {
+    margin-bottom: calc(
+        15px + 15 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .blog-writers {
+    padding: calc(
+        15px + 10 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .blog-writers {
+    border-radius: calc(
+        5px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .blog-writers {
+    font-size: calc(
+        13px + 4 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .blog-writers {
+    gap: calc(
+        10px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 768px) {
+  .blog-writers {
+    display: block;
+  }
+}
+
+.writers {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+@media (max-width: 1200px) {
+  .writers {
+    gap: calc(
+        10px + 20 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+@media (max-width: 768px) {
+  .writers-title {
+    margin-bottom: 15px;
+  }
+}
+
+.writer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 1200px) {
+  .writer {
+    gap: calc(
+        5px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.writer img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+@media (max-width: 1200px) {
+  .writer img {
+    width: calc(
+        50px + 25 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .writer img {
+    height: calc(
+        50px + 25 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
 .blog-row-wrapper {
   min-width: 0;
   overflow: hidden;

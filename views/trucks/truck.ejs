@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <% truck.forEach(function(item) { %>
+    <title><%- item.name %></title>
+    <% }); %>
+
+    <link rel="stylesheet" href="/css/truck.css" />
+    <%- include('../include/links', {fileCss: "services-following"}) %>
+  </head>
+  <body>
+    <header class="header">
+      <div class="phone">
+        <span class="icon-phone"></span>
+      </div>
+      <div class="massage">
+        <span class="icon-message"></span>
+      </div>
+      <img class="header-img" src="/img/backgrounds/bg-truck.jpg" alt="" />
+      <%- include("../include/_nav") %>
+      <div class="navigation-wrapper">
+        <div class="container">
+          <div class="navigation">
+            <a href="/" class="navigation-item navigation-item-home">Home</a>
+            <span class="icon-chevrons-right"></span>
+            <a href="trucks" class="navigation-item">Trucks</a>
+            <span class="icon-chevrons-right"></span>
+            <div
+              id="navigation-item-active"
+              class="navigation-item navigation-item-about"
+            >
+              <% truck.forEach( function(item) { %> <%- item.name %> <% }); %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <% truck.forEach(function(item) { %>
+    <main id="trucks-more" class="main main-<%- item.url %>">
+      <% }); %>
+      <section class="dispatch">
+        <div class="container">
+          <%- include('_dispatch-row') %>
+          <div class="truck-row">
+            <% truck.forEach(function(item) { %>
+            <div class="truck-img">
+              <img src="/img/trucks/<%= item.image %>.jpg" alt="" />
+            </div>
+            <%- item.text %>
+          </div>
+          <%- item.content %> <% }); %>
+        </div>
+      </section>
+      <%- include("_choose-service") %> <%- include("../include/_blog") %> <%-
+      include("../include/_what") %>
+    </main>
+
+    <%- include("../include/footer") %>
+    <script src="/js/form.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

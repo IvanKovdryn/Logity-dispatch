@@ -25,7 +25,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-delete:before {
+  content: "\e926";
+}
 .icon-apple1:before {
   content: "\e90f";
   color: #999;

@@ -17,23 +17,15 @@
         <div class="container">
           <div class="title prog-title">Truck types</div>
           <div class="services-row">
+            <% trucks.forEach(function(truck) { %>
             <div class="services-col">
               <div class="services-col-img">
-                <img src="/img/trucks/img1.jpg" alt="" />
+                <img src="/img/trucks/<%= truck.image %>.jpg" alt="" />
               </div>
               <div class="services-col-content">
-                <div class="services-col-name">Dry Van</div>
-                <div class="services-col-desc">
-                  Dry vans provide a huge benefit to clients across the United
-                  States, keeping their goods and safe and sound while they are
-                  out on the roads.
-                  <br />
-                  To achieve the best for your clients, you need a friendly,
-                  honest dry van dispatcher to support your efforts. This is
-                  where Logity Dispatch comes in — we have spent years building
-                  great relationships with drivers.
-                </div>
-                <a href="/dry-van" class="title-more">
+                <div class="services-col-name"><%= truck.name %></div>
+                <%- truck.description %>
+                <a href="/trucks/<%= truck.url %>" class="title-more">
                   <p>Read more</p>
                   <div class="title-more-icons">
                     <span class="icon-plus title-more-icon title-icon-plus">
@@ -43,7 +35,8 @@
                 </a>
               </div>
             </div>
-            <div class="services-col">
+            <% }); %>
+            <!-- <div class="services-col">
               <div class="services-col-content services-col-content-reverse">
                 <div class="services-col-name">Step Deck</div>
                 <div class="services-col-desc">
@@ -69,8 +62,8 @@
               <div class="services-col-img services-col-img-reverse">
                 <img src="/img/trucks/img2.jpg" alt="" />
               </div>
-            </div>
-            <div class="services-col">
+            </div> -->
+            <!-- <div class="services-col">
               <div class="services-col-img">
                 <img src="/img/trucks/img3.jpg" alt="" />
               </div>
@@ -93,8 +86,8 @@
                   </div>
                 </a>
               </div>
-            </div>
-            <div class="services-col">
+            </div> -->
+            <!-- <div class="services-col">
               <div class="services-col-content services-col-content-reverse">
                 <div class="services-col-name">Flatbed</div>
                 <div class="services-col-desc">
@@ -118,8 +111,8 @@
               <div class="services-col-img services-col-img-reverse">
                 <img src="/img/trucks/img4.jpg" alt="" />
               </div>
-            </div>
-            <div class="services-col">
+            </div> -->
+            <!-- <div class="services-col">
               <div class="services-col-img">
                 <img src="/img/trucks/img5.jpg" alt="" />
               </div>
@@ -143,8 +136,8 @@
                   </div>
                 </a>
               </div>
-            </div>
-            <div class="services-col">
+            </div> -->
+            <!-- <div class="services-col">
               <div class="services-col-content services-col-content-reverse">
                 <div class="services-col-name">Hotshot</div>
                 <div class="services-col-desc">
@@ -169,8 +162,8 @@
               <div class="services-col-img services-col-img-reverse">
                 <img src="/img/trucks/img6.jpg" alt="" />
               </div>
-            </div>
-            <div class="services-col">
+            </div> -->
+            <!-- <div class="services-col">
               <div class="services-col-img">
                 <img src="/img/trucks/img7.jpg" alt="" />
               </div>
@@ -190,8 +183,8 @@
                   </div>
                 </a>
               </div>
-            </div>
-            <div class="services-col">
+            </div> -->
+            <!-- <div class="services-col">
               <div class="services-col-content services-col-content-reverse">
                 <div class="services-col-name">Straight Truck</div>
                 <div class="services-col-desc">
@@ -216,14 +209,14 @@
               <div class="services-col-img services-col-img-reverse">
                 <img src="/img/trucks/img8.jpg" alt="" />
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </section>
     </main>
 
     <%- include("include/footer") %>
-
+    <script src="/js/trucks.js"></script>
     <script src="/js/script.js"></script>
   </body>
 </html>

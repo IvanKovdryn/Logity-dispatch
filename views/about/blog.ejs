@@ -20,18 +20,40 @@
       <section class="section blog">
         <div class="container">
           <div class="blog-title title">Blog</div>
+          <div class="blog-writers">
+            <div class="writers-title">Check out our top writers:</div>
+            <div class="writers">
+              <a href="#a" class="writer">
+                <img src="/img/blog/writer1.jpg" alt="" />
+                <div class="writer-name">
+                  Ivan <br />
+                  Kovdryn
+                </div>
+              </a>
+              <a href="#a" class="writer">
+                <img src="/img/blog/writer2.jfif" alt="" />
+                <div class="writer-name">
+                  Taras <br />
+                  Korzhak
+                </div>
+              </a>
+            </div>
+          </div>
           <div class="blog-row-wrapper swiper-container">
             <div class="blog-row swiper-wrapper">
               <div class="blog-slide swiper-slide">
-                <a href="#a" class="blog-col">
+                <% articles.forEach(function(article) { %>
+                <a href="/blog/<%= article.url %>" class="blog-col">
                   <div class="sp"></div>
                   <img
                     class="blog-col-img"
-                    src="/img/main/blog/blog1.webp"
+                    src="<%= article.image %>"
                     alt="img"
                   />
-                  <div class="blog-col-text">All About IFTA report</div>
-                  <div class="blog-col-subtext">03 Now 2022</div>
+                  <div class="blog-col-text"><%= article.name %></div>
+                  <div class="blog-col-subtext">
+                    <%= article.when_created %>
+                  </div>
                   <div class="blog-col-more-wrap">
                     <div class="blog-col-more">Read more</div>
                     <div class="blog-col-arrow">
@@ -39,203 +61,9 @@
                     </div>
                   </div>
                 </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog2.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">
-                    How to get a SCAC code? Who is required to have a SCAC code?
-                  </div>
-                  <div class="blog-col-subtext">05 Oct 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog3.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">
-                    Does Your Company Need DOT or MC Number? What's the
-                    Difference Between an MC Number and a DOT Number?
-                  </div>
-                  <div class="blog-col-subtext">24 Sep 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog4.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">
-                    Market Overview: Trucking rates per mile 2022
-                  </div>
-                  <div class="blog-col-subtext">14 Sep 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog5.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">
-                    What Is a Clean Driveng Record and How to Get One?
-                  </div>
-                  <div class="blog-col-subtext">31 Aug 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog6.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">All About IFTA report</div>
-                  <div class="blog-col-subtext">3 Jan 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
+                <% }); %>
               </div>
-              <div class="blog-slide swiper-slide">
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog1.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">All About IFTA report</div>
-                  <div class="blog-col-subtext">03 Now 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog2.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">
-                    How to get a SCAC code? Who is required to have a SCAC code?
-                  </div>
-                  <div class="blog-col-subtext">05 Oct 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog3.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">
-                    Does Your Company Need DOT or MC Number? What's the
-                    Difference Between an MC Number and a DOT Number?
-                  </div>
-                  <div class="blog-col-subtext">24 Sep 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog4.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">
-                    Market Overview: Trucking rates per mile 2022
-                  </div>
-                  <div class="blog-col-subtext">14 Sep 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog5.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">
-                    What Is a Clean Driveng Record and How to Get One?
-                  </div>
-                  <div class="blog-col-subtext">31 Aug 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-                <a href="#a" class="blog-col">
-                  <div class="sp"></div>
-                  <img
-                    class="blog-col-img"
-                    src="/img/main/blog/blog6.webp"
-                    alt="img"
-                  />
-                  <div class="blog-col-text">All About IFTA report</div>
-                  <div class="blog-col-subtext">3 Jan 2022</div>
-                  <div class="blog-col-more-wrap">
-                    <div class="blog-col-more">Read more</div>
-                    <div class="blog-col-arrow">
-                      <span class="icon-chevron-right"></span>
-                    </div>
-                  </div>
-                </a>
-              </div>
+              <div class="blog-slide swiper-slide"></div>
             </div>
             <div class="swiper-pagination blog-pagination"></div>
           </div>

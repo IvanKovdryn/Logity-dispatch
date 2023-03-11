@@ -1,13 +1,13 @@
-<form id="form" action="" method="POST" class="form">
+<form id="form" method="POST" class="form">
   <div class="form-title">Contact us for free setup</div>
   <div class="form-inputs">
     <div class="form-name-wrapper">
       <label for="form-name">Full name</label>
-      <input type="text" id="form-name" name="name" class="_req input" />
+      <input type="text" id="form-name" name="name" class="req input" />
     </div>
     <div class="form-number-wrapper">
       <label for="form-number">Phone number</label>
-      <input type="tel" id="form-number" name="phone" class="_req input" />
+      <input type="tel" id="form-number" name="phone" class="req input" />
     </div>
     <div class="form-email-wrapper">
       <label for="form-email" class="email">Email</label>
@@ -15,7 +15,7 @@
         type="email"
         id="form-email"
         name="email"
-        class="_req input email"
+        class="req input email"
       />
     </div>
   </div>
@@ -24,14 +24,17 @@
       type="checkbox"
       id="form-check"
       name="check"
-      class="_req input input-checkbox"
+      class="req input input-checkbox"
     />
-    <label class="label-checkbox" for="form-check"
-      >I have read and agree to
-      <a style="color: blue; text-decoration: underline" href="#a"
-        >Terms of Service</a
-      ></label
-    >
+    <label class="label-checkbox" for="form-check">
+      I have read and agree to
+      <a
+        style="color: blue; text-decoration: underline"
+        href="/terms-of-service"
+      >
+        Terms of Service
+      </a>
+    </label>
   </div>
   <div class="form-button-wrapper">
     <button type="submit" class="form-button btn">Send Request</button>

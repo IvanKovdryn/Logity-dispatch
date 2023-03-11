@@ -206,7 +206,7 @@ body.lock {
 
 .nav.active {
   height: 100vh;
-  background: #181818;
+  background: rgba(24, 24, 24, 0.97);
   overflow: hidden;
 }
 
@@ -315,14 +315,27 @@ body.lock {
 }
 
 .nav-item {
-  padding: 20px 5px;
-  cursor: pointer;
   position: relative;
   transition: color 0.2s ease;
 }
+@media (max-width: 992px) {
+  .nav-item {
+    padding: 20px 5px;
+  }
+}
 
-.nav-item:hover .nav-link {
+.nav-link:hover {
   color: #74adc6;
+}
+
+.nav-link {
+  padding: 20px 5px;
+  transition: all 0.2s ease;
+}
+@media (max-width: 992px) {
+  .nav-link {
+    padding: 10px 0;
+  }
 }
 
 .nav-item:hover .nav-subcontent {
@@ -357,7 +370,7 @@ body.lock {
 
 .nav-subcontent {
   position: absolute;
-  top: 60px;
+  top: 41px;
   left: -25px;
   width: max-content;
   display: flex;
@@ -802,7 +815,7 @@ body.lock {
   }
 }
 
-.form-agree._error .label-checkbox::before {
+.form-agree.error .label-checkbox::before {
   background: rgba(255, 0, 0, 0.15);
 }
 
@@ -818,15 +831,16 @@ body.lock {
 }
 
 .label-checkbox {
-  position: relative;
-  cursor: unset;
+  cursor: default;
   pointer-events: none;
+  position: relative;
   padding: 0 0 0 35px;
 }
 
 .label-checkbox a {
   color: #0000ff;
   text-decoration: underline;
+  pointer-events: all;
 }
 
 .label-checkbox::before {
@@ -839,7 +853,8 @@ body.lock {
   cursor: pointer;
   pointer-events: all;
   border-radius: 3px;
-  border: 2px solid #979797;
+  border: 3px solid #adadad;
+  transition: all 0.2s ease;
 }
 
 .label-checkbox::after {
@@ -852,7 +867,7 @@ body.lock {
   border-radius: 1px;
   background-color: #74adc6;
   transform: scale(0);
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 }
 
 .input-checkbox:checked + .label-checkbox::after {
@@ -911,7 +926,11 @@ body.lock {
   }
 }
 
-.input._error {
+.input {
+  transition: all 0.1s ease;
+}
+
+.input.error {
   background: rgba(255, 0, 0, 0.15);
 }
 

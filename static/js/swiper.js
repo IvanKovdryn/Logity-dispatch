@@ -12,9 +12,9 @@ new Swiper(".swiper", {
   loopAdditionalSlides: 3,
   preloadImages: false,
   parallax: true,
-  // autoplay: {
-  //   delay: 3000,
-  //   stopOnLastSlide: false,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 5000,
+    stopOnLastSlide: false,
+    disableOnInteraction: false,
+  },
 });

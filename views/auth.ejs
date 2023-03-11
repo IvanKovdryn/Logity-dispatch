@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/font.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
+    <link rel="stylesheet" href="/css/auth.css" />
+    <title>Authentication</title>
+  </head>
+  <body>
+    <section class="auth">
+      <img class="auth-img" src="/img/main/header/header-bg.jpg" alt="img" />
+      <div class="container">
+        <div class="form-wrapper">
+          <form id="form" class="form">
+            <div class="form-title">Contact us for free setup</div>
+            <div class="form-inputs">
+              <div class="form-name-wrapper">
+                <label for="form-name">Name</label>
+                <input type="text" id="name" name="name" class="_req input" />
+              </div>
+              <div class="form-password-wrapper">
+                <label for="form-password" class="password">Password</label>
+                <input
+                  type="password"
+                  id="pass"
+                  name="password"
+                  class="_req input pass"
+                />
+              </div>
+            </div>
+            <div class="form-button-wrapper">
+              <button type="submit" class="form-button btn">Sign in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <script src="/js/formAuth.js"></script>
+  </body>
+</html>

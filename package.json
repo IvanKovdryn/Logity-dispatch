@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "sass": "sass src/styles/headerfooter.scss:static/css/headerfooter.css src/styles/main.scss:static/css/main.css src/styles/about.scss:static/css/about.css src/styles/careers.scss:static/css/careers.css src/styles/stories.scss:static/css/stories.css src/styles/testimonials.scss:static/css/testimonials.css src/styles/program.scss:static/css/program.css src/styles/blog.scss:static/css/blog.css src/styles/services.scss:static/css/services.css src/styles/services-following.scss:static/css/services-following.css src/styles/truck.scss:static/css/truck.css src/styles/how-to-start.scss:static/css/how-to-start.css src/styles/shippers.scss:static/css/shippers.css src/styles/faq.scss:static/css/faq.css src/styles/contact-us.scss:static/css/contact-us.css src/styles/terms-of-service.scss:static/css/terms-of-service.css --no-source-map"
+    "dev": "nodemon index.js",
+    "sass": "sass src/styles/headerfooter.scss:static/css/headerfooter.css src/styles/main.scss:static/css/main.css src/styles/about.scss:static/css/about.css src/styles/careers.scss:static/css/careers.css src/styles/stories.scss:static/css/stories.css src/styles/testimonials.scss:static/css/testimonials.css src/styles/program.scss:static/css/program.css src/styles/blog.scss:static/css/blog.css src/styles/services.scss:static/css/services.css src/styles/services-following.scss:static/css/services-following.css src/styles/truck.scss:static/css/truck.css src/styles/how-to-start.scss:static/css/how-to-start.css src/styles/shippers.scss:static/css/shippers.css src/styles/faq.scss:static/css/faq.css src/styles/contact-us.scss:static/css/contact-us.css src/styles/terms-of-service.scss:static/css/terms-of-service.css src/styles/auth.scss:static/css/auth.css src/styles/admin.scss:static/css/admin.css src/styles/blog/blog-following.scss:static/css/blog-following.css --no-source-map"
   },
   "keywords": [
     "app"
@@ -13,6 +14,7 @@
   "author": "Vanyaaa",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "mongoose": "^7.0.0"

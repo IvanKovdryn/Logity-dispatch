@@ -1,0 +1,260 @@
+@import "mixin";
+@import "main/form";
+@import "nav";
+
+//
+
+body {
+  position: relative;
+  font-family: "Gilroy";
+  overflow-x: hidden;
+  background: #d9dbde;
+}
+body.lock {
+  overflow: hidden;
+}
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
+  @media (max-width: 325px) {
+    padding: 0 10px;
+  }
+}
+.admin-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  filter: blur(3px) brightness(0.3);
+}
+.title {
+  @include adapt("font-size", 22, 18, 1);
+  font-weight: 700;
+  margin: 0 0 15px;
+}
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include adapt("padding-top", 120, 70, 1);
+  width: 100vw;
+  transition: all 0.1s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.section.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+//
+
+// nav
+
+.nav-content {
+  justify-content: space-around;
+}
+.nav-item {
+  padding: 0;
+}
+.nav-item:hover {
+  color: #74adc6;
+}
+.nav-text {
+  padding: 20px 5px;
+  cursor: pointer;
+  @media (max-width: 992px) {
+    padding: 10px 5px;
+  }
+}
+
+//
+
+// users
+
+.users-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0 0 0 15px;
+  @include adapt("column-gap", 35, 25, 1);
+  @include adapt("row-gap", 10, 3, 1);
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 768px) {
+    padding: 0 0 0 10px;
+    grid-template-columns: 1fr;
+  }
+}
+.users-list li {
+  width: 100%;
+  background: #f7f7f7ff;
+  border-radius: 3px;
+  padding: 12px;
+  @media (max-width: 1200px) {
+    padding: 15px;
+  }
+  @media (max-width: 768px) {
+    @include adapt("padding", 20, 12, 1);
+  }
+  @media (max-width: 325px) {
+    font-size: 10px;
+    padding: 7px;
+  }
+}
+.user-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+.user-item {
+  margin: 0 0 3px;
+}
+.user-label {
+  @include adapt("font-size", 16, 11, 1);
+}
+.user-data {
+  @include adapt("font-size", 18, 14, 1);
+  @include adapt("padding-left", 5, 3, 1);
+  font-weight: 600;
+}
+.user-delete {
+  cursor: pointer;
+  @include adapt("font-size", 24, 20, 1);
+  color: #b50000;
+  transition: all 0.2s ease;
+}
+.user-delete:hover {
+  text-shadow: 0 0 1px #b50000;
+}
+.icon-delete-user {
+  pointer-events: none;
+}
+
+//
+
+// article
+
+.form {
+  width: max-content;
+  max-width: 100%;
+}
+.form-title {
+  @include adapt("font-size", 20, 16, 1);
+  font-weight: 700;
+}
+.form-password-wrapper {
+  display: flex;
+  flex-direction: column;
+  @include adapt("gap", 7, 2, 1);
+  @include adapt("padding", 5, 5, 1);
+  @include adapt("font-size", 16, 14, 1);
+  color: #000000e9;
+}
+.input {
+  display: block;
+  width: 75%;
+  margin: 2px 0 10px;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  padding: 7px;
+  background: #f3f4f5;
+  border: unset;
+  border-radius: 2px;
+  outline: #fff;
+  font-family: "Gilroy", sans-serif;
+  transition: outline 0.1s ease;
+}
+.input.error {
+  background: rgba(255, 0, 0, 0.15);
+}
+.label {
+  cursor: unset;
+  pointer-events: none;
+  display: block;
+  @include adapt("font-size", 14, 12, 1);
+}
+.input:focus {
+  background: #e8f0fe;
+  outline: 1px solid #d2e3eb;
+}
+.btn {
+  @include adapt("font-size", 17, 14, 1);
+  font-weight: 700;
+  background: #74adc6;
+  display: flex;
+  align-items: center;
+  padding: 12.5px 40px;
+  margin: 20px 0 0 0;
+  transition: all 0.2s ease;
+  color: #fff;
+  border-radius: 5px;
+}
+.btn:hover {
+  background: #147eac;
+}
+.status-text {
+  left: unset;
+  right: -15px;
+  top: -30px;
+}
+.textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+//
+
+// media
+
+@media (max-width: 992px) {
+  /* NAV */
+
+  .nav-row {
+    justify-content: start;
+  }
+  .nav-content {
+    display: none;
+  }
+  .nav-item {
+    padding: 10px 5px;
+    margin: 10px 0;
+  }
+  .nav-text {
+    font-size: 22px;
+  }
+  .menu-bg {
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: end;
+  }
+}
+
+@media (max-width: 575px) {
+  /* HEADER */
+
+  .menu::before,
+  .menu::after {
+    width: 30px;
+    left: 0;
+  }
+  .menu span {
+    width: 30px;
+    left: 10px;
+  }
+}
+
+@media (max-width: 325px) {
+  .nav.active .nav-content {
+    font-size: 20px;
+    right: 30px;
+    top: 65px;
+  }
+}

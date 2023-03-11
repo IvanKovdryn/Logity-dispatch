@@ -67,7 +67,7 @@
   align-items: center;
   gap: 15px;
 }
-.form-agree._error .label-checkbox::before {
+.form-agree.error .label-checkbox::before {
   background: rgba(255, 0, 0, 0.15);
 }
 .form-agree input {
@@ -80,14 +80,15 @@
   display: none;
 }
 .label-checkbox {
-  position: relative;
-  cursor: unset;
+  cursor: default;
   pointer-events: none;
+  position: relative;
   padding: 0 0 0 35px;
 }
 .label-checkbox a {
   color: #0000ff;
   text-decoration: underline;
+  pointer-events: all;
 }
 .label-checkbox::before {
   content: "";
@@ -99,7 +100,8 @@
   cursor: pointer;
   pointer-events: all;
   border-radius: 3px;
-  border: 2px solid #979797;
+  border: 3px solid #adadad;
+  transition: all 0.2s ease;
 }
 .label-checkbox::after {
   content: "";
@@ -111,7 +113,7 @@
   border-radius: 1px;
   background-color: #74adc6;
   transform: scale(0);
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 }
 .input-checkbox:checked + .label-checkbox::after {
   transform: scale(1);
@@ -127,7 +129,10 @@
   border: none;
   cursor: pointer;
 }
-.input._error {
+.input {
+  transition: all 0.1s ease;
+}
+.input.error {
   background: rgba(255, 0, 0, 0.15);
 }
 .status {

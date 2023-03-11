@@ -18,6 +18,7 @@
   @include adapt("border-radius", 10, 5, 1);
   overflow: hidden;
   grid-row: 1;
+  min-height: 275px;
   @media (max-width: 768px) {
     grid-row: 2;
   }

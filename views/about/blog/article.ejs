@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <% articles.forEach(function(article) { %>
+    <title><%= article.name %></title>
+
+    <% }); %> <%- include('../../include/links', {fileCss: "blog-following"}) %>
+  </head>
+  <body>
+    <%- include('../../include/header', {backgroundImage: "about", page: `All
+    About IFTA report`, navPageMore: true, navPageLink: "blog", navPage:
+    "Blog"}) %>
+
+    <main id="all-about-ifta-report" class="main main-all-about-ifta-report">
+      <section class="section all-about-ifta-report">
+        <div class="container">
+          <% articles.forEach(function(article) { %>
+          <div class="title"><%= article.name %></div>
+          <% }); %>
+          <div class="row">
+            <% articles.forEach(function(article) { %> <%- article.content %> <%
+            }); %>
+            <div class="right-articles">
+              <div class="articles-title">Popular articles</div>
+              <a href="/scac" class="article">
+                <img src="/img/blog/img2.jpg" alt="" />
+                <div class="article-name">
+                  How to get a SCAC code? Who is required to have a SCAC code?
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include("../../include/footer") %>
+    <script src="/js/blogArticle.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

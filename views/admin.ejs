@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/font.css" />
+    <link rel="stylesheet" href="/css/icons.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <title>Admin</title>
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav-row">
+          <div class="nav-content">
+            <div class="nav-item">
+              <span class="nav-text">Users</span>
+            </div>
+            <div class="nav-item">
+              <span class="nav-text">Articles</span>
+            </div>
+            <div class="nav-item">
+              <span class="nav-text">Trucks</span>
+            </div>
+            <div class="nav-item">
+              <span class="nav-text">?????</span>
+            </div>
+            <div class="nav-item">
+              <span class="nav-text">?????</span>
+            </div>
+            <div class="nav-item">
+              <span class="nav-text">???</span>
+            </div>
+            <div class="nav-item">
+              <span class="nav-text">??????</span>
+            </div>
+          </div>
+          <div class="menu-bg">
+            <p class="menu"><span></span></p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section users">
+      <div class="container">
+        <div class="title">Users</div>
+        <ol class="users-list">
+          <% users.forEach(function(user) { %>
+          <li class="user-content">
+            <div class="user-row">
+              <div class="user-col">
+                <p class="user-item">
+                  <span class="user-label">Name:</span>
+                  <span class="user-data"><%= user.name %></span>
+                </p>
+                <p class="user-item">
+                  <span class="user-label">Phone:</span>
+                  <span class="user-data"><%= user.phone %></span>
+                </p>
+                <p class="user-item">
+                  <span class="user-label">Email:</span>
+                  <span class="user-data user-email"><%= user.email %></span>
+                </p>
+              </div>
+              <button type="button" class="user-delete">
+                <span class="icon-delete icon-delete-user"></span>
+              </button>
+            </div>
+          </li>
+          <% }); %>
+        </ol>
+      </div>
+    </section>
+    <section class="section articles">
+      <div class="container">
+        <div class="title">Articles</div>
+        <form class="form" id="form-articles">
+          <div class="form-title title">Add article</div>
+          <label for="id" class="label-id label"> Id: </label>
+          <input type="text" name="id" class="input input-id req" />
+          <label for="name" class="label-name label"> Name: </label>
+          <input type="text" name="name" class="input input-name req" />
+          <label for="url" class="label-url label"> Url: </label>
+          <input type="text" name="url" class="input input-url req" />
+          <label for="image" class="label-img label"> Img: </label>
+          <input type="text" name="image" class="input input-img req" />
+          <label for="text" class="label-text label"> Text: </label>
+          <input type="text" name="text" class="input input-text req" />
+          <label for="when_created" class="label-created label">
+            When created:
+          </label>
+          <input
+            type="text"
+            name="when_created"
+            class="input input-created req"
+          />
+          <label for="content" class="label-content label"> Content: </label>
+          <textarea
+            class="input input-content textarea req"
+            name="content"
+            rows="4"
+            cols="50"
+          >
+          </textarea>
+          <button type="submit" class="btn">Add</button>
+          <div class="status"><p class="status-text"></p></div>
+        </form>
+      </div>
+    </section>
+    <section class="section trucks">
+      <div class="container">
+        <div class="title">Trucks</div>
+        <form class="form" id="form-trucks">
+          <div class="form-title title">Add truck</div>
+          <label for="id" class="label-id label"> Id: </label>
+          <input type="text" name="id" class="input input-id req" />
+          <label for="name" class="label-name label"> Name: </label>
+          <input type="text" name="name" class="input input-name req" />
+          <label for="url" class="label-url label"> Url: </label>
+          <input type="text" name="url" class="input input-url req" />
+          <label for="image" class="label-img label"> Img: </label>
+          <input type="text" name="image" class="input input-img req" />
+          <label for="when_created" class="label-created label">
+            Trucks description:
+          </label>
+          <textarea
+            name="description"
+            class="input input-description textarea req"
+            rows="4"
+            cols="50"
+          >
+          </textarea>
+          <label for="text" class="label-text label"> Truck text: </label>
+          <textarea
+            name="text"
+            class="input input-text textarea req"
+            rows="4"
+            cols="50"
+          >
+          </textarea>
+          <label for="content" class="label-content label">
+            Truck content:
+          </label>
+          <textarea
+            class="input input-content textarea req"
+            name="content"
+            rows="4"
+            cols="50"
+          >
+          </textarea>
+          <button type="submit" class="btn">Add</button>
+          <div class="status"><p class="status-text"></p></div>
+        </form>
+      </div>
+    </section>
+    <script src="/js/admin.js"></script>
+    <script src="/js/adminUsers.js"></script>
+    <script src="/js/adminArticles.js"></script>
+    <script src="/js/adminTrucks.js"></script>
+  </body>
+</html>

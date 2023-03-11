@@ -1,5 +1,43 @@
 @import "mixin";
 
+.blog-writers {
+  display: flex;
+  align-items: center;
+  display: flex;
+  align-items: center;
+  background: #efefef;
+  font-weight: 700;
+  @include adapt("margin-top", 30, 15, 1);
+  @include adapt("margin-bottom", 30, 15, 1);
+  @include adapt("padding", 25, 15, 1);
+  @include adapt("border-radius", 10, 5, 1);
+  @include adapt("font-size", 17, 13, 1);
+  @include adapt("gap", 30, 10, 1);
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+.writers {
+  display: flex;
+  align-items: center;
+  @include adapt("gap", 30, 10, 1);
+}
+.writers-title {
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+  }
+}
+.writer {
+  display: flex;
+  align-items: center;
+  @include adapt("gap", 10, 5, 1);
+}
+.writer img {
+  @include adapt("width", 75, 50, 1);
+  @include adapt("height", 75, 50, 1);
+  border-radius: 50%;
+  object-fit: cover;
+}
 .blog-row-wrapper {
   min-width: 0;
   overflow: hidden;

@@ -1,6 +1,8 @@
 <div class="dispatch-row">
   <div class="dispatch-col-left">
-    <div class="title dispatch-title"><%- title %></div>
+    <% truck.forEach(function(item) { %>
+    <div class="title dispatch-title"><%- item.name %></div>
+    <% }); %>
     <div class="dispatch-col-list">
       <div class="dispatch-col-li icon-check">
         No forced dispatch and hidden payments

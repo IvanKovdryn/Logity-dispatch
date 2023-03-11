@@ -1,0 +1,113 @@
+@import "../mixin";
+
+.row {
+  display: grid;
+  @include adapt("gap", 30, 15, 1);
+  grid-template-columns: 1fr 300px;
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr 250px;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.text {
+  font-weight: 500;
+  @include adapt("padding-top", 20, 10, 1);
+}
+.text li {
+  @include adapt("font-size", 17, 14, 1);
+  @include adapt("margin-left", 30, 10, 1);
+}
+.text h2 {
+  @include adapt("font-size", 25, 16, 1);
+  @include adapt("margin-bottom", 20, 10, 1);
+  @include adapt("margin-top", 20, 10, 1);
+  font-weight: 700;
+}
+.text h3,
+.text h4 {
+  @include adapt("font-size", 20, 15, 1);
+  @include adapt("margin-top", 20, 10, 1);
+  @include adapt("margin-bottom", 20, 10, 1);
+  font-weight: 700;
+}
+.text p {
+  @include adapt("margin-top", 20, 10, 1);
+  @include adapt("margin-bottom", 20, 10, 1);
+  @include adapt("font-size", 17, 14, 1);
+}
+.text span {
+  color: #147eac;
+}
+.text ol {
+  @include adapt("margin-left", 30, 15, 1);
+}
+.img {
+  position: relative;
+  @include adapt("height", 500, 300, 1);
+  @include adapt("border-radius", 10, 5, 1);
+  overflow: hidden;
+}
+.img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.icon-check-expect {
+  padding: 0 5px 0 0;
+}
+.right-articles {
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+}
+.articles-title {
+  font-weight: 900;
+  color: #212121;
+  @include adapt("margin-bottom", 20, 12, 1);
+  @include adapt("font-size", 18, 14, 1);
+}
+.article {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: end;
+  width: 100%;
+  @include adapt("max-width", 500, 250, 1);
+  @include adapt("height", 175, 100, 1);
+  @include adapt("padding", 20, 10, 1);
+  @include adapt("border-radius", 5, 3, 1);
+  @include adapt("margin-bottom", 15, 10, 1);
+  @media (max-width: 768px) {
+    text-align: left;
+  }
+}
+.article img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  object-fit: cover;
+  filter: brightness(0.5);
+  @include adapt("max-width", 500, 250, 1);
+  @include adapt("height", 175, 100, 1);
+  transition: all 0.2s ease;
+}
+.article:hover img {
+  filter: brightness(0.6);
+}
+.article-name {
+  color: #fff;
+  display: inline-flex;
+  font-weight: 700;
+  @include adapt("font-size", 16, 13, 1);
+}
+.content-item {
+  @include adapt("margin-bottom", 7, 3, 1);
+  @include adapt("margin-top", 7, 3, 1);
+}

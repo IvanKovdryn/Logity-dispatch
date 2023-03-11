@@ -34,6 +34,9 @@
   height: 100%;
   overflow: hidden;
 }
+.services-col.reverse .services-col-img {
+  order: 2;
+}
 .services-col-img img {
   position: absolute;
   top: 0;
