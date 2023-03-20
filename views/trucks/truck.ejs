@@ -49,11 +49,18 @@
             <div class="truck-img">
               <img src="/img/trucks/<%= item.image %>.jpg" alt="" />
             </div>
-            <%- item.text %>
+            <div class="truck-text"><%- item.text %></div>
           </div>
-          <%- item.content %> <% }); %>
+          <div class="truck-text"><%- item.content %></div>
+          <div class="absec-btns">
+            <a href="#a" class="absec-contact">Contact Us</a>
+            <a href="#a" class="absec-number">684 562 21 47</a>
+            <a href="#a" class="absec-email">???@gmail.com</a>
+          </div>
+          <% }); %>
         </div>
       </section>
+
       <%- include("_choose-service") %> <%- include("../include/_blog") %> <%-
       include("../include/_what") %>
     </main>

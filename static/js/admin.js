@@ -3,6 +3,7 @@ const sectionUsers = document.querySelector(".users");
 const navText = document.querySelectorAll(".nav-text");
 const menu = document.querySelector(".menu-bg");
 const nav = document.querySelector(".nav");
+const body = document.body;
 
 sectionUsers.classList.add("active");
 navText.forEach((item) => {
@@ -12,6 +13,24 @@ navText.forEach((item) => {
 });
 
 navContent.addEventListener("click", (e) => {
+  const optionActive = document.querySelector(".option-wrapper.active");
+  const popupActive = document.querySelector(".column.active");
+  const formAdd = document.querySelector(".form-wrapper.add");
+  const colBg = document.querySelector(".column.bg");
+
+  if (optionActive) {
+    optionActive.classList.remove("active");
+  }
+  if (popupActive) {
+    popupActive.classList.remove("active");
+  }
+  if (formAdd) {
+    formAdd.classList.remove("add");
+  }
+  if (colBg) {
+    colBg.classList.remove("bg");
+  }
+
   if (e.target.className === "nav-text") {
     navText.forEach((item) => {
       item.classList.remove("active");
@@ -25,6 +44,7 @@ navContent.addEventListener("click", (e) => {
   if (e.target.innerText === "Articles") {
     menu.classList.remove("active");
     nav.classList.remove("active");
+    body.classList.remove("lock");
     e.target.classList.add("active");
     const sectionArticles = document.querySelector(".articles");
     sectionArticles.classList.add("active");
@@ -32,15 +52,25 @@ navContent.addEventListener("click", (e) => {
   if (e.target.innerText === "Users") {
     menu.classList.remove("active");
     nav.classList.remove("active");
+    body.classList.remove("lock");
     e.target.classList.add("active");
     sectionUsers.classList.add("active");
   }
   if (e.target.innerText === "Trucks") {
     menu.classList.remove("active");
     nav.classList.remove("active");
+    body.classList.remove("lock");
     e.target.classList.add("active");
     const sectionTrucks = document.querySelector(".trucks");
     sectionTrucks.classList.add("active");
+  }
+  if (e.target.innerText === "Contacts") {
+    menu.classList.remove("active");
+    nav.classList.remove("active");
+    body.classList.remove("lock");
+    e.target.classList.add("active");
+    const sectionContacts = document.querySelector(".contacts-app");
+    sectionContacts.classList.add("active");
   }
 });
 

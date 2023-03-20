@@ -26,7 +26,7 @@ body.lock {
   bottom: 70px;
   left: 70px;
   border-radius: 50%;
-  background: rgb(44, 44, 217);
+  background: #3390ec;
   position: fixed;
   display: flex;
   align-items: center;
@@ -71,6 +71,7 @@ body.lock {
 .phone:hover,
 .massage:hover {
   opacity: 1;
+  color: #2086ea;
 }
 
 .icon-phone:before {
@@ -92,7 +93,7 @@ body.lock {
   width: 70px;
   bottom: 70px;
   right: 70px;
-  background: rgb(44, 44, 217);
+  background: #3390ec;
   position: fixed;
   border-radius: 16px;
   cursor: pointer;
@@ -153,7 +154,7 @@ body.lock {
 }
 
 .btn {
-  background: #74adc6;
+  background: #3390ec;
   display: flex;
   align-items: center;
   padding: 0 40px;
@@ -163,7 +164,7 @@ body.lock {
 }
 
 .btn:hover {
-  background: #147eac;
+  background: #2086ea;
 }
 
 .section {
@@ -521,7 +522,7 @@ body.lock {
   position: absolute;
   top: 0;
   left: 0;
-  background: #74adc6;
+  background: #3390ec;
   width: 150px;
   height: 5px;
   border-radius: 3px;
@@ -732,6 +733,7 @@ body.lock {
   background: #f3f4f5;
   border: unset;
   outline: unset;
+  border-radius: 2px;
 }
 @media (max-width: 1200px) {
   .form-name-wrapper input,
@@ -865,7 +867,7 @@ body.lock {
   width: 14px;
   height: 14px;
   border-radius: 1px;
-  background-color: #74adc6;
+  background-color: #3390ec;
   transform: scale(0);
   transition: all 0.1s ease;
 }
@@ -927,6 +929,7 @@ body.lock {
 }
 
 .input {
+  border-radius: 2px;
   transition: all 0.1s ease;
 }
 
@@ -944,7 +947,7 @@ body.lock {
   left: 5px;
   top: -5px;
   font-weight: 700;
-  color: #147eac;
+  color: #2086ea;
   transition: all 0.4s ease;
 }
 @media (max-width: 1200px) {
@@ -1040,13 +1043,13 @@ body.lock {
   left: 0;
   width: 70px;
   height: 5px;
-  background-color: #74adc6;
+  background-color: #3390ec;
   transition: all 0.2s ease;
   border-radius: 3px;
 }
 
 .title:hover::before {
-  background-color: #009de0;
+  background-color: #3390ec;
 }
 
 .services-title a {
@@ -1054,7 +1057,7 @@ body.lock {
 }
 
 .services-sale a {
-  color: #c94a4a;
+  color: #df3f40;
   font-size: 18px;
   font-weight: 700;
   text-shadow: #a3a3a3 0px 0px 10px;
@@ -1209,7 +1212,7 @@ body.lock {
   right: 0;
   top: 0;
   width: 0px;
-  background: rgb(116, 173, 198);
+  background: #3390ec;
   height: 100%;
   display: flex;
   align-items: center;
@@ -1383,7 +1386,7 @@ body.lock {
 }
 
 .title-more {
-  color: #c94a4a;
+  color: #df3f40;
   font-size: 18px;
   font-weight: 900;
   position: relative;
@@ -1408,7 +1411,7 @@ body.lock {
 
 .title-more p,
 .title-more span {
-  color: #c94a4a;
+  color: #df3f40;
   transition: all 0.2s ease;
 }
 
@@ -1704,7 +1707,7 @@ body.lock {
 }
 
 .can-col:hover .can-col-text {
-  background-color: #74adc6;
+  background-color: #3390ec;
 }
 
 .can-col-arrow {
@@ -2000,7 +2003,7 @@ body.lock {
   align-items: center;
   justify-content: space-between;
   bottom: 0;
-  background: #74adc6;
+  background: #3390ec;
   transition: all 0.3s ease;
 }
 
@@ -2097,7 +2100,7 @@ body.lock {
   justify-content: center;
 }
 
-.sub-input {
+.input-subscribe {
   color: #000;
   background: #fff;
   padding: 10px;
@@ -2107,13 +2110,9 @@ body.lock {
   border-radius: 5px;
   margin: 0 5px 0 0;
 }
-@media (max-width: 1200px) {
-  .sub-input {
-    font-size: calc(
-        16px + 4 *
-          ((100vw - 320px) / 880)
-      );
-  }
+
+.input-subscribe.error {
+  background: rgb(255, 180, 180);
 }
 
 .sub-btn {
@@ -2235,7 +2234,7 @@ body.lock {
 
 .fot-mid-icon {
   font-size: 22px;
-  color: rgb(116, 173, 198);
+  color: #3390ec;
 }
 
 .footer-bottom {
@@ -2296,7 +2295,7 @@ body.lock {
 }
 
 .fot-insta::before {
-  color: rgb(228, 0, 38);
+  color: #df3f40;
 }
 
 @media (max-width: 992px) {

@@ -69,39 +69,79 @@
                 </div>
               </div>
               <div class="form-wrapper prog-col-right">
-                <form action="#a" class="form">
+                <form class="form">
                   <div class="form-title">Fill the form to invite somebody</div>
                   <div class="form-inputs">
                     <div class="form-name-wrapper">
                       <label for="form-name">Referrer name</label>
-                      <input type="text" id="form-name" />
+                      <input
+                        type="text"
+                        id="form-name"
+                        name="referrer_name"
+                        class="req input"
+                      />
                     </div>
                     <div class="form-email-wrapper">
                       <label for="form-email">Referrer email</label>
-                      <input type="email" id="form-email" />
+                      <input
+                        type="email"
+                        id="form-email"
+                        name="referrer_email"
+                        class="req input email"
+                      />
                     </div>
                     <div class="form-name-wrapper">
                       <label for="form-name">Invitee's name</label>
-                      <input type="text" id="form-name" />
+                      <input
+                        type="text"
+                        id="form-name"
+                        name="invite_name"
+                        class="req input"
+                      />
                     </div>
                     <div class="form-number-wrapper">
                       <label for="form-number">Invitee's phone</label>
-                      <input type="tel" id="form-number" />
+                      <input
+                        type="tel"
+                        id="form-number"
+                        name="invite_phone"
+                        class="req input"
+                      />
                     </div>
                     <div class="form-email-wrapper">
                       <label for="form-email">Invitee's email</label>
-                      <input type="email" id="form-email" />
+                      <input
+                        type="email"
+                        id="form-email"
+                        name="invite_email"
+                        class="req input email"
+                      />
                     </div>
                   </div>
                   <div class="form-agree">
-                    <input type="checkbox" id="form-check" />
-                    <div class="form-check">
-                      I have read and agree to <a href="#a">Terms of Service</a>
-                    </div>
+                    <input
+                      type="checkbox"
+                      id="form-check"
+                      name="check"
+                      class="req input input-checkbox"
+                    />
+                    <label class="label-checkbox" for="form-check">
+                      I have read and agree to
+                      <a
+                        style="color: blue; text-decoration: underline"
+                        href="/terms-of-service"
+                      >
+                        Terms of Service
+                      </a>
+                    </label>
                   </div>
                   <div class="form-button-wrapper">
-                    <button class="form-button btn">Send Request</button>
+                    <button type="submit" class="form-button btn">
+                      Send Request
+                    </button>
                   </div>
+                  <br />
+                  <div class="status"><p class="status-text"></p></div>
                 </form>
               </div>
             </div>
@@ -233,8 +273,8 @@
       </section>
       <section class="prog-form-bottom">
         <div class="container">
-          <div class="prod-form-bottom-wrapper">
-            <form action="#a" class="form">
+          <!-- <div class="prod-form-bottom-wrapper">
+            <form action="#a" class="form2">
               <div class="form-title">Fill the form to invite somebody</div>
               <div class="form-inputs">
                 <div class="form-name-wrapper">
@@ -268,7 +308,7 @@
                 <button class="form-button btn">Send Request</button>
               </div>
             </form>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>
@@ -276,5 +316,6 @@
     <%- include("../include/footer") %>
 
     <script src="/js/script.js"></script>
+    <script src="/js/invites.js"></script>
   </body>
 </html>

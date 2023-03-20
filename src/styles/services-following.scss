@@ -57,7 +57,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #74adc6;
+  background: #3390ec;
   border-radius: 5px;
   overflow: hidden;
   font-weight: 900;
@@ -75,7 +75,7 @@
   }
 }
 .choose-col:hover {
-  background: #147eac;
+  background: #2086ea;
 }
 
 // HOW
@@ -124,7 +124,7 @@
   @include adapt("font-size", 20, 16, 1);
   padding: 0 10px 0 0;
   font-weight: 700;
-  color: #74adc6;
+  color: #3390ec;
 }
 .expect-row {
   display: grid;

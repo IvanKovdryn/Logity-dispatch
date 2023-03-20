@@ -38,7 +38,7 @@ body.lock {
   bottom: 70px;
   left: 70px;
   border-radius: 50%;
-  background: rgb(44, 44, 217);
+  background: #3390ec;
   position: fixed;
   display: flex;
   align-items: center;
@@ -83,6 +83,7 @@ body.lock {
 .phone:hover,
 .massage:hover {
   opacity: 1;
+  color: #2086ea;
 }
 
 .icon-phone:before {
@@ -104,7 +105,7 @@ body.lock {
   width: 70px;
   bottom: 70px;
   right: 70px;
-  background: rgb(44, 44, 217);
+  background: #3390ec;
   position: fixed;
   border-radius: 16px;
   cursor: pointer;
@@ -180,7 +181,7 @@ body.lock {
   }
 }
 .btn {
-  background: #74adc6;
+  background: #3390ec;
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
@@ -189,7 +190,7 @@ body.lock {
 }
 
 .btn:hover {
-  background: #147eac;
+  background: #2086ea;
 }
 
 .section {
@@ -220,6 +221,8 @@ body.lock {
   position: relative;
   padding: 10px 0 0;
   color: #212121;
+  display: block;
+  width: max-content;
 }
 @media (max-width: 1200px) {
   .title {
@@ -245,7 +248,7 @@ body.lock {
   left: 0;
   width: 70px;
   height: 5px;
-  background-color: #74adc6;
+  background-color: #3390ec;
   transition: all 0.2s ease;
   border-radius: 3px;
 }
@@ -594,12 +597,12 @@ body.lock {
 }
 
 .navigation a {
-  color: #74adc6;
+  color: #3390ec;
   transition: color 0.2s ease;
 }
 
 .navigation a:hover {
-  color: #147eac;
+  color: #2086ea;
 }
 
 .footer {
@@ -618,6 +621,12 @@ body.lock {
 }
 
 .footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-subscribe {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -655,7 +664,7 @@ body.lock {
   justify-content: center;
 }
 
-.sub-input {
+.input-subscribe {
   color: #000;
   background: #fff;
   padding: 10px;
@@ -666,12 +675,25 @@ body.lock {
   margin: 0 5px 0 0;
 }
 @media (max-width: 1200px) {
-  .sub-input {
+  .input-subscribe {
     font-size: calc(
         16px + 4 *
           ((100vw - 320px) / 880)
       );
   }
+}
+
+.input-subscribe.error {
+  background: rgb(255, 180, 180);
+}
+
+.status-subscribe {
+  width: 100%;
+}
+
+.status-text-subscribe {
+  width: 100%;
+  text-align: center;
 }
 
 .sub-btn {
@@ -831,7 +853,7 @@ body.lock {
 }
 
 .fot-insta::before {
-  color: rgb(228, 0, 38);
+  color: #df3f40;
 }
 
 @media (max-width: 992px) {

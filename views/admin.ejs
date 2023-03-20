@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="css" href="/summernote/bootstrap.min.css" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/css/reset.css" />
     <link rel="stylesheet" href="/css/font.css" />
     <link rel="stylesheet" href="/css/icons.css" />
     <link rel="stylesheet" href="/css/admin.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+      rel="stylesheet"
+    />
     <title>Admin</title>
   </head>
   <body>
@@ -25,7 +35,7 @@
               <span class="nav-text">Trucks</span>
             </div>
             <div class="nav-item">
-              <span class="nav-text">?????</span>
+              <span class="nav-text">Contacts</span>
             </div>
             <div class="nav-item">
               <span class="nav-text">?????</span>
@@ -45,37 +55,172 @@
     </nav>
     <section class="section users">
       <div class="container">
-        <div class="title">Users</div>
-        <ol class="users-list">
-          <% users.forEach(function(user) { %>
-          <li class="user-content">
-            <div class="user-row">
-              <div class="user-col">
-                <p class="user-item">
-                  <span class="user-label">Name:</span>
-                  <span class="user-data"><%= user.name %></span>
-                </p>
-                <p class="user-item">
-                  <span class="user-label">Phone:</span>
-                  <span class="user-data"><%= user.phone %></span>
-                </p>
-                <p class="user-item">
-                  <span class="user-label">Email:</span>
-                  <span class="user-data user-email"><%= user.email %></span>
-                </p>
+        <div class="users-send">
+          <div class="section-head"><div class="title">Users:</div></div>
+          <ol class="users-list">
+            <div class="users-list-up">
+              <span class="user-label-up">Name</span>
+              <span class="user-label-up">Phone</span>
+              <span class="user-label-up">Email</span>
+            </div>
+            <% users.forEach(function(user) { %>
+            <li class="user-content column">
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete user</div>
+                  <div class="popup-user">
+                    <p><%= user.name %></p>
+                    <p><%= user.phone %></p>
+                    <p><%= user.email %></p>
+                  </div>
+                  <div class="popup-text popup-question">
+                    Are you sure you want to delete this user?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div class="popup-text popup-delete popup-delete-sended">
+                      <span>DELETE USER</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <button type="button" class="user-delete">
+              <div class="user-item">
+                <span class="user-label">Name:</span>
+                <span class="user-data"><%= user.name %></span>
+              </div>
+              <div class="user-item">
+                <span class="user-label">Phone:</span>
+                <span class="user-data"><%= user.phone %></span>
+              </div>
+              <div class="user-item">
+                <span class="user-label">Email:</span>
+                <span class="user-data user-email"><%= user.email %></span>
+              </div>
+              <button
+                type="button"
+                class="user-delete user-delete-send option-delete-wrapper"
+              >
                 <span class="icon-delete icon-delete-user"></span>
               </button>
-            </div>
-          </li>
-          <% }); %>
-        </ol>
+            </li>
+            <% }); %>
+          </ol>
+        </div>
+        <div class="users-invited">
+          <div class="section-head">
+            <div class="title">Invited users:</div>
+          </div>
+          <ol class="users-list">
+            <% invites.forEach(function(invite) { %>
+            <li class="user-content column user-content-invite">
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete user</div>
+                  <div class="popup-user">
+                    <p><%= invite.invite_name %></p>
+                  </div>
+                  <div class="popup-text popup-question">
+                    Are you sure you want to delete this user?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div class="popup-text popup-delete popup-delete-invited">
+                      <span>DELETE USER</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite">Referrer name:</span>
+                <span class="user-data"><%= invite.referrer_name %></span>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite"
+                  >Referrer email:</span
+                >
+                <span class="user-data"><%= invite.referrer_email %></span>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite"
+                  >Invitee's name:</span
+                >
+                <span class="user-data"><%= invite.invite_name %></span>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite"
+                  >Invitee's phone:</span
+                >
+                <span class="user-data"><%= invite.invite_phone %></span>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite"
+                  >Invitee's email:</span
+                >
+                <span class="user-data user-email"
+                  ><%= invite.invite_email %></span
+                >
+              </div>
+              <button
+                type="button"
+                class="user-delete user-delete-invite option-delete-wrapper"
+              >
+                <span class="icon-delete icon-delete-user"></span>
+              </button>
+            </li>
+            <% }); %>
+          </ol>
+        </div>
+        <div class="users-subscribed">
+          <div class="section-head">
+            <div class="title">Subscribed users:</div>
+          </div>
+          <ol class="users-list">
+            <% subscribe.forEach(function(item) { %>
+            <li class="user-content column user-content-subscribe">
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete user</div>
+                  <div class="popup-user">
+                    <p class="user-email"><%= item.email %></p>
+                  </div>
+                  <div class="popup-text popup-question">
+                    Are you sure you want to delete this user?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div
+                      class="popup-text popup-delete popup-delete-subscribed"
+                    >
+                      <span>DELETE USER</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-item user-item-subscribe">
+                <span class="user-label user-label-subscribe">Email:</span>
+                <span class="user-data"><%= item.email %></span>
+              </div>
+              <button
+                type="button"
+                class="user-delete user-delete-subscribe option-delete-wrapper"
+              >
+                <span class="icon-delete icon-delete-user"></span>
+              </button>
+            </li>
+            <% }); %>
+          </ol>
+        </div>
       </div>
     </section>
     <section class="section articles">
       <div class="container">
-        <div class="title">Articles</div>
+        <div class="section-head"><div class="title">Articles</div></div>
         <form class="form" id="form-articles">
           <div class="form-title title">Add article</div>
           <label for="id" class="label-id label"> Id: </label>
@@ -104,60 +249,272 @@
             cols="50"
           >
           </textarea>
-          <button type="submit" class="btn">Add</button>
+          <button type="submit" class="bttn">Add</button>
           <div class="status"><p class="status-text"></p></div>
         </form>
       </div>
     </section>
     <section class="section trucks">
       <div class="container">
-        <div class="title">Trucks</div>
-        <form class="form" id="form-trucks">
-          <div class="form-title title">Add truck</div>
-          <label for="id" class="label-id label"> Id: </label>
-          <input type="text" name="id" class="input input-id req" />
-          <label for="name" class="label-name label"> Name: </label>
-          <input type="text" name="name" class="input input-name req" />
-          <label for="url" class="label-url label"> Url: </label>
-          <input type="text" name="url" class="input input-url req" />
-          <label for="image" class="label-img label"> Img: </label>
-          <input type="text" name="image" class="input input-img req" />
-          <label for="when_created" class="label-created label">
-            Trucks description:
-          </label>
-          <textarea
-            name="description"
-            class="input input-description textarea req"
-            rows="4"
-            cols="50"
-          >
-          </textarea>
-          <label for="text" class="label-text label"> Truck text: </label>
-          <textarea
-            name="text"
-            class="input input-text textarea req"
-            rows="4"
-            cols="50"
-          >
-          </textarea>
-          <label for="content" class="label-content label">
-            Truck content:
-          </label>
-          <textarea
-            class="input input-content textarea req"
-            name="content"
-            rows="4"
-            cols="50"
-          >
-          </textarea>
-          <button type="submit" class="btn">Add</button>
-          <div class="status"><p class="status-text"></p></div>
+        <div class="section-head">
+          <div class="title">Trucks</div>
+          <div class="add-bttn bttn">Add truck</div>
+        </div>
+        <div class="form-wrapper" id="form-trucks">
+          <form class="form">
+            <div class="form-title title">Add truck</div>
+            <label for="id" class="label-id label"> Id: </label>
+            <input id="id" type="text" name="id" class="input input-id req" />
+            <label for="name" class="label-name label"> Name: </label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              class="input input-name req"
+            />
+            <label for="url" class="label-url label"> Url: </label>
+            <input
+              id="url"
+              type="text"
+              name="url"
+              class="input input-url req"
+            />
+            <label for="image" class="label-img label"> Img: </label>
+            <input
+              id="image"
+              type="text"
+              name="image"
+              class="input input-img req"
+            />
+            <label for="textarea-description" class="label-created label">
+              Truck description:
+            </label>
+            <textarea
+              id="textarea-description"
+              name="description"
+              class="input input-description textarea req"
+              rows="4"
+              cols="50"
+            >
+            </textarea>
+            <div class="editor"></div>
+            <label for="textarea-text" class="label-text label"
+              >Text on the truck page:</label
+            >
+            <textarea
+              id="textarea-text"
+              name="text"
+              class="input input-text textarea req"
+              rows="4"
+              cols="50"
+            >
+            </textarea>
+            <label for="textarea-content-jq" class="label-content label">
+              Content on the truck page:
+            </label>
+            <textarea
+              id="summernote"
+              class="input input-content textarea req"
+              name="content"
+              rows="4"
+              cols="50"
+            >
+            </textarea>
+            <div class="form-btns-row">
+              <button type="submit" class="bttn">Add</button>
+              <div class="form-cancel bttn">Cancel</div>
+            </div>
+            <div class="status"><p class="status-text"></p></div>
+          </form>
+        </div>
+        <div class="services-row">
+          <% trucks.forEach(function(truck) { %>
+          <div class="services-col column" id="<%= truck.id %>">
+            <div class="services-col-bg"></div>
+            <div class="option-wrapper">
+              <div class="option-bg"></div>
+              <div class="option">
+                <div class="option-icon-open-close">
+                  <span class="icon-dots-three-vertical option-icon"></span>
+                  <span class="icon-plus option-close"></span>
+                </div>
+                <div class="option-content">
+                  <div class="option-item-wrapper option-edit-wrapper">
+                    <span class="icon-edit-3"></span>
+                    <div class="option-edit">Edit</div>
+                  </div>
+                  <div class="option-item-wrapper option-delete-wrapper">
+                    <span class="icon-delete option-delete"></span>
+                    <div class="option-delete">Delete</div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-wrapper" id="form-truck-put">
+                <form class="form">
+                  <div class="form-title title">Edit truck</div>
+                  <label for="id" class="label-id label"> Id: </label>
+                  <input
+                    type="text"
+                    name="id"
+                    class="input input-id req"
+                    value="<%- truck.id %>"
+                  />
+                  <label for="name" class="label-name label"> Name: </label>
+                  <input
+                    type="text"
+                    name="name"
+                    class="input input-name req"
+                    value="<%- truck.name %>"
+                  />
+                  <label for="url" class="label-url label"> Url: </label>
+                  <input
+                    type="text"
+                    name="url"
+                    class="input input-url req"
+                    value="<%- truck.url %>"
+                  />
+                  <label for="image" class="label-img label"> Img: </label>
+                  <input
+                    type="text"
+                    name="image"
+                    class="input input-img req"
+                    value="<%- truck.image %>"
+                  />
+                  <label for="when_created" class="label-created label">
+                    Trucks description:
+                  </label>
+                  <textarea
+                    id="textarea-description"
+                    name="description"
+                    class="input input-description textarea req"
+                  >
+                  <%- truck.description %>
+                  </textarea>
+                  <div class="editor"></div>
+                  <label for="text" class="label-text label">
+                    Truck text:
+                  </label>
+                  <textarea
+                    id="textarea-text"
+                    name="text"
+                    class="input input-text textarea req"
+                  >
+                  <%- truck.text %>
+                  </textarea>
+                  <label for="content" class="label-content label">
+                    Truck content:
+                  </label>
+                  <textarea
+                    id="textarea-content"
+                    class="input input-content textarea req"
+                    name="content"
+                  >
+                  <%- truck.content %>
+                  </textarea>
+                  <div class="form-btns-row">
+                    <button type="submit" class="bttn">Save</button>
+                    <div class="form-cancel bttn">Cancel</div>
+                  </div>
+                  <div class="status"><p class="status-text"></p></div>
+                </form>
+              </div>
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete user</div>
+                  <div class="popup-user">
+                    <p><%= truck.name %></p>
+                    <p></p>
+                    <p></p>
+                  </div>
+                  <div class="popup-text popup-question">
+                    Are you sure you want to delete this user?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div class="popup-text popup-delete">
+                      <span>DELETE USER</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="services-col-img">
+              <img src="/img/trucks/<%= truck.image %>.jpg" alt="" />
+            </div>
+            <div class="services-col-content">
+              <div class="services-col-name name-truck"><%= truck.name %></div>
+              <div class="services-col-desc"><%- truck.description %></div>
+              <a href="/trucks/<%= truck.url %>" class="title-more">
+                <p>Read more</p>
+                <div class="title-more-icons">
+                  <span class="icon-plus title-more-icon title-icon-plus">
+                  </span>
+                  <span class="icon-minuse title-more-icon"></span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+    <section class="section contacts-app">
+      <div class="container">
+        <form class="contacts-app-form">
+          <div class="contacts-app-row">
+            <div class="form-number-wrapper contacts-app-col">
+              <label class="label-contacts-app" for="tel">Phone:</label>
+              <input
+                id="tel"
+                type="tel"
+                name="tel"
+                class="input req input-contacts-app input-tel-app"
+                value="<%- contacts.tel %>"
+              />
+            </div>
+            <div class="form-email-wrapper">
+              <label class="label-contacts-app" for="email">Email:</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                class="input req input-contacts-app input-email-app"
+                value="<%- contacts.email %>"
+              />
+            </div>
+          </div>
+          <div class="bttn bttn-contacts-app bttn-contacts-app-change">
+            Change
+          </div>
+          <div class="btns-form-save contacts-app-col">
+            <div class="bttn bttn-contacts-app bttn-contacts-app-cancel">
+              Cancel
+            </div>
+            <button
+              type="submit"
+              class="bttn bttn-contacts-app bttn-contacts-app-save"
+            >
+              Save
+            </button>
+          </div>
+          <div class="status status-contacts">
+            <p class="status-text status-text-contacts"></p>
+          </div>
         </form>
       </div>
     </section>
+
     <script src="/js/admin.js"></script>
-    <script src="/js/adminUsers.js"></script>
     <script src="/js/adminArticles.js"></script>
     <script src="/js/adminTrucks.js"></script>
+    <script src="/js/adminPopup.js"></script>
+    <script src="/js/trucks.js"></script>
+    <script src="/js/adminContacts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <script src="/js/scriptSummernote.js"></script>
   </body>
 </html>

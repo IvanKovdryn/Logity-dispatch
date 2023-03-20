@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
       item.parentElement.classList.remove("error");
       item.classList.remove("error");
       item.classList.add("satisfactory");
+      console.log(item);
     });
   });
   form.addEventListener("submit", formSend);

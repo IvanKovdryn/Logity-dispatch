@@ -153,6 +153,7 @@
   background: #f3f4f5;
   border: unset;
   outline: unset;
+  border-radius: 2px;
 }
 @media (max-width: 1200px) {
   .form-name-wrapper input,
@@ -286,7 +287,7 @@
   width: 14px;
   height: 14px;
   border-radius: 1px;
-  background-color: #74adc6;
+  background-color: #3390ec;
   transform: scale(0);
   transition: all 0.1s ease;
 }
@@ -348,6 +349,7 @@
 }
 
 .input {
+  border-radius: 2px;
   transition: all 0.1s ease;
 }
 
@@ -365,7 +367,7 @@
   left: 5px;
   top: -5px;
   font-weight: 700;
-  color: #147eac;
+  color: #2086ea;
   transition: all 0.4s ease;
 }
 @media (max-width: 1200px) {
@@ -454,7 +456,7 @@
 }
 
 .dispatch-col-li::before {
-  color: #74adc6;
+  color: #3390ec;
   font-weight: 700;
   font-size: 30px;
 }
@@ -635,7 +637,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #74adc6;
+  background: #3390ec;
   border-radius: 5px;
   overflow: hidden;
   font-weight: 900;
@@ -682,7 +684,7 @@
 }
 
 .choose-col:hover {
-  background: #147eac;
+  background: #2086ea;
 }
 
 .title-top {
@@ -696,7 +698,7 @@
 }
 
 .title-more {
-  color: #c94a4a;
+  color: #df3f40;
   font-size: 18px;
   font-weight: 900;
   position: relative;
@@ -721,7 +723,7 @@
 
 .title-more p,
 .title-more span {
-  color: #c94a4a;
+  color: #df3f40;
   transition: all 0.2s ease;
 }
 
@@ -979,7 +981,7 @@
   font-size: 20px;
   padding: 0 10px 0 0;
   font-weight: 700;
-  color: #74adc6;
+  color: #3390ec;
 }
 @media (max-width: 1200px) {
   .icon-check-expect {
@@ -1198,7 +1200,7 @@
 }
 
 .can-col:hover .can-col-text {
-  background-color: #74adc6;
+  background-color: #3390ec;
 }
 
 .can-col-arrow {
@@ -1503,7 +1505,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #c94a4a;
+  color: #df3f40;
 }
 
 .faq-li:hover .faq-icon {
@@ -1640,7 +1642,7 @@
   align-items: center;
   justify-content: space-between;
   bottom: 0;
-  background: #74adc6;
+  background: #3390ec;
   transition: all 0.3s ease;
 }
 

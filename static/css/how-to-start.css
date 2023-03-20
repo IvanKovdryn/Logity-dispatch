@@ -113,11 +113,11 @@
 }
 
 .absec-contact {
-  background-color: #74adc6;
+  background-color: #3390ec;
 }
 
 .absec-contact:hover {
-  background-color: #147eac;
+  background-color: #2086ea;
 }
 
 .absec-number,
@@ -127,7 +127,7 @@
 
 .absec-number:hover,
 .absec-email:hover {
-  background-color: #74adc6;
+  background-color: #3390ec;
 }
 
 .absec-map iframe {
@@ -166,7 +166,7 @@
   font-size: 45px;
   padding-bottom: 20px;
   font-weight: 900;
-  color: #74adc6;
+  color: #3390ec;
 }
 @media (max-width: 1200px) {
   .howStart-text {

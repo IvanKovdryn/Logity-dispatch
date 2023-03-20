@@ -3,7 +3,7 @@
 .services-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  @include adapt("gap", 30, 10, 1);
 }
 .services-col {
   display: grid;
@@ -12,20 +12,21 @@
   border-radius: 15px;
   background: #efefef;
   overflow: hidden;
-  @media (max-width: 525px) {
+  @media (max-width: 768px) {
+    border-radius: 10px;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1.5fr;
   }
 }
 .services-col-content-reverse {
   order: 1;
-  @media (max-width: 525px) {
+  @media (max-width: 768px) {
     order: 2;
   }
 }
 .services-col-img-reverse {
   order: 2;
-  @media (max-width: 525px) {
+  @media (max-width: 768px) {
     order: 1;
   }
 }
@@ -35,7 +36,9 @@
   overflow: hidden;
 }
 .services-col.reverse .services-col-img {
-  order: 2;
+  @media (min-width: 768px) {
+    order: 2;
+  }
 }
 .services-col-img img {
   position: absolute;
@@ -71,6 +74,7 @@
   @include adapt("font-size", 20, 14, 1);
   font-weight: 900;
   position: relative;
+  text-decoration: none;
   @include adapt("padding-right", 55, 25, 1);
   transition: all 0.2s ease;
 }
@@ -84,7 +88,7 @@
 }
 .title-more p,
 .title-more span {
-  color: #c94a4a;
+  color: #df3f40;
   transition: all 0.2s ease;
 }
 .title-more-icon {

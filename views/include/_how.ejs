@@ -51,7 +51,57 @@
           </a>
         </div>
       </div>
-      <div class="form-wrapper how-form"><%- include("_form") %></div>
+      <div class="form-wrapper how-form">
+        <form id="form" class="form">
+          <div class="form-title">Contact us for free setup</div>
+          <div class="form-inputs">
+            <div class="form-name-wrapper">
+              <label for="form-name">Full name</label>
+              <input type="text" id="form-name" name="name" class="req input" />
+            </div>
+            <div class="form-number-wrapper">
+              <label for="form-number">Phone number</label>
+              <input
+                type="tel"
+                id="form-number"
+                name="phone"
+                class="req input"
+              />
+            </div>
+            <div class="form-email-wrapper">
+              <label for="form-email" class="email">Email</label>
+              <input
+                type="email"
+                id="form-email"
+                name="email"
+                class="req input email"
+              />
+            </div>
+          </div>
+          <div class="form-agree">
+            <input
+              type="checkbox"
+              id="form-check-how"
+              name="check"
+              class="req input input-checkbox"
+            />
+            <label class="label-checkbox" for="form-check-how">
+              I have read and agree to
+              <a
+                style="color: blue; text-decoration: underline"
+                href="/terms-of-service"
+              >
+                Terms of Service
+              </a>
+            </label>
+          </div>
+          <div class="form-button-wrapper">
+            <button type="submit" class="form-button btn">Send Request</button>
+          </div>
+          <br />
+          <div class="status"><p class="status-text"></p></div>
+        </form>
+      </div>
     </div>
   </div>
 </section>

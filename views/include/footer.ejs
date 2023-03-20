@@ -7,10 +7,20 @@
           The most useful articles, tips, and analysis for truckers. Twice a
           month.
         </div>
-        <div class="sub-input-wrap">
-          <input class="sub-input" type="email" placeholder="Email adress" />
-          <button class="sub-btn btn">Subscribe</button>
-        </div>
+        <form class="form-subscribe">
+          <div class="sub-input-wrap">
+            <input
+              class="input-subscribe email input req-sub"
+              type="email"
+              placeholder="Email adress"
+            />
+            <button type="submit" class="sub-btn btn">Subscribe</button>
+          </div>
+          <br />
+          <div class="status status-subscribe">
+            <p class="status-text status-text-subscribe"></p>
+          </div>
+        </form>
       </div>
     </div>
     <div class="footer-mid">
@@ -72,3 +82,4 @@
     </div>
   </div>
 </footer>
+<script src="/js/formSubscribe.js"></script>

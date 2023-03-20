@@ -113,11 +113,11 @@
 }
 
 .absec-contact {
-  background-color: #74adc6;
+  background-color: #3390ec;
 }
 
 .absec-contact:hover {
-  background-color: #147eac;
+  background-color: #2086ea;
 }
 
 .absec-number,
@@ -127,7 +127,7 @@
 
 .absec-number:hover,
 .absec-email:hover {
-  background-color: #74adc6;
+  background-color: #3390ec;
 }
 
 .absec-map iframe {
@@ -211,7 +211,7 @@
   width: 50px;
   height: 4px;
   border-radius: 4px;
-  background-color: #74adc6;
+  background-color: #3390ec;
 }
 
 .brokerage-item {
@@ -219,7 +219,7 @@
 }
 
 .brokerage-icon-check {
-  color: #74adc6;
+  color: #3390ec;
   font-size: 20px;
 }
 @media (max-width: 1200px) {

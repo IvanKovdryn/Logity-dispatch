@@ -4,6 +4,9 @@ import cookieParser from "cookie-parser";
 import Form from "./schemaModels/modelForm.js";
 import Article from "./schemaModels/modelArticle.js";
 import Truck from "./schemaModels/modelTruck.js";
+import Invites from "./schemaModels/modelInvites.js";
+import Subscribe from "./schemaModels/modelSubscribe.js";
+import Contacts from "./schemaModels/modelContacts.js";
 
 const db_url2 = "mongodb://root:password@localhost:27010/";
 let db;
@@ -207,9 +210,20 @@ app.get("/privacy-policy", async (req, res) => {
 
 app.get("/admin", async (req, res) => {
   if (req.cookies.name == "Ivan" && req.cookies.password == "12345") {
+    const trucks = await db.collection("trucks").find().toArray();
     const users = await db.collection("contact-us").find().toArray();
+    const invites = await db.collection("invites").find().toArray();
+    const subscribe = await db.collection("subscribes").find().toArray();
+    const contacts = await db.collection("contacts").findOne();
+
     if (users) {
-      res.render("admin", { users: users });
+      res.render("admin", {
+        users: users,
+        trucks: trucks,
+        invites: invites,
+        subscribe: subscribe,
+        contacts: contacts,
+      });
     } else {
       console.log("Fail");
     }
@@ -220,12 +234,36 @@ app.get("/admin", async (req, res) => {
 
 //
 
-// add/delete user in data base
+// add/delete users in/from data base
 
 app.post("/contact-us/save", async (req, res) => {
   const { name, phone, email, check } = req.body;
   const form = await Form.create({ name, phone, email, check });
   res.end(JSON.stringify({ status: "ok", result: form }));
+});
+app.post("/invites/save", async (req, res) => {
+  const {
+    referrer_name,
+    referrer_email,
+    invite_name,
+    invite_phone,
+    invite_email,
+    check,
+  } = req.body;
+  const invite = await Invites.create({
+    referrer_name,
+    referrer_email,
+    invite_name,
+    invite_phone,
+    invite_email,
+    check,
+  });
+  res.end(JSON.stringify({ status: "ok", result: invite }));
+});
+app.post("/subscribe/save", async (req, res) => {
+  const { email } = req.body;
+  const subscribe = await Subscribe.create({ email });
+  res.end(JSON.stringify({ status: "ok", result: subscribe }));
 });
 
 app.delete("/delete-user/:email", (req, res) => {
@@ -233,6 +271,29 @@ app.delete("/delete-user/:email", (req, res) => {
   const users = db.collection("contact-us").deleteOne({ email: email });
   res.end();
 });
+app.delete("/delete-invited/:email", (req, res) => {
+  const email = req.params.email;
+  const invites = db.collection("invites").deleteOne({ invite_email: email });
+  res.end();
+});
+app.delete("/delete-subscribed/:email", (req, res) => {
+  const email = req.params.email;
+  const subscribes = db.collection("subscribes").deleteOne({ email: email });
+  res.end();
+});
+
+//
+
+// edit phone in data base
+
+app.put("/contacts/edit", async (req, res) => {
+  const { tel, email } = req.body;
+  const contacts = await Contacts.updateOne({ tel, email });
+
+  res.end(JSON.stringify({ status: "ok", result: contacts }));
+});
+
+//
 
 // add/get article in/from data base
 
@@ -267,7 +328,7 @@ app.get("/blog/:article", async (req, res) => {
 
 //
 
-// add/get truck in/from data base
+// add/get/delete/edit truck in/from data base
 
 app.post("/truck/save", async (req, res) => {
   const { id, name, url, image, description, text, content } = req.body;
@@ -293,6 +354,29 @@ app.get("/trucks/:truck", async (req, res) => {
     return;
   }
   res.send("article-not-found");
+});
+app.delete("/delete-truck/:name", (req, res) => {
+  const name = req.params.name;
+  const users = db.collection("trucks").deleteOne({ name: name });
+  res.end();
+});
+app.put("/edit-truck/:id", async (req, res) => {
+  const id = req.body.id;
+  const truck = await db.collection("trucks").updateOne(
+    { id: id },
+    {
+      $set: {
+        id: req.body.id,
+        name: req.body.name,
+        url: req.body.url,
+        image: req.body.image,
+        description: req.body.description,
+        text: req.body.text,
+        content: req.body.content,
+      },
+    }
+  );
+  res.end(JSON.stringify({ status: "ok", result: truck }));
 });
 
 // start app

@@ -32,7 +32,7 @@ body.lock {
   @include adapt("bottom", 70, 15, 1);
   @include adapt("left", 70, 12, 1);
   border-radius: 50%;
-  background: rgb(44 44 217);
+  background: #3390ec;
   position: fixed;
   display: flex;
   align-items: center;
@@ -44,6 +44,7 @@ body.lock {
 .phone:hover,
 .massage:hover {
   opacity: 1;
+  color: #2086ea;
 }
 .icon-phone:before {
   content: "\e942";
@@ -56,7 +57,7 @@ body.lock {
   @include adapt("width", 70, 40, 1);
   @include adapt("bottom", 70, 15, 1);
   @include adapt("right", 70, 12, 1);
-  background: rgb(44 44 217);
+  background: #3390ec;
   position: fixed;
   border-radius: 16px;
   cursor: pointer;
@@ -81,7 +82,7 @@ body.lock {
   }
 }
 .btn {
-  background: #74adc6;
+  background: #3390ec;
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
@@ -89,7 +90,7 @@ body.lock {
   border-radius: 5px;
 }
 .btn:hover {
-  background: #147eac;
+  background: #2086ea;
 }
 .section {
   @include adapt("padding-top", 70, 35, 1);
@@ -102,6 +103,8 @@ body.lock {
   position: relative;
   padding: 10px 0 0;
   color: #212121;
+  display: block;
+  width: max-content;
 }
 .title::before {
   content: "";
@@ -110,7 +113,7 @@ body.lock {
   left: 0;
   width: 70px;
   height: 5px;
-  background-color: #74adc6;
+  background-color: #3390ec;
   transition: all 0.2s ease;
   border-radius: 3px;
 }
@@ -147,11 +150,11 @@ body.lock {
   color: #212121;
 }
 .navigation a {
-  color: #74adc6;
+  color: #3390ec;
   transition: color 0.2s ease;
 }
 .navigation a:hover {
-  color: #147eac;
+  color: #2086ea;
 }
 
 // FOOTER
@@ -174,6 +177,11 @@ body.lock {
   flex-direction: column;
   align-items: center;
 }
+.form-subscribe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .sub-wrap {
   @include adapt("padding-top", 70, 35, 1);
 }
@@ -187,16 +195,25 @@ body.lock {
   display: flex;
   justify-content: center;
 }
-.sub-input {
+.input-subscribe {
   color: #000;
   background: #fff;
   padding: 10px;
-
   border: none;
   @include adapt("font-size", 20, 16, 1);
   outline: none;
   border-radius: 5px;
   margin: 0 5px 0 0;
+}
+.input-subscribe.error {
+  background: rgb(255 180 180);
+}
+.status-subscribe {
+  width: 100%;
+}
+.status-text-subscribe {
+  width: 100%;
+  text-align: center;
 }
 .sub-btn {
   cursor: pointer;
@@ -263,7 +280,7 @@ body.lock {
   color: #322f95;
 }
 .fot-insta::before {
-  color: rgb(228, 0, 38);
+  color: #df3f40;
 }
 
 @import "headerfooter/headerfooterMedia";

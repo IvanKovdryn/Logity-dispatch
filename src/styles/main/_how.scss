@@ -7,7 +7,7 @@
   color: #212121;
 }
 .title-more {
-  color: #c94a4a;
+  color: #df3f40;
   @include adapt("font-size", 18, 14, 1);
   font-weight: 900;
   position: relative;
@@ -15,7 +15,7 @@
 }
 .title-more p,
 .title-more span {
-  color: #c94a4a;
+  color: #df3f40;
   transition: all 0.2s ease;
 }
 .title-more-icon {

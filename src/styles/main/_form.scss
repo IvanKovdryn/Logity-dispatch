@@ -43,6 +43,7 @@
   background: #f3f4f5;
   border: unset;
   outline: unset;
+  border-radius: 2px;
 }
 .form-name-wrapper label,
 .form-number-wrapper label,
@@ -111,7 +112,7 @@
   width: 14px;
   height: 14px;
   border-radius: 1px;
-  background-color: #74adc6;
+  background-color: #3390ec;
   transform: scale(0);
   transition: all 0.1s ease;
 }
@@ -130,6 +131,7 @@
   cursor: pointer;
 }
 .input {
+  border-radius: 2px;
   transition: all 0.1s ease;
 }
 .input.error {
@@ -144,7 +146,7 @@
   left: 5px;
   top: -5px;
   font-weight: 700;
-  color: #147eac;
+  color: #2086ea;
   transition: all 0.4s ease;
 }
 .status-text.remove {

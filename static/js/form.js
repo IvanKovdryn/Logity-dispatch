@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const forms = document.querySelectorAll(".form");
   forms.forEach(async function (form) {
     let formReq = form.querySelectorAll(".req");
-    console.log(formReq);
     formReq.forEach((item) => {
       item.addEventListener("click", () => {
         item.parentElement.classList.remove("error");
@@ -60,6 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
       let error = 0;
       for (let index = 0; index < formReq.length; index++) {
         const input = formReq[index];
+        console.log(input);
+
         formRemoveError(input);
         if (input.classList.contains("email")) {
           if (emailTest(input)) {
@@ -67,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
             error++;
           }
         } else if (
-          input.getAttribute("type") === "checkbox" &&
+          input.classList.contains("input-checkbox") &&
           input.checked === false
         ) {
           formAddError(input);

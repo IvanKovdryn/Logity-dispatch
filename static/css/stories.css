@@ -147,7 +147,7 @@
 }
 
 .stories-col:hover .stories-col-bottom {
-  background: rgba(116, 173, 198, 0.8156862745);
+  background: rgba(51, 143, 236, 0.8156862745);
   width: 100%;
   border-radius: 0 0 0 0;
 }
@@ -159,7 +159,7 @@
 }
 
 .stories-col-icon-plus {
-  color: #74adc6;
+  color: #3390ec;
 }
 
 .stories-col:hover .stories-col-icon-plus {
