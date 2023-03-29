@@ -164,28 +164,19 @@
 }
 
 .title-more {
-  display: flex;
+  display: inline-flex;
   justify-content: flex-start;
   gap: 25px;
   font-size: 20px;
   font-weight: 900;
   position: relative;
   text-decoration: none;
-  padding-right: 55px;
   transition: all 0.2s ease;
 }
 @media (max-width: 1200px) {
   .title-more {
     font-size: calc(
         14px + 6 *
-          ((100vw - 320px) / 880)
-      );
-  }
-}
-@media (max-width: 1200px) {
-  .title-more {
-    padding-right: calc(
-        25px + 30 *
           ((100vw - 320px) / 880)
       );
   }

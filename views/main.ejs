@@ -35,7 +35,7 @@
               </div>
               <div class="header-number">
                 <a class="header-contact-link btn" href="#a">
-                  <span>+??(???) ??? ?? ??</span>
+                  <span><%- contacts.tel %></span>
                 </a>
               </div>
             </div>
@@ -73,112 +73,24 @@
             </div>
           </div>
           <div class="services-row">
-            <a href="/dispatch" class="services-col">
+            <% services.forEach((service) => { %>
+            <a href="/services/<%= service.url %>" class="services-col">
               <div class="back-img">
-                <img src="/img/backgrounds/bg-dispatch.jpg" alt="img" />
+                <img
+                  src="/img/backgrounds/bg-<%= service.image %>.jpg"
+                  alt="img"
+                />
               </div>
               <div class="services-col-content">
-                <div class="services-col-number">01</div>
-                <div class="services-col-text">Truck dispatching</div>
+                <div class="services-col-number"><%= service.id %></div>
+                <div class="services-col-text"><%= service.name %></div>
               </div>
               <div class="services-col-add">+</div>
               <div class="services-col-less">
                 <span class="icon-chevron-thin-right services-col-icon"></span>
               </div>
             </a>
-            <a href="/billing" class="services-col">
-              <div class="back-img">
-                <img src="/img/backgrounds/bg-billing.jpg" alt="" />
-              </div>
-              <div class="services-col-content">
-                <div class="services-col-number">02</div>
-                <div class="services-col-text">Billing</div>
-              </div>
-              <div class="services-col-add">+</div>
-              <div class="services-col-less">
-                <span class="icon-chevron-thin-right services-col-icon"></span>
-              </div>
-            </a>
-            <a href="/document-management" class="services-col">
-              <div class="back-img">
-                <img src="/img/backgrounds/bg-docManagement.jpg" alt="" />
-              </div>
-              <div class="services-col-content">
-                <div class="services-col-number">03</div>
-                <div class="services-col-text">
-                  Document Management Paperwork
-                </div>
-              </div>
-              <div class="services-col-add">+</div>
-              <div class="services-col-less">
-                <span class="icon-chevron-thin-right services-col-icon"></span>
-              </div>
-            </a>
-            <a href="factoring-service" class="services-col">
-              <div class="back-img">
-                <img src="/img/backgrounds/bg-facService.jpg" alt="" />
-              </div>
-              <div class="services-col-content">
-                <div class="services-col-number">04</div>
-                <div class="services-col-text">Factoring service</div>
-              </div>
-              <div class="services-col-add">+</div>
-              <div class="services-col-less">
-                <span class="icon-chevron-thin-right services-col-icon"></span>
-              </div>
-            </a>
-            <a href="/rate-negotiation" class="services-col">
-              <div class="back-img">
-                <img src="/img/backgrounds/bg-rateNegotiation.jpg" alt="" />
-              </div>
-              <div class="services-col-content">
-                <div class="services-col-number">05</div>
-                <div class="services-col-text">Rate negotiation</div>
-              </div>
-              <div class="services-col-add">+</div>
-              <div class="services-col-less">
-                <span class="icon-chevron-thin-right services-col-icon"></span>
-              </div>
-            </a>
-            <a href="/safety" class="services-col">
-              <div class="back-img">
-                <img src="/img/backgrounds/bg-safety.jpg" alt="" />
-              </div>
-              <div class="services-col-content">
-                <div class="services-col-number">06</div>
-                <div class="services-col-text">SAFETY / DOT compliance</div>
-              </div>
-              <div class="services-col-add">+</div>
-              <div class="services-col-less">
-                <span class="icon-chevron-thin-right services-col-icon"></span>
-              </div>
-            </a>
-            <a href="/ifta" class="services-col">
-              <div class="back-img">
-                <img src="/img/backgrounds/bg-ifta.jpg" alt="" />
-              </div>
-              <div class="services-col-content">
-                <div class="services-col-number">07</div>
-                <div class="services-col-text">IFTA</div>
-              </div>
-              <div class="services-col-add">+</div>
-              <div class="services-col-less">
-                <span class="icon-chevron-thin-right services-col-icon"></span>
-              </div>
-            </a>
-            <a href="formation" class="services-col">
-              <div class="back-img">
-                <img src="/img/backgrounds/bg-formation.jpg" alt="" />
-              </div>
-              <div class="services-col-content">
-                <div class="services-col-number">08</div>
-                <div class="services-col-text">Company Formation</div>
-              </div>
-              <div class="services-col-add">+</div>
-              <div class="services-col-less">
-                <span class="icon-chevron-thin-right services-col-icon"></span>
-              </div>
-            </a>
+            <% }) %>
           </div>
         </div>
       </section>

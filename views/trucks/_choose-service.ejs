@@ -2,14 +2,11 @@
   <div class="container">
     <div class="choose-subtitle">Choose The Service You Need</div>
     <div class="choose-row">
-      <a href="/dispatch" class="choose-col">Truck Dispatching</a>
-      <a href="/billing" class="choose-col">Billing & Accounting</a>
-      <a href="/factoring_service" class="choose-col">Factoring Service</a>
-      <a href="/document-management" class="choose-col">Document Management</a>
-      <a href="/safety" class="choose-col">SAFETY & DOT Compliance</a>
-      <a href="/rate_negotiation" class="choose-col">Rate Negotiation</a>
-      <a href="/ifta" class="choose-col">IFTA Reporting</a>
-      <a href="/formation" class="choose-col">Company Formation</a>
+      <% services.forEach((service) => { %>
+      <a href="/services/<%= service.url %>" class="choose-col"
+        ><%- service.name %></a
+      >
+      <% }) %>
     </div>
   </div>
 </section>

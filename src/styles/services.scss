@@ -68,14 +68,13 @@
   @include adapt("padding-bottom", 25, 15, 1);
 }
 .title-more {
-  display: flex;
+  display: inline-flex;
   justify-content: flex-start;
   gap: 25px;
   @include adapt("font-size", 20, 14, 1);
   font-weight: 900;
   position: relative;
   text-decoration: none;
-  @include adapt("padding-right", 55, 25, 1);
   transition: all 0.2s ease;
 }
 .title-more-icons {

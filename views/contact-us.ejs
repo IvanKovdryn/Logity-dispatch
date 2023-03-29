@@ -12,7 +12,7 @@
     <%- include('include/header', {backgroundImage: "contact-us", page: `Contact
     us`, navPageMore: false}) %>
 
-    <main id="contactUs" class="main main-contactUs">
+    <main id="contact-us" class="main main-contact-us">
       <section class="contact section">
         <div class="container">
           <div class="contact-title title">Contact us</div>
@@ -27,15 +27,15 @@
               <div class="contact-office-exact">
                 LOGITY DISPATCH
                 <br />
-                ???? SILVERSIDE RD STE ??? WILMINGTON, DE ?????-????
+                <%- contacts.location %>
               </div>
               <div class="contact-phone">Phone</div>
               <div class="contact-phone-exact">
-                <a href="#a">+? (???) ???-??-??</a>
+                <a href="#a"><%- contacts.tel %></a>
               </div>
               <div class="contact-email">Email</div>
               <div class="contact-email-exact">
-                <a href="#a">???@gmail.com</a>
+                <a href="#a"><%- contacts.email %></a>
               </div>
             </div>
             <%- include("include/_form") %>
@@ -45,6 +45,7 @@
     </main>
 
     <%- include("include/footer") %>
+    <script src="/js/script.js"></script>
     <script src="/js/form.js"></script>
     <script type="module" src="/js/faqQuestions.js"></script>
   </body>

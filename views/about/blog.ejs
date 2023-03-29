@@ -5,11 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-    />
-
     <%- include('../include/links', {fileCss: "blog"}) %>
   </head>
   <body>
@@ -47,7 +42,7 @@
                   <div class="sp"></div>
                   <img
                     class="blog-col-img"
-                    src="<%= article.image %>"
+                    src="/img/blog/<%- article.image %>.jpg"
                     alt="img"
                   />
                   <div class="blog-col-text"><%= article.name %></div>
@@ -72,8 +67,6 @@
     </main>
 
     <%- include("../include/footer") %>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="/js/script.js"></script>
-    <script src="/js/blog-slider.js"></script>
   </body>
 </html>

@@ -147,7 +147,7 @@
 .form-name-wrapper input,
 .form-number-wrapper input,
 .form-email-wrapper input {
-  font-family: "Lato", sans-serif;
+  font-family: "Gilroy", sans-serif;
   font-size: 16px;
   padding: 10px;
   background: #f3f4f5;
@@ -238,7 +238,7 @@
 }
 
 .form-agree.error .label-checkbox::before {
-  background: rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .form-agree input {
@@ -354,7 +354,7 @@
 }
 
 .input.error {
-  background: rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .status {
@@ -365,7 +365,8 @@
   font-size: 16px;
   position: absolute;
   left: 5px;
-  top: -5px;
+  top: -7px;
+  text-align: center;
   font-weight: 700;
   color: #2086ea;
   transition: all 0.4s ease;
@@ -449,9 +450,15 @@
       );
   }
 }
+@media (max-width: 768px) {
+  .dispatch-col-list {
+    padding-top: 30px;
+  }
+}
 @media (max-width: 575px) {
   .dispatch-col-list {
     padding: unset;
+    font-size: 16px !important;
   }
 }
 
@@ -481,6 +488,11 @@
         10px + 20 *
           ((100vw - 320px) / 880)
       );
+  }
+}
+@media (max-width: 575px) {
+  .dispatch-col-li {
+    font-size: 16px !important;
   }
 }
 
@@ -884,6 +896,11 @@
       );
   }
 }
+@media (max-width: 575px) {
+  .expect-img {
+    height: 200px !important;
+  }
+}
 
 .expect-img img {
   position: absolute;
@@ -1007,7 +1024,7 @@
 }
 @media (max-width: 575px) {
   .expect-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -1225,11 +1242,22 @@
   height: 325px;
   border-radius: 3px;
 }
+@media (max-width: 768px) {
+  .rev-swiper {
+    border-radius: none;
+    height: 300px;
+    width: 100vw;
+    transform: translate(-15px, 0px);
+  }
+}
 @media (max-width: 575px) {
   .rev-swiper {
     height: 350px;
-    width: 100vw;
-    transform: translate(-15px, 0px);
+  }
+}
+@media (max-width: 325px) {
+  .rev-swiper {
+    transform: translate(-10px, 0px);
   }
 }
 

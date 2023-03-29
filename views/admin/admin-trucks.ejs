@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("_head") %>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav-row">
+          <div class="nav-content">
+            <div class="nav-item">
+              <a href="admin-users" class="nav-text">Users</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-services" class="nav-text">Services</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-trucks" class="nav-text admin-trucks-active"
+                >Trucks</a
+              >
+            </div>
+            <div class="nav-item">
+              <a href="admin-articles" class="nav-text">Articles</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-contacts" class="nav-text">Contacts</a>
+            </div>
+          </div>
+          <div class="menu-bg">
+            <p class="menu"><span></span></p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section trucks">
+      <div class="container">
+        <div class="section-head">
+          <div class="title">Trucks</div>
+          <div class="add-bttn bttn">Add truck</div>
+        </div>
+        <div
+          class="form-wrapper form-wrapper-truck form-add"
+          id="form-trucks-add"
+        >
+          <form class="form">
+            <div class="form-title title">Add truck</div>
+            <div class="form-input-wrapper">
+              <label for="id-truck-add" class="label-id label">
+                Id: (is not displayed on the page and cannot be changed)
+              </label>
+              <input
+                id="id-truck-add"
+                type="text"
+                name="id"
+                class="input input-id req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="name-truck-add" class="label-name label">
+                Name:
+              </label>
+              <input
+                id="name-truck-add"
+                type="text"
+                name="name"
+                class="input input-name req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="url-truck-add" class="label-url label"> Url: </label>
+              <input
+                id="url-truck-add"
+                type="text"
+                name="url"
+                class="input input-url req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="image-truck-add" class="label-img label">
+                Img:
+              </label>
+              <input
+                id="image-truck-add"
+                type="text"
+                name="image"
+                class="input input-img req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="description-truck-add" class="label-created label">
+                Truck description:
+              </label>
+              <textarea
+                id="description-truck-add"
+                name="description"
+                class="input input-description textarea req"
+                rows="4"
+                cols="50"
+              >
+              </textarea>
+            </div>
+            <div class="form-input-wrapper">
+              <label for="checks-truck-put" class="label-checks label">
+                Checks on the truck page:
+              </label>
+              <textarea
+                id="checks-truck-put"
+                name="checks"
+                class="input input-checks textarea req"
+              >
+              </textarea>
+            </div>
+            <div class="form-input-wrapper">
+              <label for="text-truck-add" class="label-text label"
+                >Text on the truck page:</label
+              >
+              <textarea
+                id="text-truck-add"
+                name="text"
+                class="input input-text textarea req"
+                rows="4"
+                cols="50"
+              >
+              </textarea>
+            </div>
+            <div class="form-input-wrapper">
+              <label for="content-truck-add" class="label-content label">
+                Content on the truck page:
+              </label>
+              <textarea
+                id="content-truck-add"
+                class="input input-content textarea req"
+                name="content"
+                rows="4"
+                cols="50"
+              >
+              </textarea>
+            </div>
+            <div class="form-btns-row">
+              <button type="submit" class="bttn">Add</button>
+              <div class="form-cancel bttn">Cancel</div>
+            </div>
+            <div class="status"><p class="status-text"></p></div>
+          </form>
+        </div>
+        <div class="services-row">
+          <% trucks.forEach(function(truck) { %>
+          <div class="services-col column" id="<%= truck.id %>">
+            <div class="services-col-bg"></div>
+            <div class="option-wrapper">
+              <div class="option-bg"></div>
+              <div class="option">
+                <div class="option-icon-open-close">
+                  <span class="icon-dots-three-vertical option-icon"></span>
+                  <span class="icon-plus option-close"></span>
+                </div>
+                <div class="option-content">
+                  <div class="option-item-wrapper option-edit-wrapper">
+                    <span class="icon-edit-3"></span>
+                    <div class="option-edit">Edit</div>
+                  </div>
+                  <div class="option-item-wrapper option-delete-wrapper">
+                    <span class="icon-delete option-delete"></span>
+                    <div class="option-delete">Delete</div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="form-wrapper form-wrapper-truck form-put"
+                id="form-<%- truck.url %>-put"
+              >
+                <form class="form">
+                  <div class="form-title title">Edit truck</div>
+                  <div class="form-input-wrapper">
+                    <label for="id-truck-put" class="label-id label">
+                      Id:
+                    </label>
+                    <input
+                      id="id-truck-put"
+                      type="text"
+                      name="id"
+                      class="input input-id input-id-put req"
+                      value="<%- truck.id %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="name-truck-put" class="label-name label">
+                      Name:
+                    </label>
+                    <input
+                      id="name-truck-put"
+                      type="text"
+                      name="name"
+                      class="input input-name req"
+                      value="<%- truck.name %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="url-truck-put" class="label-url label">
+                      Url:
+                    </label>
+                    <input
+                      id="url-truck-put"
+                      type="text"
+                      name="url"
+                      class="input input-url req"
+                      value="<%- truck.url %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="image-truck-put" class="label-img label">
+                      Img:
+                    </label>
+                    <input
+                      id="image-truck-put"
+                      type="text"
+                      name="image"
+                      class="input input-img req"
+                      value="<%- truck.image %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label
+                      for="description-truck-put"
+                      class="label-created label"
+                    >
+                      Trucks description:
+                    </label>
+                    <textarea
+                      id="description-truck-put"
+                      name="description"
+                      class="input input-description textarea req"
+                    >
+                  <%- truck.description %>
+                  </textarea
+                    >
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="checks-truck-put" class="label-checks label">
+                      Checks on the truck page:
+                    </label>
+                    <textarea
+                      id="checks-truck-put"
+                      name="checks"
+                      class="input input-checks textarea req"
+                    >
+                  <%- truck.checks %>
+                  </textarea
+                    >
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="text-truck-put" class="label-text label">
+                      Truck text:
+                    </label>
+                    <textarea
+                      id="text-truck-put"
+                      name="text"
+                      class="input input-text textarea req"
+                    >
+                  <%- truck.text %>
+                  </textarea
+                    >
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="content-truck-put" class="label-content label">
+                      Truck content:
+                    </label>
+                    <textarea
+                      id="content-truck-put"
+                      class="input input-content textarea req"
+                      name="content"
+                    >
+                  <%- truck.content %>
+                  </textarea
+                    >
+                  </div>
+                  <div class="form-btns-row">
+                    <button type="submit" class="bttn">Save</button>
+                    <div class="form-cancel bttn">Cancel</div>
+                  </div>
+                  <div class="status"><p class="status-text"></p></div>
+                </form>
+              </div>
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete truck</div>
+                  <div class="popup-user"><%= truck.name %></div>
+                  <div class="popup-question">
+                    Are you sure you want to delete this truck?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div class="popup-text popup-delete">
+                      <span>DELETE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="services-col-img">
+              <img src="/img/trucks/<%= truck.image %>.jpg" alt="" />
+            </div>
+            <div class="services-col-content">
+              <div class="services-col-name name-truck"><%= truck.name %></div>
+              <div class="services-col-desc"><%- truck.description %></div>
+              <a href="/trucks/<%= truck.url %>" class="title-more">
+                <p>Read more</p>
+                <div class="title-more-icons">
+                  <span class="icon-plus title-more-icon title-icon-plus">
+                  </span>
+                  <span class="icon-minuse title-more-icon"></span>
+                </div>
+              </a>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+      </div>
+    </section>
+    <script src="/summernote/jquery-3.6.4.slim.min.js"></script>
+    <script src="/summernote/summernote-lite.min.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/adminTrucks.js"></script>
+    <script src="/js/adminPopup.js"></script>
+    <script src="/js/trucks.js"></script>
+    <script src="/js/scriptSummernote.js"></script>
+  </body>
+</html>

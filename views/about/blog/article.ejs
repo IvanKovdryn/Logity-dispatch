@@ -10,27 +10,50 @@
     <% }); %> <%- include('../../include/links', {fileCss: "blog-following"}) %>
   </head>
   <body>
-    <%- include('../../include/header', {backgroundImage: "about", page: `All
-    About IFTA report`, navPageMore: true, navPageLink: "blog", navPage:
-    "Blog"}) %>
+    <% article.forEach(function(item) { %>
+    <header class="header">
+      <div class="phone">
+        <span class="icon-phone"></span>
+      </div>
+      <div class="massage">
+        <span class="icon-message"></span>
+      </div>
+      <img class="header-img" src="/img/backgrounds/bg-about.jpg" alt="" />
+      <%- include("../../include/_nav") %>
+      <div class="navigation-wrapper">
+        <div class="container">
+          <div class="navigation">
+            <a href="/" class="navigation-item navigation-item-home">Home</a>
 
+            <span class="icon-chevrons-right"></span>
+            <a href="/blog" class="navigation-item">Blog</a>
+
+            <span class="icon-chevrons-right"></span>
+            <div
+              id="navigation-item-active"
+              class="navigation-item navigation-item-about"
+            >
+              <%= item.name %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <main id="all-about-ifta-report" class="main main-all-about-ifta-report">
       <section class="section all-about-ifta-report">
         <div class="container">
-          <% articles.forEach(function(article) { %>
-          <div class="title"><%= article.name %></div>
-          <% }); %>
+          <div class="title"><%= item.name %></div>
           <div class="row">
-            <% articles.forEach(function(article) { %> <%- article.content %> <%
-            }); %>
+            <div class="text"><%- item.content %></div>
+            <% }); %>
             <div class="right-articles">
               <div class="articles-title">Popular articles</div>
-              <a href="/scac" class="article">
-                <img src="/img/blog/img2.jpg" alt="" />
-                <div class="article-name">
-                  How to get a SCAC code? Who is required to have a SCAC code?
-                </div>
+              <% articles.forEach(function(article) { %>
+              <a href="<%= article.url %>" class="article">
+                <img src="/img/blog/<%= article.image %>.jpg" alt="" />
+                <div class="article-name"><%= article.name %></div>
               </a>
+              <% }); %>
             </div>
           </div>
         </div>

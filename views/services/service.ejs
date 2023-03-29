@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <% service.forEach(function(item) { %>
+    <title><%- item.name %></title>
+    <% }) %>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+
+    <%- include('../include/links', {fileCss: "services-following"}) %>
+  </head>
+  <body>
+    <% service.forEach(function(item) { %>
+    <header class="header">
+      <div class="phone">
+        <span class="icon-phone"></span>
+      </div>
+      <div class="massage">
+        <span class="icon-message"></span>
+      </div>
+      <img class="header-img" src="/img/backgrounds/bg-services.jpg" alt="" />
+      <%- include("../include/_nav") %>
+      <div class="navigation-wrapper">
+        <div class="container">
+          <div class="navigation">
+            <a href="/" class="navigation-item navigation-item-home">Home</a>
+
+            <span class="icon-chevrons-right"></span>
+            <a href="/services" class="navigation-item">Services</a>
+
+            <span class="icon-chevrons-right"></span>
+            <div
+              id="navigation-item-active"
+              class="navigation-item navigation-item-about"
+            >
+              <%- item.name %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main id="services-more" class="main main-<%- item.url %>">
+      <section class="dispatch">
+        <div class="container">
+          <div class="dispatch-row">
+            <div class="dispatch-col-left">
+              <div class="title dispatch-title"><%- item.name %></div>
+              <div class="dispatch-col-list"><%- item.checks %></div>
+            </div>
+            <div class="dispatch-form-wrapper">
+              <%- include("../include/_form") %>
+            </div>
+          </div>
+          <div class="dispatch-text"><%- item.text %></div>
+        </div>
+      </section>
+      <%- include("../include/_what") %> <%- include("_choose-truck") %> <%-
+      include("../include/_how") %>
+      <section class="expect">
+        <div class="container">
+          <div class="expect-text"><%- item.content %></div>
+        </div>
+      </section>
+      <%- include("../include/_can") %> <%- include("../include/_reviews") %>
+      <%- include("../include/_faq") %> <%- include("../include/_blog") %>
+    </main>
+    <%- include("../include/footer") %>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="/js/swiper.js"></script>
+    <script src="/js/form.js"></script>
+    <script type="module" src="/js/faqQuestions.js"></script>
+    <% }) %>
+  </body>
+</html>

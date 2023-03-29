@@ -33,7 +33,7 @@
   .truck-row {
     padding-bottom: 0;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 200px;
+    grid-template-rows: unset;
     gap: 0;
   }
 }
@@ -176,8 +176,9 @@
 }
 
 .absec-btns {
-  display: flex;
+  display: grid;
   gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 @media (max-width: 1200px) {
   .absec-btns {
@@ -187,15 +188,15 @@
       );
   }
 }
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .absec-btns {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    justify-content: center;
     margin-top: 20px;
     margin-bottom: 40px;
   }
 }
-@media (max-width: 575px) and (max-width: 1200px) {
+@media (max-width: 768px) and (max-width: 1200px) {
   .absec-btns {
     margin-bottom: calc(
         20px + 20 *
@@ -249,11 +250,11 @@
       );
   }
 }
-@media (max-width: 575px) {
+@media (max-width: 768px) {
   .absec-contact,
   .absec-number,
   .absec-email {
-    margin: 0;
+    margin: 0 auto;
     width: 75%;
   }
 }

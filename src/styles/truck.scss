@@ -9,7 +9,7 @@
   @media (max-width: 768px) {
     padding-bottom: 0;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 200px;
+    grid-template-rows: unset;
     gap: 0;
   }
 }

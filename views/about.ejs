@@ -5,13 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
-
     <%- include('include/links', {fileCss: "about"}) %>
   </head>
   <body>
-    <%- include('include/header', {backgroundImage: "about", page: "About",
-    navPageMore: false}) %>
-
+    <header class="header">
+      <div class="phone">
+        <span class="icon-phone"></span>
+      </div>
+      <div class="massage">
+        <span class="icon-message"></span>
+      </div>
+      <img class="header-img" src="/img/backgrounds/bg-about.jpg" alt="" />
+      <%- include("include/_nav") %>
+      <div class="navigation-wrapper">
+        <div class="container">
+          <div class="navigation">
+            <a href="/" class="navigation-item navigation-item-home">Home</a>
+            <span class="icon-chevrons-right"></span>
+            <div
+              id="navigation-item-active"
+              class="navigation-item navigation-item-about"
+            >
+              About
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <main id="about" class="main main-about">
       <section class="about">
         <div class="container">
@@ -86,9 +106,9 @@
             </p>
           </div>
           <div class="absec-btns">
-            <a href="#a" class="absec-contact">Contact Us</a>
-            <a href="#a" class="absec-number">684 562 21 47</a>
-            <a href="#a" class="absec-email">???@gmail.com</a>
+            <a href="/contact-us" class="absec-contact">Contact Us</a>
+            <a href="#a" class="absec-number"><%- contacts.tel %></a>
+            <a href="#a" class="absec-email"><%- contacts.email %></a>
           </div>
           <div class="absec-map">
             <iframe
@@ -104,7 +124,6 @@
     </main>
 
     <%- include("include/footer") %>
-
     <script src="/js/script.js"></script>
   </body>
 </html>

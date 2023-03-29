@@ -30,8 +30,6 @@
   @media (max-width: 992px) {
     height: 50px;
   }
-  @media (max-width: 325px) {
-  }
 }
 .logo {
   align-self: baseline;
@@ -41,25 +39,34 @@
   position: relative;
   display: flex;
   align-items: center;
-  width: 100px;
-  height: 75px;
+  width: 80px;
+  height: 50px;
   background: rgb(255, 255, 255);
-  border-radius: 17px;
+  border-radius: 15px;
   transform: translate(-5px, 5px);
   @media (max-width: 992px) {
-    width: 80px;
-    height: 60px;
+    transform: translate(-5px, 3px);
+    width: 70px;
+    height: 44px;
+    border-radius: 8px;
+  }
+  @media (max-width: 325px) {
+    transform: translate(0, 3px);
   }
 }
 .logo-link img {
   right: 0;
   object-fit: cover;
   position: absolute;
-  width: 115%;
+  width: 110%;
   height: 100%;
   transform: rotate(-4deg);
   margin-right: -6px;
   pointer-events: none;
+  @media (max-width: 992px) {
+    width: 105%;
+    margin-right: -2px;
+  }
 }
 .logo-text {
   font-size: 40px;

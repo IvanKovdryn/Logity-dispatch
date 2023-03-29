@@ -1,36 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const formTrucks = document.querySelectorAll(".form-wrapper");
+  const formTrucks = document.querySelectorAll(".form-wrapper-truck");
+  const deleteBtn = document.querySelectorAll(".option-delete-wrapper");
+
   formTrucks.forEach((form) => {
-    let formReq = form.querySelectorAll(".req");
-    formReq.forEach((item) => {
-      item.addEventListener("click", () => {
-        item.parentElement.classList.remove("error");
-        item.classList.remove("error");
-        item.classList.add("satisfactory");
-        console.log(item);
-      });
+    // when you click, change the input background
+
+    form.addEventListener("click", (e) => {
+      if (
+        e.target.classList.contains("req") ||
+        e.target.classList.contains("note-editable")
+      ) {
+        e.target.closest(".form-input-wrapper").classList.remove("error");
+        e.target.closest(".form-input-wrapper").classList.add("satisfactory");
+      }
     });
+
+    //
+
+    // submit form
+
     form.addEventListener("submit", formSend);
 
     async function formSend(e) {
       e.preventDefault();
-
-      let textareaDescription = form.querySelector("#textarea-description");
-      let textareaText = form.querySelector("#textarea-text");
-      let textareaContent = form.querySelector("#textarea-content");
-
-      if (
-        !textareaDescription.value &&
-        !textareaText.value &&
-        !textareaContent.value
-      ) {
-        let areaDescription = tinymce.get("textarea-description").getContent();
-        textareaDescription.value = areaDescription;
-        let areaText = tinymce.get("textarea-text").getContent();
-        textareaText.value = areaText;
-        let areaContent = tinymce.get("textarea-content").getContent();
-        textareaContent.value = areaContent;
-      }
 
       let formReq = form.querySelectorAll(".req");
       formReq.forEach((item) => {
@@ -45,9 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       let jsonBody = JSON.stringify(object);
 
-      const truckId = form.querySelector(".input-id").value;
-
       console.log(error);
+
+      // send the added form
 
       if (form.classList.contains("add") && error === 0) {
         console.log(jsonBody);
@@ -70,13 +62,33 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
           let result = await response.json();
           console.log(result);
+
+          // reset form after submit
+
           formValue.reset();
+          const editor = form.querySelectorAll(".note-editable");
+          editor.forEach((item) => {
+            item.innerHTML = "";
+          });
+          const textareaText = form.querySelectorAll(".textarea");
+          textareaText.forEach((item) => {
+            item.innerHTML = "";
+          });
+          const satisfactory = form.querySelectorAll(".satisfactory");
+          satisfactory.forEach((item) => {
+            item.classList.remove("satisfactory");
+          });
+
+          //
         } else {
           console.log("Помилка");
         }
+
+        // send the edited form
       } else if (form.classList.contains("put") && error === 0) {
         console.log(jsonBody);
-        let response = await fetch(`/edit-truck/${truckId}`, {
+        let columnId = form.closest(".column").id;
+        let response = await fetch(`/edit-truck/${columnId}`, {
           method: "PUT",
           body: jsonBody,
           headers: {
@@ -95,6 +107,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
           let result = await response.json();
           console.log(result);
+
+          // reset form after edited
+
+          const satisfactory = form.querySelectorAll(".satisfactory");
+          satisfactory.forEach((item) => {
+            item.classList.remove("satisfactory");
+          });
+
+          //
         } else {
           console.log("Помилка");
         }
@@ -103,26 +124,64 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
+    //
+
+    // validate form
+
     function formValidate(form) {
       let error = 0;
-      for (let index = 0; index < formReq.length; index++) {
-        const input = formReq[index];
-        formRemoveError(input);
-        if (
-          (input.classList.contains("textarea") && input.innerText === "") ||
-          input.value === ""
-        ) {
-          formAddError(input);
+
+      const input = form.querySelectorAll(".input");
+      input.forEach((item) => {
+        const inputWrapper = item.closest(".form-input-wrapper");
+        if (!item.value) {
+          inputWrapper.classList.add("error");
           error++;
         }
-      }
+      });
+
+      const textareaNote = form.querySelectorAll(".note-editable");
+      textareaNote.forEach((area) => {
+        const inputWrapper = area.closest(".form-input-wrapper");
+        if (!area.innerText) {
+          inputWrapper.classList.add("error");
+          error++;
+        }
+      });
+
       return error;
     }
-    function formAddError(input) {
-      input.classList.add("error");
-    }
-    function formRemoveError(input) {
-      input.classList.remove("error");
-    }
+
+    //
   });
+
+  // delete truck
+
+  deleteBtn.forEach((btn) => {
+    btn.addEventListener("click", (item) => {
+      const column = btn.closest(".column");
+      column.classList.add("active");
+      const popup = column.querySelector(".popup-wrapper");
+      popup.addEventListener("click", (e) => {
+        if (
+          e.target.classList.contains("popup-wrapper") ||
+          e.target.classList.contains("popup-cancel")
+        ) {
+          column.classList.remove("active");
+        }
+        if (e.target.classList.contains("popup-delete")) {
+          column.classList.remove("active");
+          let columnId = column.id;
+          const response = fetch(`/delete-truck/${columnId}`, {
+            method: "DELETE",
+          })
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+          column.remove();
+        }
+      });
+    });
+  });
+
+  //
 });

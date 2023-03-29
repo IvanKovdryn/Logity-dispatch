@@ -6,6 +6,7 @@ const Truck = new mongoose.Schema({
   url: { type: String, required: true },
   image: { type: String, required: true },
   description: { type: String, required: true },
+  checks: { type: String, required: true },
   text: { type: String, required: true },
   content: { type: String, required: true },
 });

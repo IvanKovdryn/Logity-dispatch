@@ -147,7 +147,7 @@
 .form-name-wrapper input,
 .form-number-wrapper input,
 .form-email-wrapper input {
-  font-family: "Lato", sans-serif;
+  font-family: "Gilroy", sans-serif;
   font-size: 16px;
   padding: 10px;
   background: #f3f4f5;
@@ -238,7 +238,7 @@
 }
 
 .form-agree.error .label-checkbox::before {
-  background: rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .form-agree input {
@@ -354,7 +354,7 @@
 }
 
 .input.error {
-  background: rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .status {
@@ -365,7 +365,8 @@
   font-size: 16px;
   position: absolute;
   left: 5px;
-  top: -5px;
+  top: -7px;
+  text-align: center;
   font-weight: 700;
   color: #2086ea;
   transition: all 0.4s ease;

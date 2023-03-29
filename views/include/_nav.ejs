@@ -25,38 +25,14 @@
             <span class="nav-text">Services</span>
           </a>
           <div class="nav-subcontent">
-            <a href="/dispatch" class="nav-subcontent-item"
-              >Truck Dispatching</a
+            <% services.forEach(function(service) { %>
+            <a
+              href="/services/<%= service.url %>"
+              class="nav-subcontent-item"
+              id="<%= service.url %>"
+              ><%= service.name %></a
             >
-            <a href="/billing" class="nav-subcontent-item">Billing</a>
-            <a href="/document-management" class="nav-subcontent-item"
-              >Document Management</a
-            >
-            <a href="/factoring-service" class="nav-subcontent-item"
-              >Factoring Service</a
-            >
-            <a href="/rate-negotiation" class="nav-subcontent-item"
-              >Rate Negotiation</a
-            >
-            <a href="/safety" class="nav-subcontent-item"
-              >SAFETY / DOT compliance</a
-            >
-            <a href="/ifta" class="nav-subcontent-item">IFTA Reporting</a>
-            <a href="/formation" class="nav-subcontent-item"
-              >Company Formation</a
-            >
-            <a href="/accounting" class="nav-subcontent-item"
-              >Truckers Accounting</a
-            >
-            <a href="/invoice" class="nav-subcontent-item"
-              >Trucking Invoice Service</a
-            >
-            <a href="/truck-doc-management" class="nav-subcontent-item"
-              >Truck Document Management</a
-            >
-            <a href="/truck-doc-dispatch-service" class="nav-subcontent-item"
-              >Trucking Document Dispatch Service</a
-            >
+            <% }); %>
           </div>
         </div>
         <div class="nav-item">
@@ -97,7 +73,7 @@
       </div>
       <div class="nav-contact">
         <a class="nav-contact-link" href="#a">
-          <span>+? (???) ???-??-??</span>
+          <span><%= contacts.tel %></span>
         </a>
       </div>
       <div class="menu-bg">

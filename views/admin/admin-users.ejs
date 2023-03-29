@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("_head") %>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav-row">
+          <div class="nav-content">
+            <div class="nav-item">
+              <a href="admin-users" class="nav-text admin-users-active"
+                >Users</a
+              >
+            </div>
+            <div class="nav-item">
+              <a href="admin-services" class="nav-text">Services</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-trucks" class="nav-text">Trucks</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-articles" class="nav-text">Articles</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-contacts" class="nav-text">Contacts</a>
+            </div>
+          </div>
+          <div class="menu-bg">
+            <p class="menu"><span></span></p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section users">
+      <div class="container">
+        <div class="users-send">
+          <div class="section-head"><div class="title">Users:</div></div>
+          <ol class="users-list">
+            <div class="users-list-up">
+              <span class="user-label-up">Name</span>
+              <span class="user-label-up">Phone</span>
+              <span class="user-label-up">Email</span>
+            </div>
+            <% users.forEach(function(user) { %>
+            <li class="user-content column">
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete user</div>
+                  <div class="popup-user">
+                    <p><%= user.name %></p>
+                    <p><%= user.phone %></p>
+                    <p><%= user.email %></p>
+                  </div>
+                  <div class="popup-question">
+                    Are you sure you want to delete this user?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div class="popup-text popup-delete popup-delete-sended">
+                      <span>DELETE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-item">
+                <span class="user-label">Name:</span>
+                <span class="user-data"><%= user.name %></span>
+              </div>
+              <div class="user-item">
+                <span class="user-label">Phone:</span>
+                <span class="user-data"><%= user.phone %></span>
+              </div>
+              <div class="user-item">
+                <span class="user-label">Email:</span>
+                <span class="user-data user-email"><%= user.email %></span>
+              </div>
+              <button
+                type="button"
+                class="user-delete user-delete-send option-delete-wrapper"
+              >
+                <span class="icon-delete icon-delete-user"></span>
+              </button>
+            </li>
+            <% }); %>
+          </ol>
+        </div>
+        <div class="users-invited">
+          <div class="section-head">
+            <div class="title">Invited users:</div>
+          </div>
+          <ol class="users-list">
+            <% invites.forEach(function(invite) { %>
+            <li class="user-content column user-content-invite">
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete user</div>
+                  <div class="popup-user">
+                    <p><%= invite.invite_name %></p>
+                  </div>
+                  <div class="popup-question">
+                    Are you sure you want to delete this user?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div class="popup-text popup-delete popup-delete-invited">
+                      <span>DELETE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite">Referrer name:</span>
+                <span class="user-data"><%= invite.referrer_name %></span>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite"
+                  >Referrer email:</span
+                >
+                <span class="user-data"><%= invite.referrer_email %></span>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite"
+                  >Invitee's name:</span
+                >
+                <span class="user-data"><%= invite.invite_name %></span>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite"
+                  >Invitee's phone:</span
+                >
+                <span class="user-data"><%= invite.invite_phone %></span>
+              </div>
+              <div class="user-item user-item-invite">
+                <span class="user-label user-label-invite"
+                  >Invitee's email:</span
+                >
+                <span class="user-data user-email"
+                  ><%= invite.invite_email %></span
+                >
+              </div>
+              <button
+                type="button"
+                class="user-delete user-delete-invite option-delete-wrapper"
+              >
+                <span class="icon-delete icon-delete-user"></span>
+              </button>
+            </li>
+            <% }); %>
+          </ol>
+        </div>
+        <div class="users-subscribed">
+          <div class="section-head">
+            <div class="title">Subscribed users:</div>
+          </div>
+          <ol class="users-list">
+            <% subscribe.forEach(function(item) { %>
+            <li class="user-content column user-content-subscribe">
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete user</div>
+                  <div class="popup-user">
+                    <p class="user-email"><%= item.email %></p>
+                  </div>
+                  <div class="popup-question">
+                    Are you sure you want to delete this user?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div
+                      class="popup-text popup-delete popup-delete-subscribed"
+                    >
+                      <span>DELETE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-item user-item-subscribe">
+                <span class="user-label user-label-subscribe">Email:</span>
+                <span class="user-data"><%= item.email %></span>
+              </div>
+              <button
+                type="button"
+                class="user-delete user-delete-subscribe option-delete-wrapper"
+              >
+                <span class="icon-delete icon-delete-user"></span>
+              </button>
+            </li>
+            <% }); %>
+          </ol>
+        </div>
+      </div>
+    </section>
+    <script src="/js/admin.js"></script>
+    <script src="/js/adminPopup.js"></script>
+  </body>
+</html>

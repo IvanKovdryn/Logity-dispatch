@@ -4,8 +4,35 @@
 
 //
 
+.note-frame {
+  color: #212121;
+  font-family: "Gilroy";
+}
+.note-editor.note-airframe .note-editing-area .note-editable,
+.note-editor.note-frame .note-editing-area .note-editable {
+  padding: 10px 20px;
+}
+.note-modal-backdrop {
+  display: none !important;
+}
+.note-modal-content {
+  @include adapt("margin-top", 120, 90, 1);
+  @media (max-width: 768px) {
+    @include adapt("margin-top", 100, 90, 1);
+  }
+}
 .note-editable {
-  height: 175px;
+  height: 225px;
+  background-color: #fff;
+  transition: all 0.1s ease;
+}
+.form-input-wrapper.satisfactory .input,
+.form-input-wrapper.satisfactory .note-editable {
+  background-color: #e8f0fe;
+}
+.form-input-wrapper.error .input,
+.form-input-wrapper.error .note-editable {
+  background-color: rgba(255, 0, 0, 0.1);
 }
 p {
   margin: 0;
@@ -32,6 +59,9 @@ body.lock {
     padding: 0 10px;
   }
 }
+.nav.active {
+  z-index: 105;
+}
 .admin-img {
   position: absolute;
   width: 100%;
@@ -54,16 +84,8 @@ body.lock {
   margin: 0 0 20px;
 }
 .section {
-  position: absolute;
-  top: 0;
-  left: 0;
   @include adapt("padding-top", 90, 75, 1);
   @include adapt("padding-bottom", 90, 75, 1);
-  width: 100vw;
-  display: none;
-}
-.section.active {
-  display: block;
 }
 
 //
@@ -76,15 +98,25 @@ body.lock {
 .nav-item {
   padding: 0;
 }
-.nav-item:hover {
-  color: #74adc6;
-}
 .nav-text {
   padding: 20px 5px;
   cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
   @media (max-width: 992px) {
     padding: 10px 5px;
   }
+}
+.nav-text:hover {
+  color: #74adc6;
+}
+.admin-users-active,
+.admin-services-active,
+.admin-trucks-active,
+.admin-articles-active,
+.admin-contacts-active {
+  color: #74adc6;
 }
 
 //
@@ -100,10 +132,10 @@ body.lock {
   grid-template-columns: 1fr;
   padding: 0 0 0 15px;
   @media (max-width: 768px) {
-    padding: 0 0 0 10px;
+    padding: 0 0 0 5px;
   }
   @media (max-width: 325px) {
-    padding: 0 0 0 5px;
+    padding: 0;
   }
 }
 .users-list-up {
@@ -216,12 +248,13 @@ body.lock {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 40;
+  z-index: 95;
   transition: all 0.2s ease;
 }
 .popup {
   @include adapt("width", 280, 250, 1);
   background: #f7f7f7;
+  color: #212121;
   @include adapt("border-radius", 10, 7, 1);
   @include adapt("padding", 20, 15, 1);
 }
@@ -242,6 +275,10 @@ body.lock {
   align-items: center;
   justify-content: center;
   @include adapt("gap", 10, 5, 1);
+}
+.popup-text {
+  width: 50%;
+  text-align: center;
 }
 .popup-cancel {
   cursor: pointer;
@@ -294,7 +331,7 @@ body.lock {
   justify-content: center;
   top: 0;
   left: 0;
-  z-index: 40;
+  z-index: 95;
   transition: all 0.2s ease;
 }
 .form-wrapper.put {
@@ -330,6 +367,12 @@ body.lock {
   @include adapt("font-size", 16, 14, 1);
   color: #000000e9;
 }
+input:-internal-autofill-selected {
+  appearance: menulist-button;
+  background-image: none;
+  background-color: unset;
+  color: unset;
+}
 .input {
   display: block;
   width: 75%;
@@ -342,10 +385,16 @@ body.lock {
   border-radius: 2px;
   outline: #fff;
   font-family: "Gilroy", sans-serif;
+  transition: all 0.1s ease;
+  @media (max-width: 992px) {
+    width: 100%;
+  }
+}
+.note-editor {
   transition: all 0.2s ease;
 }
-.input.error {
-  background: rgba(255, 0, 0, 0.15);
+.input-id-put {
+  pointer-events: none;
 }
 .label {
   text-align: start;
@@ -354,6 +403,7 @@ body.lock {
   pointer-events: none;
   display: block;
   margin: 10px 0 0;
+  font-weight: 600;
   @include adapt("font-size", 14, 12, 1);
 }
 .input:focus {
@@ -395,6 +445,7 @@ body.lock {
 .textarea {
   width: 100%;
   max-width: 100%;
+  font-family: "Gilroy", sans-serif;
 }
 
 //
@@ -417,7 +468,7 @@ body.lock {
 .services-col {
   position: relative;
 }
-.services-col.bg .services-col-bg {
+.column.bg .services-col-bg {
   background-color: rgba(0, 0, 0, 0.15);
 }
 .services-col-bg {
@@ -441,10 +492,12 @@ body.lock {
 .option-wrapper.active .option-bg {
   opacity: 1;
   pointer-events: all;
+  z-index: 101;
 }
 .option-wrapper.active .option {
   background: #fff;
   border-radius: 10px;
+  z-index: 101;
 }
 .option-wrapper.active .option-content {
   opacity: 1;
@@ -458,7 +511,7 @@ body.lock {
 }
 .option {
   position: relative;
-  z-index: 35;
+  z-index: 85;
 }
 .icon-dots-three-vertical {
   pointer-events: none;
@@ -534,23 +587,34 @@ body.lock {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 35;
+  z-index: 100;
   left: 0;
   top: 0;
   opacity: 0;
   pointer-events: none;
 }
 
-// contacts
+// articles
 
+@import "main/blog";
+
+.blog-col {
+  text-decoration: none;
+}
+.form-wrapper {
+  color: #212121;
+}
+//
+
+// contacts
 .contacts-app-form {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     flex-direction: column;
-    gap: 50px;
+    @include adapt("gap", 50, 30, 1);
     align-items: flex-start;
   }
 }
@@ -565,16 +629,32 @@ body.lock {
 .contacts-app-form.active .contacts-app-row {
   pointer-events: all;
 }
+.form-location-wrapper label {
+  cursor: unset;
+  pointer-events: none;
+  @include adapt("font-size", 14, 12, 1);
+}
 .contacts-app-form.active .form-email-wrapper input,
-.contacts-app-form.active .form-number-wrapper input {
+.contacts-app-form.active .form-number-wrapper input,
+.contacts-app-form.active .form-location-wrapper input {
   background: #f3f4f5;
 }
 .contacts-app-form.active .form-email-wrapper input.error,
-.contacts-app-form.active .form-number-wrapper input.error {
+.contacts-app-form.active
+  .form-number-wrapper
+  input.error
+  .contacts-app-form.active
+  .form-location-wrapper
+  input.error {
   background: rgba(255, 0, 0, 0.15);
 }
 .contacts-app-form.active .form-email-wrapper input.satisfactory,
-.contacts-app-form.active .form-number-wrapper input.satisfactory {
+.contacts-app-form.active
+  .form-number-wrapper
+  input.satisfactory
+  .contacts-app-form.active
+  .form-location-wrapper
+  input.satisfactory {
   background: #e8f0fe;
 }
 .contacts-app-row {
@@ -583,20 +663,30 @@ body.lock {
     width: 100%;
   }
 }
+.form-location-wrapper {
+  display: flex;
+  flex-direction: column;
+  @include adapt("gap", 7, 2, 1);
+  padding: 5px;
+  color: #000000e9;
+}
 .form-number-wrapper,
-.form-email-wrapper {
+.form-email-wrapper,
+.form-location-wrapper {
   flex-direction: row;
   align-items: center;
   margin: 0;
   display: grid;
-  grid-template-columns: 75px 400px;
+  color: #212121;
+  grid-template-columns: 75px 450px;
   @media (max-width: 475px) {
     grid-template-columns: 50px 1fr;
     width: 100%;
   }
 }
 .input-tel-app,
-.input-email-app {
+.input-email-app,
+.input-location-app {
   margin: 0;
   @media (max-width: 475px) {
     width: 100%;
@@ -607,7 +697,7 @@ body.lock {
   cursor: pointer;
   width: 150px;
   justify-content: center;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     width: 50%;
   }
 }
@@ -620,7 +710,7 @@ body.lock {
   opacity: 0;
   pointer-events: none;
   transition: all 0.2s ease;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     flex-direction: row-reverse;
     right: unset;
     left: 0;
@@ -635,9 +725,11 @@ body.lock {
 .label-contacts-app {
   @include adapt("font-size", 18, 14, 1);
   font-weight: 500;
+  margin: 0;
 }
 .form-email-wrapper input,
-.form-number-wrapper input {
+.form-number-wrapper input,
+.form-location-wrapper input {
   @include adapt("font-size", 18, 16, 1);
   font-weight: 600;
   background: rgba(243, 244, 245, 0.25);
@@ -649,7 +741,7 @@ body.lock {
   background-color: #df3f40;
 }
 .bttn-contacts-app-change {
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     width: 207.5px;
   }
   @media (max-width: 475px) {
@@ -679,7 +771,7 @@ body.lock {
   /* NAV */
 
   .nav-row {
-    justify-content: start;
+    justify-content: end;
   }
   .nav-content {
     display: none;
@@ -693,7 +785,6 @@ body.lock {
   }
   .menu-bg {
     display: flex;
-    flex: 1 1 auto;
     justify-content: end;
   }
 }

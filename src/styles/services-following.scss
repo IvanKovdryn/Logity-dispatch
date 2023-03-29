@@ -90,6 +90,9 @@
   height: 300px;
   @include adapt("height", 300, 150, 1);
   @include adapt("border-radius", 10, 5, 1);
+  @media (max-width: 575px) {
+    height: 200px !important;
+  }
 }
 .expect-img img {
   position: absolute;
@@ -131,7 +134,7 @@
   @include adapt("gap", 10, 5, 1);
   grid-template-columns: 1fr 1fr;
   @media (max-width: 575px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
 .expect-col {

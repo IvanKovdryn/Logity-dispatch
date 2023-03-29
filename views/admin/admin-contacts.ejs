@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("_head") %>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav-row">
+          <div class="nav-content">
+            <div class="nav-item">
+              <a href="admin-users" class="nav-text">Users</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-services" class="nav-text">Services</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-trucks" class="nav-text">Trucks</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-articles" class="nav-text">Articles</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-contacts" class="nav-text admin-contacts-active"
+                >Contacts</a
+              >
+            </div>
+          </div>
+          <div class="menu-bg">
+            <p class="menu"><span></span></p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section contacts-app">
+      <div class="container">
+        <form class="contacts-app-form">
+          <div class="contacts-app-row">
+            <div class="form-number-wrapper contacts-app-col">
+              <label class="label-contacts-app" for="tel">Phone:</label>
+              <input
+                id="tel"
+                type="tel"
+                name="tel"
+                class="input req input-contacts-app input-tel-app"
+                value="<%- contacts.tel %>"
+              />
+            </div>
+            <div class="form-email-wrapper">
+              <label class="label-contacts-app" for="email">Email:</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                class="input req input-contacts-app input-email-app"
+                value="<%- contacts.email %>"
+              />
+            </div>
+            <div class="form-location-wrapper">
+              <label class="label-contacts-app" for="location">Location:</label>
+              <input
+                id="location"
+                type="text"
+                name="location"
+                class="input req input-contacts-app input-location-app"
+                value="<%- contacts.location %>"
+              />
+            </div>
+          </div>
+          <div class="bttn bttn-contacts-app bttn-contacts-app-change">
+            Change
+          </div>
+          <div class="btns-form-save contacts-app-col">
+            <div class="bttn bttn-contacts-app bttn-contacts-app-cancel">
+              Cancel
+            </div>
+            <button
+              type="submit"
+              class="bttn bttn-contacts-app bttn-contacts-app-save"
+            >
+              Save
+            </button>
+          </div>
+          <div class="status status-contacts">
+            <p class="status-text status-text-contacts"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script src="/js/admin.js"></script>
+    <script src="/js/adminContacts.js"></script>
+  </body>
+</html>

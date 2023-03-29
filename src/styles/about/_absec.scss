@@ -5,11 +5,12 @@
   @include adapt("font-size", 17, 14, 1);
 }
 .absec-btns {
-  display: flex;
+  display: grid;
   @include adapt("gap", 20, 5, 1);
-  @media (max-width: 575px) {
-    flex-direction: column;
-    align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    justify-content: center;
     margin-top: 20px;
     @include adapt("margin-bottom", 40, 20, 1);
   }
@@ -28,8 +29,8 @@
   @include adapt("margin-bottom", 40, 20, 1);
   @include adapt("font-size", 22, 14, 1);
   transition: all 0.2s ease;
-  @media (max-width: 575px) {
-    margin: 0;
+  @media (max-width: 768px) {
+    margin: 0 auto;
     width: 75%;
   }
   @media (max-width: 325px) {

@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import Form from "./schemaModels/modelForm.js";
 import Article from "./schemaModels/modelArticle.js";
+import Service from "./schemaModels/modelService.js";
 import Truck from "./schemaModels/modelTruck.js";
 import Invites from "./schemaModels/modelInvites.js";
 import Subscribe from "./schemaModels/modelSubscribe.js";
@@ -31,40 +32,91 @@ app.get("/page/:name", (req, res) => {
 });
 
 app.get("/", async (req, res) => {
+  const articles = await db.collection("articles").find().toArray();
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("main", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("main", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+    articles: articles,
+  });
 });
 
 // about
 
 app.get("/about", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("about", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("about", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 app.get("/careers", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("about/careers", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("about/careers", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 app.get("/stories", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("about/stories", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("about/stories", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 app.get("/testimonials", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("about/testimonials", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("about/testimonials", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 app.get("/program", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("about/program", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("about/program", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 app.get("/blog", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const articles = await db.collection("articles").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("about/blog", { trucks: trucks, articles: articles });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("about/blog", {
+    trucks: trucks,
+    articles: articles,
+    contacts: contacts,
+    services: services,
+  });
 });
 app.get("/video", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("about/video", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("about/video", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 
 //
@@ -72,56 +124,14 @@ app.get("/video", async (req, res) => {
 // services
 
 app.get("/services", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("services", { trucks: trucks });
-});
-app.get("/dispatch", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/dispatch", { trucks: trucks });
-});
-app.get("/billing", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/billing", { trucks: trucks });
-});
-app.get("/document-management", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/document-management", { trucks: trucks });
-});
-app.get("/factoring-service", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/factoring-service", { trucks: trucks });
-});
-app.get("/rate-negotiation", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/rate-negotiation", { trucks: trucks });
-});
-app.get("/safety", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/safety", { trucks: trucks });
-});
-app.get("/ifta", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/ifta", { trucks: trucks });
-});
-app.get("/formation", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/formation", { trucks: trucks });
-});
-app.get("/accounting", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/accounting", { trucks: trucks });
-});
-app.get("/invoice", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/invoice", { trucks: trucks });
-});
-app.get("/truck-doc-management", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/truck-doc-management", { trucks: trucks });
-});
-app.get("/truck-doc-dispatch-service", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("services/truck-doc-dispatch-service", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("services", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 
 //
@@ -129,33 +139,14 @@ app.get("/truck-doc-dispatch-service", async (req, res) => {
 // trucks
 
 app.get("/trucks", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("trucks", { trucks: trucks });
-});
-app.get("/dry-van", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("/trucks/truck", { trucks: trucks });
-});
-app.get("/step-deck", async (req, res) => {
-  res.render("trucks/step-deck");
-});
-app.get("/reefer", async (req, res) => {
-  res.render("trucks/reefer");
-});
-app.get("/flatbed", async (req, res) => {
-  res.render("trucks/flatbed");
-});
-app.get("/power-only", async (req, res) => {
-  res.render("trucks/power-only");
-});
-app.get("/hotshot", async (req, res) => {
-  res.render("trucks/hotshot");
-});
-app.get("/box-truck", async (req, res) => {
-  res.render("trucks/box-truck");
-});
-app.get("/straight-truck", async (req, res) => {
-  res.render("trucks/straight-truck");
+  const contacts = await db.collection("contacts").findOne();
+  res.render("trucks", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 
 //
@@ -163,15 +154,29 @@ app.get("/straight-truck", async (req, res) => {
 // how to start
 
 app.get("/how-to-start", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("how-to-start", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("how-to-start", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 
 // shippers
 
 app.get("/shippers", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
+  const articles = await db.collection("articles").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("shippers", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("shippers", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+    articles: articles,
+  });
 });
 
 //
@@ -179,29 +184,49 @@ app.get("/shippers", async (req, res) => {
 // FAQ
 
 app.get("/faq", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("faq", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("faq", { trucks: trucks, contacts: contacts, services: services });
 });
 
 // contact us
 
 app.get("/contact-us", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("contact-us", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("contact-us", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 
 // terms of service
 
 app.get("/terms-of-service", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("terms-of-service", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("terms-of-service", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 
 // privacy policy
 
 app.get("/privacy-policy", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
-  res.render("privacy-policy", { trucks: trucks });
+  const contacts = await db.collection("contacts").findOne();
+  res.render("privacy-policy", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+  });
 });
 
 //
@@ -210,6 +235,7 @@ app.get("/privacy-policy", async (req, res) => {
 
 app.get("/admin", async (req, res) => {
   if (req.cookies.name == "Ivan" && req.cookies.password == "12345") {
+    const services = await db.collection("services").find().toArray();
     const trucks = await db.collection("trucks").find().toArray();
     const users = await db.collection("contact-us").find().toArray();
     const invites = await db.collection("invites").find().toArray();
@@ -219,6 +245,7 @@ app.get("/admin", async (req, res) => {
     if (users) {
       res.render("admin", {
         users: users,
+        services: services,
         trucks: trucks,
         invites: invites,
         subscribe: subscribe,
@@ -230,6 +257,32 @@ app.get("/admin", async (req, res) => {
     return;
   }
   res.render("auth");
+});
+app.get("/admin-services", async (req, res) => {
+  const services = await db.collection("services").find().toArray();
+  res.render("admin/admin-services", { services: services });
+});
+app.get("/admin-trucks", async (req, res) => {
+  const trucks = await db.collection("trucks").find().toArray();
+  res.render("admin/admin-trucks", { trucks: trucks });
+});
+app.get("/admin-users", async (req, res) => {
+  const users = await db.collection("contact-us").find().toArray();
+  const invites = await db.collection("invites").find().toArray();
+  const subscribe = await db.collection("subscribes").find().toArray();
+  res.render("admin/admin-users", {
+    users: users,
+    invites: invites,
+    subscribe: subscribe,
+  });
+});
+app.get("/admin-articles", async (req, res) => {
+  const articles = await db.collection("articles").find().toArray();
+  res.render("admin/admin-articles", { articles: articles });
+});
+app.get("/admin-contacts", async (req, res) => {
+  const contacts = await db.collection("contacts").findOne();
+  res.render("admin/admin-contacts", { contacts: contacts });
 });
 
 //
@@ -287,8 +340,8 @@ app.delete("/delete-subscribed/:email", (req, res) => {
 // edit phone in data base
 
 app.put("/contacts/edit", async (req, res) => {
-  const { tel, email } = req.body;
-  const contacts = await Contacts.updateOne({ tel, email });
+  const { tel, email, location } = req.body;
+  const contacts = await Contacts.updateOne({ tel, email, location });
 
   res.end(JSON.stringify({ status: "ok", result: contacts }));
 });
@@ -297,14 +350,13 @@ app.put("/contacts/edit", async (req, res) => {
 
 // add/get article in/from data base
 
-app.post("/article/save", async (req, res) => {
-  const { id, name, url, image, text, when_created, content } = req.body;
+app.post("/articles/save", async (req, res) => {
+  const { id, name, url, image, when_created, content } = req.body;
   const article = await Article.create({
     id,
     name,
     url,
     image,
-    text,
     when_created,
     content,
   });
@@ -312,18 +364,113 @@ app.post("/article/save", async (req, res) => {
 });
 app.get("/blog/:article", async (req, res) => {
   const articleUrl = req.params.article;
-
-  const articles = await db
+  const trucks = await db.collection("trucks").find().toArray();
+  const services = await db.collection("services").find().toArray();
+  const articles = await db.collection("articles").find().toArray();
+  const contacts = await db.collection("contacts").findOne();
+  const article = await db
     .collection("articles")
     .find({ url: articleUrl })
     .toArray();
 
-  console.log(articles);
   if (articles) {
-    res.render("about/blog/article", { articles: articles });
+    res.render("about/blog/article", {
+      article: article,
+      articles: articles,
+      contacts: contacts,
+      trucks: trucks,
+      services: services,
+    });
     return;
   }
   res.send("article-not-found");
+});
+app.delete("/delete-article/:id", (req, res) => {
+  const id = req.params.id;
+  const article = db.collection("articles").deleteOne({ id: id });
+  res.end();
+});
+app.put("/edit-article/:id", async (req, res) => {
+  const id = req.body.id;
+  const article = await db.collection("articles").updateOne(
+    { id: id },
+    {
+      $set: {
+        id: req.body.id,
+        name: req.body.name,
+        url: req.body.url,
+        image: req.body.image,
+        when_created: req.body.when_created,
+        content: req.body.content,
+      },
+    }
+  );
+  res.end(JSON.stringify({ status: "ok", result: article }));
+});
+
+//
+
+// add/get/delete/edit service in/from data base
+
+app.post("/service/save", async (req, res) => {
+  const { id, name, url, image, description, checks, text, content } = req.body;
+  const service = await Service.create({
+    id,
+    name,
+    url,
+    image,
+    description,
+    checks,
+    text,
+    content,
+  });
+  res.end(JSON.stringify({ status: "ok", result: service }));
+});
+app.get("/services/:service", async (req, res) => {
+  const serviceUrl = req.params.service;
+  const trucks = await db.collection("trucks").find().toArray();
+  const services = await db.collection("services").find().toArray();
+  const articles = await db.collection("articles").find().toArray();
+  const service = await db
+    .collection("services")
+    .find({ url: serviceUrl })
+    .toArray();
+  const contacts = await db.collection("contacts").findOne();
+
+  if (services) {
+    res.render("services/service", {
+      service: service,
+      services: services,
+      trucks: trucks,
+      contacts: contacts,
+      articles: articles,
+    });
+    return;
+  }
+  res.send("service-not-found");
+});
+app.delete("/delete-service/:id", (req, res) => {
+  const id = req.params.id;
+  const users = db.collection("services").deleteOne({ id: id });
+  res.end();
+});
+app.put("/edit-service/:id", async (req, res) => {
+  const id = req.body.id;
+  const service = await db.collection("services").updateOne(
+    { id: id },
+    {
+      $set: {
+        id: req.body.id,
+        name: req.body.name,
+        url: req.body.url,
+        image: req.body.image,
+        description: req.body.description,
+        text: req.body.text,
+        content: req.body.content,
+      },
+    }
+  );
+  res.end(JSON.stringify({ status: "ok", result: service }));
 });
 
 //
@@ -331,13 +478,14 @@ app.get("/blog/:article", async (req, res) => {
 // add/get/delete/edit truck in/from data base
 
 app.post("/truck/save", async (req, res) => {
-  const { id, name, url, image, description, text, content } = req.body;
+  const { id, name, url, image, description, checks, text, content } = req.body;
   const truck = await Truck.create({
     id,
     name,
     url,
     image,
     description,
+    checks,
     text,
     content,
   });
@@ -345,19 +493,27 @@ app.post("/truck/save", async (req, res) => {
 });
 app.get("/trucks/:truck", async (req, res) => {
   const truckUrl = req.params.truck;
-
+  const services = await db.collection("services").find().toArray();
+  const articles = await db.collection("articles").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const truck = await db.collection("trucks").find({ url: truckUrl }).toArray();
+  const contacts = await db.collection("contacts").findOne();
 
   if (trucks) {
-    res.render("trucks/truck", { truck: truck, trucks: trucks });
+    res.render("trucks/truck", {
+      truck: truck,
+      trucks: trucks,
+      contacts: contacts,
+      services: services,
+      articles: articles,
+    });
     return;
   }
   res.send("article-not-found");
 });
-app.delete("/delete-truck/:name", (req, res) => {
-  const name = req.params.name;
-  const users = db.collection("trucks").deleteOne({ name: name });
+app.delete("/delete-truck/:id", (req, res) => {
+  const id = req.params.id;
+  const users = db.collection("trucks").deleteOne({ id: id });
   res.end();
 });
 app.put("/edit-truck/:id", async (req, res) => {
@@ -378,6 +534,8 @@ app.put("/edit-truck/:id", async (req, res) => {
   );
   res.end(JSON.stringify({ status: "ok", result: truck }));
 });
+
+//
 
 // start app
 

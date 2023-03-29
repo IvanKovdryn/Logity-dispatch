@@ -1,4 +1,5 @@
 @import "mixin";
+@import "main/form";
 
 a,
 a:link,
@@ -29,17 +30,17 @@ body.lock {
   cursor: pointer;
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 70, 15, 1);
+  @include adapt("bottom", 84, 58, 1);
   @include adapt("left", 70, 12, 1);
   border-radius: 50%;
-  background: #3390ec;
+  background: #0c5aa8;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
   z-index: 100;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .phone:hover,
 .massage:hover {
@@ -51,13 +52,12 @@ body.lock {
   color: #fff;
   @include adapt("font-size", 28, 22, 1);
 }
-
 .massage {
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 70, 15, 1);
+  @include adapt("bottom", 84, 58, 1);
   @include adapt("right", 70, 12, 1);
-  background: #3390ec;
+  background: #0c5aa8;
   position: fixed;
   border-radius: 16px;
   cursor: pointer;
@@ -68,18 +68,12 @@ body.lock {
   justify-content: center;
   transition: all 0.2s ease;
   z-index: 100;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .icon-message:before {
   content: "\e900";
   color: #fff;
   @include adapt("font-size", 35, 25, 1);
-}
-@media (any-hover: hover) {
-  .phone.up,
-  .massage.up {
-    @include adapt("bottom", 120, 65, 1);
-  }
 }
 .btn {
   background: #3390ec;
@@ -104,7 +98,6 @@ body.lock {
   padding: 10px 0 0;
   color: #212121;
   display: block;
-  width: max-content;
 }
 .title::before {
   content: "";
@@ -140,7 +133,7 @@ body.lock {
 }
 .navigation {
   display: flex;
-  align-items: center;
+  align-items: end;
   flex-wrap: wrap;
   @include adapt("gap", 7, 3, 1);
   padding: 20px 5px;
@@ -206,7 +199,7 @@ body.lock {
   margin: 0 5px 0 0;
 }
 .input-subscribe.error {
-  background: rgb(255 180 180);
+  background: rgb(255, 211, 211);
 }
 .status-subscribe {
   width: 100%;
@@ -214,6 +207,9 @@ body.lock {
 .status-text-subscribe {
   width: 100%;
   text-align: center;
+}
+.status-subscribe .status-text {
+  top: -12px;
 }
 .sub-btn {
   cursor: pointer;

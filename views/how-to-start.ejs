@@ -20,7 +20,7 @@
               <div class="howStart-text">Step #1</div>
               <div class="howStart-subtext">
                 Apply using <a href="#a">this form</a> or by phone call:
-                <a href="#a">+? (???) ???-??-??</a>
+                <a href="#a"><%- contacts.tel %></a>
               </div>
             </div>
             <div class="howStart-col">
@@ -54,9 +54,9 @@
             </div>
           </div>
           <div class="absec-btns">
-            <a href="#a" class="absec-contact">Contact Us</a>
-            <a href="#a" class="absec-number">684 562 21 47</a>
-            <a href="#a" class="absec-email">???@gmail.com</a>
+            <a href="/contact-us" class="absec-contact">Contact Us</a>
+            <a href="#a" class="absec-number"><%- contacts.tel %></a>
+            <a href="#a" class="absec-email"><%- contacts.email %></a>
           </div>
         </div>
       </section>

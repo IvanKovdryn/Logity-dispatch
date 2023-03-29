@@ -3,7 +3,7 @@
     <div class="choose-subtitle">Choose Your Truck Type</div>
     <div class="choose-row">
       <% trucks.forEach((truck) => { %>
-      <a href="<% truck.link %>" class="choose-col"><%- truck.name %></a>
+      <a href="/trucks/<%= truck.url %>" class="choose-col"><%- truck.name %></a>
       <% }) %>
     </div>
   </div>

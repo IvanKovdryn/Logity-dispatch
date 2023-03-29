@@ -23,17 +23,17 @@ body.lock {
   cursor: pointer;
   height: 70px;
   width: 70px;
-  bottom: 70px;
+  bottom: 84px;
   left: 70px;
   border-radius: 50%;
-  background: #3390ec;
+  background: #0c5aa8;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
   z-index: 100;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 @media (max-width: 1200px) {
   .phone {
@@ -54,7 +54,7 @@ body.lock {
 @media (max-width: 1200px) {
   .phone {
     bottom: calc(
-        15px + 55 *
+        58px + 26 *
           ((100vw - 320px) / 880)
       );
   }
@@ -91,9 +91,9 @@ body.lock {
 .massage {
   height: 70px;
   width: 70px;
-  bottom: 70px;
+  bottom: 84px;
   right: 70px;
-  background: #3390ec;
+  background: #0c5aa8;
   position: fixed;
   border-radius: 16px;
   cursor: pointer;
@@ -104,7 +104,7 @@ body.lock {
   justify-content: center;
   transition: all 0.2s ease;
   z-index: 100;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 @media (max-width: 1200px) {
   .massage {
@@ -125,7 +125,7 @@ body.lock {
 @media (max-width: 1200px) {
   .massage {
     bottom: calc(
-        15px + 55 *
+        58px + 26 *
           ((100vw - 320px) / 880)
       );
   }
@@ -235,6 +235,7 @@ body.lock {
     height: 50px;
   }
 }
+
 .logo {
   align-self: baseline;
   opacity: 0.9;
@@ -244,16 +245,23 @@ body.lock {
   position: relative;
   display: flex;
   align-items: center;
-  width: 100px;
-  height: 75px;
+  width: 80px;
+  height: 50px;
   background: rgb(255, 255, 255);
-  border-radius: 17px;
+  border-radius: 15px;
   transform: translate(-5px, 5px);
 }
 @media (max-width: 992px) {
   .logo-link {
-    width: 80px;
-    height: 60px;
+    transform: translate(-5px, 3px);
+    width: 70px;
+    height: 44px;
+    border-radius: 8px;
+  }
+}
+@media (max-width: 325px) {
+  .logo-link {
+    transform: translate(0, 3px);
   }
 }
 
@@ -261,11 +269,17 @@ body.lock {
   right: 0;
   object-fit: cover;
   position: absolute;
-  width: 115%;
+  width: 110%;
   height: 100%;
   transform: rotate(-4deg);
   margin-right: -6px;
   pointer-events: none;
+}
+@media (max-width: 992px) {
+  .logo-link img {
+    width: 105%;
+    margin-right: -2px;
+  }
 }
 
 .logo-text {
@@ -727,7 +741,7 @@ body.lock {
 .form-name-wrapper input,
 .form-number-wrapper input,
 .form-email-wrapper input {
-  font-family: "Lato", sans-serif;
+  font-family: "Gilroy", sans-serif;
   font-size: 16px;
   padding: 10px;
   background: #f3f4f5;
@@ -818,7 +832,7 @@ body.lock {
 }
 
 .form-agree.error .label-checkbox::before {
-  background: rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .form-agree input {
@@ -934,7 +948,7 @@ body.lock {
 }
 
 .input.error {
-  background: rgba(255, 0, 0, 0.15);
+  background: rgba(255, 0, 0, 0.1);
 }
 
 .status {
@@ -945,7 +959,8 @@ body.lock {
   font-size: 16px;
   position: absolute;
   left: 5px;
-  top: -5px;
+  top: -7px;
+  text-align: center;
   font-weight: 700;
   color: #2086ea;
   transition: all 0.4s ease;
@@ -969,7 +984,7 @@ body.lock {
 
 .navigation {
   display: flex;
-  align-items: center;
+  align-items: end;
   flex-wrap: wrap;
   padding-right: 5px;
   padding-left: 5px;
@@ -1732,11 +1747,22 @@ body.lock {
   height: 325px;
   border-radius: 3px;
 }
+@media (max-width: 768px) {
+  .rev-swiper {
+    border-radius: none;
+    height: 300px;
+    width: 100vw;
+    transform: translate(-15px, 0px);
+  }
+}
 @media (max-width: 575px) {
   .rev-swiper {
     height: 350px;
-    width: 100vw;
-    transform: translate(-15px, 0px);
+  }
+}
+@media (max-width: 325px) {
+  .rev-swiper {
+    transform: translate(-10px, 0px);
   }
 }
 
@@ -2112,7 +2138,7 @@ body.lock {
 }
 
 .input-subscribe.error {
-  background: rgb(255, 180, 180);
+  background: rgb(255, 211, 211);
 }
 
 .sub-btn {
@@ -2134,7 +2160,7 @@ body.lock {
 }
 
 .footer-desc {
-  background: rgba(0, 0, 0, 0.5607843137);
+  background: rgba(0, 0, 0, 0.7254901961);
   padding: 10px;
   border-radius: 10px;
   height: 250px;

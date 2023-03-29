@@ -2,16 +2,8 @@
   <div class="dispatch-col-left">
     <% truck.forEach(function(item) { %>
     <div class="title dispatch-title"><%- item.name %></div>
+    <div class="dispatch-col-list"><%- item.checks %></div>
     <% }); %>
-    <div class="dispatch-col-list">
-      <div class="dispatch-col-li icon-check">
-        No forced dispatch and hidden payments
-      </div>
-      <div class="dispatch-col-li icon-check">
-        Personal dispatcher with 24 / 7 support
-      </div>
-      <div class="dispatch-col-li icon-check">Only 5% of gross</div>
-    </div>
   </div>
   <div class="dispatch-form-wrapper"><%- include("../include/_form") %></div>
 </div>

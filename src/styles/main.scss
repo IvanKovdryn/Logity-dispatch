@@ -21,17 +21,17 @@ body.lock {
   cursor: pointer;
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 70, 15, 1);
+  @include adapt("bottom", 84, 58, 1);
   @include adapt("left", 70, 12, 1);
   border-radius: 50%;
-  background: #3390ec;
+  background: #0c5aa8;
   position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
   z-index: 100;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .phone:hover,
 .massage:hover {
@@ -46,9 +46,9 @@ body.lock {
 .massage {
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 70, 15, 1);
+  @include adapt("bottom", 84, 58, 1);
   @include adapt("right", 70, 12, 1);
-  background: #3390ec;
+  background: #0c5aa8;
   position: fixed;
   border-radius: 16px;
   cursor: pointer;
@@ -59,7 +59,7 @@ body.lock {
   justify-content: center;
   transition: all 0.2s ease;
   z-index: 100;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .icon-message:before {
   content: "\e900";
@@ -144,7 +144,7 @@ body.lock {
 
 .navigation {
   display: flex;
-  align-items: center;
+  align-items: end;
   flex-wrap: wrap;
   padding-right: 5px;
   padding-left: 5px;
@@ -381,7 +381,7 @@ body.lock {
   margin: 0 5px 0 0;
 }
 .input-subscribe.error {
-  background: rgb(255 180 180);
+  background: rgb(255 211 211);
 }
 .sub-btn {
   cursor: pointer;
@@ -393,7 +393,7 @@ body.lock {
   color: #fff;
 }
 .footer-desc {
-  background: #0000008f;
+  background: #000000b9;
   padding: 10px;
   border-radius: 10px;
   @include adapt("height", 250, 150, 1);

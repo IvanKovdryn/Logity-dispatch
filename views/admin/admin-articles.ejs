@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("_head") %>
+  <body>
+    <nav class="nav">
+      <div class="container">
+        <div class="nav-row">
+          <div class="nav-content">
+            <div class="nav-item">
+              <a href="admin-users" class="nav-text">Users</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-services" class="nav-text">Services</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-trucks" class="nav-text">Trucks</a>
+            </div>
+            <div class="nav-item">
+              <a href="admin-articles" class="nav-text admin-articles-active"
+                >Articles</a
+              >
+            </div>
+            <div class="nav-item">
+              <a href="admin-contacts" class="nav-text">Contacts</a>
+            </div>
+          </div>
+          <div class="menu-bg">
+            <p class="menu"><span></span></p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section articles">
+      <div class="container">
+        <div class="section-head">
+          <div class="title">Articles</div>
+          <div class="add-bttn bttn">Add article</div>
+        </div>
+        <div
+          class="form-wrapper form-wrapper-article form-add"
+          id="form-articles-add"
+        >
+          <form class="form">
+            <div class="form-input-wrapper">
+              <label for="id-article-put" class="label-id label"> Id: </label>
+              <input
+                id="id-article-add"
+                type="text"
+                name="id"
+                class="input input-id input-id-add req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="name-article-add" class="label-name label">
+                Name:
+              </label>
+              <input
+                id="name-article-add"
+                type="text"
+                name="name"
+                class="input input-name req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="url-article-put" class="label-url label">
+                Url:
+              </label>
+              <input
+                id="url-article-add"
+                type="text"
+                name="url"
+                class="input input-url req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="image-article-add" class="label-img label">
+                Img:
+              </label>
+              <input
+                id="image-article-add"
+                type="text"
+                name="image"
+                class="input input-img req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="text-article-add" class="label-text label">
+                When created:
+              </label>
+              <input
+                id="text-article-add"
+                name="when_created"
+                class="input input-when_created req"
+              />
+            </div>
+            <div class="form-input-wrapper">
+              <label for="content-article-add" class="label-content label">
+                Content on the article page:
+              </label>
+              <textarea
+                id="content-article-add"
+                class="input input-content textarea req"
+                name="content"
+              >
+              </textarea>
+            </div>
+            <div class="form-btns-row">
+              <button type="submit" class="bttn">Add</button>
+              <div class="form-cancel bttn">Cancel</div>
+            </div>
+            <div class="status"><p class="status-text"></p></div>
+          </form>
+        </div>
+        <div class="blog-row">
+          <% articles.forEach(function(article) { %>
+          <a class="blog-col column article-column-id" id="<%= article.id %>">
+            <div class="services-col-bg"></div>
+            <div class="option-wrapper">
+              <div class="option-bg"></div>
+              <div class="option">
+                <div class="option-icon-open-close">
+                  <span class="icon-dots-three-vertical option-icon"></span>
+                  <span class="icon-plus option-close"></span>
+                </div>
+                <div class="option-content">
+                  <div class="option-item-wrapper option-edit-wrapper">
+                    <span class="icon-edit-3"></span>
+                    <div class="option-edit">Edit</div>
+                  </div>
+                  <div class="option-item-wrapper option-delete-wrapper">
+                    <span class="icon-delete option-delete"></span>
+                    <div class="option-delete">Delete</div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="form-wrapper form-wrapper-article form-put"
+                id="form-<%- article.url %>-put"
+              >
+                <form class="form">
+                  <div class="form-title title">Edit article</div>
+                  <div class="form-input-wrapper">
+                    <label for="id-article-put" class="label-id label">
+                      Id:
+                    </label>
+                    <input
+                      id="id-article-put"
+                      type="text"
+                      name="id"
+                      class="input input-id input-id-put req"
+                      value="<%- article.id %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="name-article-put" class="label-name label">
+                      Name:
+                    </label>
+                    <input
+                      id="name-article-put"
+                      type="text"
+                      name="name"
+                      class="input input-name req"
+                      value="<%- article.name %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="url-article-put" class="label-url label">
+                      Url:
+                    </label>
+                    <input
+                      id="url-article-put"
+                      type="text"
+                      name="url"
+                      class="input input-url req"
+                      value="<%- article.url %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="image-article-put" class="label-img label">
+                      Img:
+                    </label>
+                    <input
+                      id="image-article-put"
+                      type="text"
+                      name="image"
+                      class="input input-img req"
+                      value="<%- article.image %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label for="text-article-put" class="label-text label">
+                      When created:
+                    </label>
+                    <input
+                      id="text-article-put"
+                      name="when_created"
+                      class="input input-when_created req"
+                      value="<%- article.when_created %>"
+                    />
+                  </div>
+                  <div class="form-input-wrapper">
+                    <label
+                      for="content-article-put"
+                      class="label-content label"
+                    >
+                      Content on the article page:
+                    </label>
+                    <textarea
+                      id="content-article-put"
+                      class="input input-content textarea req"
+                      name="content"
+                    >
+                <%- article.content %>
+                </textarea
+                    >
+                  </div>
+                  <div class="form-btns-row">
+                    <button type="submit" class="bttn">Save</button>
+                    <div class="form-cancel bttn">Cancel</div>
+                  </div>
+                  <div class="status"><p class="status-text"></p></div>
+                </form>
+              </div>
+              <div class="popup-wrapper">
+                <div class="popup">
+                  <div class="popup-title">Delete article</div>
+                  <div class="popup-user"><%= article.name %></div>
+                  <div class="popup-question">
+                    Are you sure you want to delete this article?
+                  </div>
+                  <div class="popup-row">
+                    <div class="popup-text popup-cancel">
+                      <span>CANCEL</span>
+                    </div>
+                    <div class="popup-text popup-delete">
+                      <span>DELETE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sp"></div>
+            <img
+              class="blog-col-img"
+              src="/img/blog/<%= article.image %>.jpg"
+              alt="img"
+            />
+            <div class="blog-col-text name-article"><%= article.name %></div>
+            <div class="blog-col-subtext"><%- article.when_created %></div>
+            <div class="blog-col-more-wrap">
+              <div class="blog-col-more">Read more</div>
+              <div class="blog-col-arrow">
+                <span class="icon-chevron-right"></span>
+              </div>
+            </div>
+          </a>
+          <% }) %>
+        </div>
+      </div>
+    </section>
+
+    <script src="/summernote/jquery-3.6.4.slim.min.js"></script>
+    <script src="/summernote/summernote-lite.min.js"></script>
+    <script src="/js/admin.js"></script>
+    <script src="/js/adminPopup.js"></script>
+    <script src="/js/adminArticles.js"></script>
+    <script src="/js/scriptSummernote.js"></script>
+  </body>
+</html>

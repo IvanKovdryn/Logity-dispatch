@@ -8,10 +8,17 @@
   min-width: 0;
   height: 325px;
   border-radius: 3px;
-  @media (max-width: 575px) {
-    height: 350px;
+  @media (max-width: 768px) {
+    border-radius: none;
+    height: 300px;
     width: 100vw;
     transform: translate(-15px, 0px);
+  }
+  @media (max-width: 575px) {
+    height: 350px;
+  }
+  @media (max-width: 325px) {
+    transform: translate(-10px, 0px);
   }
 }
 .rev-slide {

@@ -12,6 +12,7 @@
     <%- include('../include/links', {fileCss: "services-following"}) %>
   </head>
   <body>
+    <% truck.forEach(function(item) { %>
     <header class="header">
       <div class="phone">
         <span class="icon-phone"></span>
@@ -25,27 +26,27 @@
         <div class="container">
           <div class="navigation">
             <a href="/" class="navigation-item navigation-item-home">Home</a>
+
             <span class="icon-chevrons-right"></span>
-            <a href="trucks" class="navigation-item">Trucks</a>
+            <a href="/trucks" class="navigation-item">Trucks</a>
+
             <span class="icon-chevrons-right"></span>
             <div
               id="navigation-item-active"
               class="navigation-item navigation-item-about"
             >
-              <% truck.forEach( function(item) { %> <%- item.name %> <% }); %>
+              <%- item.name %>
             </div>
           </div>
         </div>
       </div>
     </header>
-    <% truck.forEach(function(item) { %>
+
     <main id="trucks-more" class="main main-<%- item.url %>">
-      <% }); %>
       <section class="dispatch">
         <div class="container">
           <%- include('_dispatch-row') %>
           <div class="truck-row">
-            <% truck.forEach(function(item) { %>
             <div class="truck-img">
               <img src="/img/trucks/<%= item.image %>.jpg" alt="" />
             </div>
@@ -53,11 +54,10 @@
           </div>
           <div class="truck-text"><%- item.content %></div>
           <div class="absec-btns">
-            <a href="#a" class="absec-contact">Contact Us</a>
-            <a href="#a" class="absec-number">684 562 21 47</a>
-            <a href="#a" class="absec-email">???@gmail.com</a>
+            <a href="/contact-us" class="absec-contact">Contact Us</a>
+            <a href="#a" class="absec-number"><%- contacts.tel %></a>
+            <a href="#a" class="absec-email"><%- contacts.email %></a>
           </div>
-          <% }); %>
         </div>
       </section>
 
@@ -68,5 +68,6 @@
     <%- include("../include/footer") %>
     <script src="/js/form.js"></script>
     <script src="/js/script.js"></script>
+    <% }); %>
   </body>
 </html>

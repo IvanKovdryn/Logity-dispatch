@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
       let error = 0;
       for (let index = 0; index < formReq.length; index++) {
         const input = formReq[index];
-        console.log(input);
 
         formRemoveError(input);
         if (input.classList.contains("email")) {
