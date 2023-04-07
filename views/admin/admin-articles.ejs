@@ -40,16 +40,12 @@
           class="form-wrapper form-wrapper-article form-add"
           id="form-articles-add"
         >
-          <form class="form">
-            <div class="form-input-wrapper">
-              <label for="id-article-put" class="label-id label"> Id: </label>
-              <input
-                id="id-article-add"
-                type="text"
-                name="id"
-                class="input input-id input-id-add req"
-              />
-            </div>
+          <form
+            class="form"
+            action="/articles/save"
+            enctype="multipart/form-data"
+            method="POST"
+          >
             <div class="form-input-wrapper">
               <label for="name-article-add" class="label-name label">
                 Name:
@@ -62,14 +58,13 @@
               />
             </div>
             <div class="form-input-wrapper">
-              <label for="url-article-put" class="label-url label">
-                Url:
+              <label for="text-article-add" class="label-text label">
+                When created:
               </label>
               <input
-                id="url-article-add"
-                type="text"
-                name="url"
-                class="input input-url req"
+                id="text-article-add"
+                name="when_created"
+                class="input input-when_created req"
               />
             </div>
             <div class="form-input-wrapper">
@@ -78,19 +73,10 @@
               </label>
               <input
                 id="image-article-add"
-                type="text"
+                type="file"
                 name="image"
-                class="input input-img req"
-              />
-            </div>
-            <div class="form-input-wrapper">
-              <label for="text-article-add" class="label-text label">
-                When created:
-              </label>
-              <input
-                id="text-article-add"
-                name="when_created"
-                class="input input-when_created req"
+                class="input input-img file req"
+                accept="image/*"
               />
             </div>
             <div class="form-input-wrapper">
@@ -137,15 +123,15 @@
                 class="form-wrapper form-wrapper-article form-put"
                 id="form-<%- article.url %>-put"
               >
-                <form class="form">
+                <form class="form" enctype="multipart/form-data">
                   <div class="form-title title">Edit article</div>
-                  <div class="form-input-wrapper">
+                  <div class="form-input-wrapper form-input-wrapper-id">
                     <label for="id-article-put" class="label-id label">
                       Id:
                     </label>
                     <input
                       id="id-article-put"
-                      type="text"
+                      type="number"
                       name="id"
                       class="input input-id input-id-put req"
                       value="<%- article.id %>"
@@ -164,15 +150,15 @@
                     />
                   </div>
                   <div class="form-input-wrapper">
-                    <label for="url-article-put" class="label-url label">
-                      Url:
+                    <label for="text-article-put" class="label-text label">
+                      When created:
                     </label>
                     <input
-                      id="url-article-put"
                       type="text"
-                      name="url"
-                      class="input input-url req"
-                      value="<%- article.url %>"
+                      id="text-article-put"
+                      name="when_created"
+                      class="input input-when_created req"
+                      value="<%- article.when_created %>"
                     />
                   </div>
                   <div class="form-input-wrapper">
@@ -181,21 +167,11 @@
                     </label>
                     <input
                       id="image-article-put"
-                      type="text"
+                      type="file"
                       name="image"
-                      class="input input-img req"
-                      value="<%- article.image %>"
-                    />
-                  </div>
-                  <div class="form-input-wrapper">
-                    <label for="text-article-put" class="label-text label">
-                      When created:
-                    </label>
-                    <input
-                      id="text-article-put"
-                      name="when_created"
-                      class="input input-when_created req"
-                      value="<%- article.when_created %>"
+                      class="input input-img input-img-put req"
+                      accept="image/*"
+                      onchange="showData(this.value)"
                     />
                   </div>
                   <div class="form-input-wrapper">
@@ -239,10 +215,10 @@
                 </div>
               </div>
             </div>
-            <div class="sp"></div>
+            <input class="sp" value="<%- article.image %>" />
             <img
               class="blog-col-img"
-              src="/img/blog/<%= article.image %>.jpg"
+              src="/images/<%- article.image %>"
               alt="img"
             />
             <div class="blog-col-text name-article"><%= article.name %></div>
@@ -258,7 +234,24 @@
         </div>
       </div>
     </section>
+    <script>
+      function showData(input) {
+        console.log(input.file);
+      }
 
+      const fileInput = document.querySelectorAll(".input-img-put");
+      fileInput.forEach((input) => {
+        const column = input.closest(".column");
+        const sp = column.querySelector(".sp").value;
+        const theName = sp.split(".").shift();
+        const myFile = new File([`${theName}`], `${sp}`, {
+          type: "image/jpg",
+        });
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(myFile);
+        input.files = dataTransfer.files;
+      });
+    </script>
     <script src="/summernote/jquery-3.6.4.slim.min.js"></script>
     <script src="/summernote/summernote-lite.min.js"></script>
     <script src="/js/admin.js"></script>

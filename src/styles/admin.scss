@@ -26,6 +26,16 @@
   background-color: #fff;
   transition: all 0.1s ease;
 }
+.form-input-wrapper {
+  position: relative;
+}
+.form-input-wrapper-id {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+}
 .form-input-wrapper.satisfactory .input,
 .form-input-wrapper.satisfactory .note-editable {
   background-color: #e8f0fe;
@@ -34,6 +44,7 @@
 .form-input-wrapper.error .note-editable {
   background-color: rgba(255, 0, 0, 0.1);
 }
+
 p {
   margin: 0;
 }
@@ -374,6 +385,7 @@ input:-internal-autofill-selected {
   color: unset;
 }
 .input {
+  position: relative;
   display: block;
   width: 75%;
   margin: 2px 0 10px;
@@ -385,19 +397,30 @@ input:-internal-autofill-selected {
   border-radius: 2px;
   outline: #fff;
   font-family: "Gilroy", sans-serif;
-  transition: all 0.1s ease;
+  transition: unset;
   @media (max-width: 992px) {
     width: 100%;
   }
 }
-.note-editor {
-  transition: all 0.2s ease;
+.input-img {
+  position: relative;
+}
+.input-img::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 1;
 }
 .input-id-put {
   pointer-events: none;
 }
 .label {
   text-align: start;
+  position: relative;
   color: #212121;
   cursor: unset;
   pointer-events: none;
@@ -483,6 +506,7 @@ input:-internal-autofill-selected {
 }
 .services-col-content {
   pointer-events: none;
+  overflow: hidden;
 }
 .option-wrapper {
   position: absolute;

@@ -36,24 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
       let error = formValidate(form);
       const formValue = form.querySelector(".form");
       let formData = new FormData(formValue);
-      let object = {};
-      formData.forEach(function (value, key) {
-        object[key] = value;
-      });
-      let jsonBody = JSON.stringify(object);
 
-      console.log(error);
+      console.log("error: ", error);
 
       // send the added form
 
       if (form.classList.contains("add") && error === 0) {
-        console.log(jsonBody);
         let response = await fetch("/articles/save", {
           method: "POST",
-          body: jsonBody,
-          headers: {
-            "Content-Type": "application/json",
-          },
+          body: formData,
         }).catch((error) => {
           console.log(error);
           alert("error");
@@ -64,12 +55,9 @@ document.addEventListener("DOMContentLoaded", function () {
         window.setTimeout(() => {
           status.classList.add("remove");
         }, 5000);
+        console.log("responce: ", response);
         if (response.ok) {
-          let result = await response.json();
-          console.log(result);
-
           // reset form after submit
-
           formValue.reset();
           const editor = form.querySelectorAll(".note-editable");
           editor.forEach((item) => {
@@ -91,14 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // send the edited form
       } else if (form.classList.contains("put") && error === 0) {
-        console.log(jsonBody);
         let columnId = form.closest(".column").id;
         let response = await fetch(`/edit-article/${columnId}`, {
           method: "PUT",
-          body: jsonBody,
-          headers: {
-            "Content-Type": "application/json",
-          },
+          body: formData,
         }).catch((error) => {
           console.log(error);
           alert("error");
@@ -110,9 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
           status.classList.add("remove");
         }, 5000);
         if (response.ok) {
-          let result = await response.json();
-          console.log(result);
-
           // reset form after edited
 
           const satisfactory = form.querySelectorAll(".satisfactory");

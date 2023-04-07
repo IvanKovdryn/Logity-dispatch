@@ -8,6 +8,11 @@ import Truck from "./schemaModels/modelTruck.js";
 import Invites from "./schemaModels/modelInvites.js";
 import Subscribe from "./schemaModels/modelSubscribe.js";
 import Contacts from "./schemaModels/modelContacts.js";
+import imageModel from "./schemaModels/modelImage.js";
+import path from "path";
+import fs from "fs";
+import multer from "multer";
+import modelImage from "./schemaModels/modelImage.js";
 
 const db_url2 = "mongodb://root:password@localhost:27010/";
 let db;
@@ -235,21 +240,14 @@ app.get("/privacy-policy", async (req, res) => {
 
 app.get("/admin", async (req, res) => {
   if (req.cookies.name == "Ivan" && req.cookies.password == "12345") {
-    const services = await db.collection("services").find().toArray();
-    const trucks = await db.collection("trucks").find().toArray();
     const users = await db.collection("contact-us").find().toArray();
     const invites = await db.collection("invites").find().toArray();
     const subscribe = await db.collection("subscribes").find().toArray();
-    const contacts = await db.collection("contacts").findOne();
-
     if (users) {
-      res.render("admin", {
+      res.render("admin/admin-users", {
         users: users,
-        services: services,
-        trucks: trucks,
         invites: invites,
         subscribe: subscribe,
-        contacts: contacts,
       });
     } else {
       console.log("Fail");
@@ -348,20 +346,47 @@ app.put("/contacts/edit", async (req, res) => {
 
 //
 
+// set storage
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "static/images/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+const upload = multer({ storage: storage });
+
+//
+
 // add/get article in/from data base
 
-app.post("/articles/save", async (req, res) => {
-  const { id, name, url, image, when_created, content } = req.body;
-  const article = await Article.create({
-    id,
-    name,
-    url,
-    image,
-    when_created,
-    content,
-  });
-  res.end(JSON.stringify({ status: "ok", result: article }));
+app.post("/articles/save", upload.single("image"), async (req, res) => {
+  const { name, when_created, content } = req.body;
+  let id = Date.now();
+  let url = name
+    .toLowerCase()
+    .replace(/[^\w]/g, " ")
+    .trim()
+    .split(" ")
+    .join("-");
+  console.log(url);
+  if (req.file) {
+    const image = req.file.filename;
+    const article = await Article.create({
+      id,
+      name,
+      url,
+      image,
+      when_created,
+      content,
+    });
+  }
+  console.log("Saved To database");
+  res.redirect("/admin-articles");
 });
+
 app.get("/blog/:article", async (req, res) => {
   const articleUrl = req.params.article;
   const trucks = await db.collection("trucks").find().toArray();
@@ -390,30 +415,44 @@ app.delete("/delete-article/:id", (req, res) => {
   const article = db.collection("articles").deleteOne({ id: id });
   res.end();
 });
-app.put("/edit-article/:id", async (req, res) => {
+app.put("/edit-article/:id", upload.single("image"), async (req, res) => {
   const id = req.body.id;
+  console.log(req.file);
   const article = await db.collection("articles").updateOne(
     { id: id },
     {
       $set: {
-        id: req.body.id,
+        id: id,
         name: req.body.name,
-        url: req.body.url,
-        image: req.body.image,
+        url: req.body.name
+          .toLowerCase()
+          .replace(/[^\w]/g, " ")
+          .trim()
+          .split(" ")
+          .join("-"),
+        image: req.file.filename,
         when_created: req.body.when_created,
         content: req.body.content,
       },
     }
   );
-  res.end(JSON.stringify({ status: "ok", result: article }));
+  res.redirect("/admin-articles");
 });
 
 //
 
 // add/get/delete/edit service in/from data base
 
-app.post("/service/save", async (req, res) => {
-  const { id, name, url, image, description, checks, text, content } = req.body;
+app.post("/service/save", upload.single("image"), async (req, res) => {
+  const { name, description, checks, text, content } = req.body;
+  let url = name
+    .toLowerCase()
+    .replace(/[^\w]/g, " ")
+    .trim()
+    .split(" ")
+    .join("-");
+  const image = req.file.filename;
+  let id = Date.now();
   const service = await Service.create({
     id,
     name,
@@ -454,7 +493,7 @@ app.delete("/delete-service/:id", (req, res) => {
   const users = db.collection("services").deleteOne({ id: id });
   res.end();
 });
-app.put("/edit-service/:id", async (req, res) => {
+app.put("/edit-service/:id", upload.single("image"), async (req, res) => {
   const id = req.body.id;
   const service = await db.collection("services").updateOne(
     { id: id },
@@ -462,8 +501,13 @@ app.put("/edit-service/:id", async (req, res) => {
       $set: {
         id: req.body.id,
         name: req.body.name,
-        url: req.body.url,
-        image: req.body.image,
+        url: req.body.name
+          .toLowerCase()
+          .replace(/[^\w]/g, " ")
+          .trim()
+          .split(" ")
+          .join("-"),
+        image: req.file.filename,
         description: req.body.description,
         text: req.body.text,
         content: req.body.content,
@@ -477,8 +521,16 @@ app.put("/edit-service/:id", async (req, res) => {
 
 // add/get/delete/edit truck in/from data base
 
-app.post("/truck/save", async (req, res) => {
-  const { id, name, url, image, description, checks, text, content } = req.body;
+app.post("/truck/save", upload.single("image"), async (req, res) => {
+  const { name, description, checks, text, content } = req.body;
+  let url = name
+    .toLowerCase()
+    .replace(/[^\w]/g, " ")
+    .trim()
+    .split(" ")
+    .join("-");
+  let id = Date.now();
+  const image = req.file.filename;
   const truck = await Truck.create({
     id,
     name,
@@ -516,7 +568,7 @@ app.delete("/delete-truck/:id", (req, res) => {
   const users = db.collection("trucks").deleteOne({ id: id });
   res.end();
 });
-app.put("/edit-truck/:id", async (req, res) => {
+app.put("/edit-truck/:id", upload.single("image"), async (req, res) => {
   const id = req.body.id;
   const truck = await db.collection("trucks").updateOne(
     { id: id },
@@ -524,8 +576,13 @@ app.put("/edit-truck/:id", async (req, res) => {
       $set: {
         id: req.body.id,
         name: req.body.name,
-        url: req.body.url,
-        image: req.body.image,
+        url: req.body.name
+          .toLowerCase()
+          .replace(/[^\w]/g, " ")
+          .trim()
+          .split(" ")
+          .join("-"),
+        image: req.file.filename,
         description: req.body.description,
         text: req.body.text,
         content: req.body.content,

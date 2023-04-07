@@ -43,17 +43,6 @@
           <form class="form">
             <div class="form-title title">Add service</div>
             <div class="form-input-wrapper">
-              <label for="id-service-add" class="label-id label">
-                Id: (is not displayed on the page and cannot be changed)
-              </label>
-              <input
-                id="id-service-add"
-                type="text"
-                name="id"
-                class="input input-id req-input req"
-              />
-            </div>
-            <div class="form-input-wrapper">
               <label for="name-service-add" class="label-name label">
                 Name:
               </label>
@@ -65,25 +54,15 @@
               />
             </div>
             <div class="form-input-wrapper">
-              <label for="url-service-add" class="label-url label">
-                Url:
-              </label>
-              <input
-                id="url-service-add"
-                type="text"
-                name="url"
-                class="input input-url req-input req"
-              />
-            </div>
-            <div class="form-input-wrapper">
               <label for="image-service-add" class="label-img label">
                 Img:
               </label>
               <input
                 id="image-service-add"
-                type="text"
+                type="file"
                 name="image"
                 class="input input-img req-input req"
+                accept="image/*"
               />
             </div>
             <div class="form-input-wrapper">
@@ -160,7 +139,7 @@
               >
                 <form class="form">
                   <div class="form-title title">Edit service</div>
-                  <div class="form-input-wrapper">
+                  <div class="form-input-wrapper form-input-wrapper-id">
                     <label for="id-service-put" class="label-id label">
                       Id:
                     </label>
@@ -185,27 +164,15 @@
                     />
                   </div>
                   <div class="form-input-wrapper">
-                    <label for="url-service-put" class="label-url label">
-                      Url:
-                    </label>
-                    <input
-                      id="url-service-put"
-                      type="text"
-                      name="url"
-                      class="input input-url req"
-                      value="<%- service.url %>"
-                    />
-                  </div>
-                  <div class="form-input-wrapper">
                     <label for="image-service-put" class="label-img label">
                       Img:
                     </label>
                     <input
                       id="image-service-put"
-                      type="text"
+                      type="file"
                       name="image"
                       class="input input-img req"
-                      value="<%- service.image %>"
+                      accept="image/*"
                     />
                   </div>
                   <div class="form-input-wrapper">
@@ -292,7 +259,7 @@
               </div>
             </div>
             <div class="services-col-img">
-              <img src="/img/backgrounds/bg-<%= service.image %>.jpg" alt="" />
+              <img src="/images/<%= service.image %>" alt="" />
             </div>
             <div class="services-col-content">
               <div class="services-col-name name-service">
@@ -313,8 +280,20 @@
         </div>
       </div>
     </section>
-    <script src="/summernote/jquery-3.6.4.slim.min.js"></script>
-    <script src="/summernote/summernote-lite.min.js"></script>
+    <!-- <script src="/summernote/jquery-3.6.4.slim.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.slim.min.js"
+      integrity="sha512-fYjSocDD6ctuQ1QGIo9+Nn9Oc4mfau2IiE8Ki1FyMV4OcESUt81FMqmhsZe9zWZ6g6NdczrEMAos1GlLLAipWg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- <script src="/summernote/summernote-lite.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"
+      integrity="sha512-lVkQNgKabKsM1DA/qbhJRFQU8TuwkLF2vSN3iU/c7+iayKs08Y8GXqfFxxTZr1IcpMovXnf2N/ZZoMgmZep1YQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="/js/scriptSummernote.js"></script>
     <script src="/js/admin.js"></script>
     <script src="/js/adminPopup.js"></script>

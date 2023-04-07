@@ -4,9 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <% articles.forEach(function(article) { %>
-    <title><%= article.name %></title>
-
+    <% article.forEach(function(item) { %>
+    <title><%= item.name %></title>
     <% }); %> <%- include('../../include/links', {fileCss: "blog-following"}) %>
   </head>
   <body>
@@ -50,7 +49,7 @@
               <div class="articles-title">Popular articles</div>
               <% articles.forEach(function(article) { %>
               <a href="<%= article.url %>" class="article">
-                <img src="/img/blog/<%= article.image %>.jpg" alt="" />
+                <img src="/images/<%= article.image %>" alt="" />
                 <div class="article-name"><%= article.name %></div>
               </a>
               <% }); %>
@@ -61,7 +60,6 @@
     </main>
 
     <%- include("../../include/footer") %>
-    <script src="/js/blogArticle.js"></script>
     <script src="/js/script.js"></script>
   </body>
 </html>

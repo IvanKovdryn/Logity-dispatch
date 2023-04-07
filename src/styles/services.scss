@@ -53,6 +53,7 @@
   @include adapt("padding-bottom", 35, 20, 1);
   @include adapt("padding-left", 20, 10, 1);
   @include adapt("padding-right", 20, 10, 1);
+  overflow: hidden;
 }
 .services-col-number,
 .services-col-name {
@@ -66,6 +67,7 @@
 .services-col-desc {
   @include adapt("font-size", 16, 13, 1);
   @include adapt("padding-bottom", 25, 15, 1);
+  overflow: hidden;
 }
 .title-more {
   display: inline-flex;

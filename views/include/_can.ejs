@@ -8,11 +8,7 @@
       <% trucks.forEach(function(truck) { %>
       <a href="/trucks/<%- truck.url %>" class="can-col">
         <div class="can-col-img-wrapper">
-          <img
-            class="can-col-img"
-            src="/img/trucks/<%- truck.image %>.jpg"
-            alt="img"
-          />
+          <img class="can-col-img" src="/images/<%- truck.image %>" alt="img" />
         </div>
         <div class="can-col-text">
           <div class="can-col-name"><%- truck.name %></div>

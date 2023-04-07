@@ -248,7 +248,7 @@ body.lock {
   width: 80px;
   height: 50px;
   background: rgb(255, 255, 255);
-  border-radius: 15px;
+  border-radius: 10px;
   transform: translate(-5px, 5px);
 }
 @media (max-width: 992px) {
@@ -256,7 +256,7 @@ body.lock {
     transform: translate(-5px, 3px);
     width: 70px;
     height: 44px;
-    border-radius: 8px;
+    border-radius: 7px;
   }
 }
 @media (max-width: 325px) {
@@ -1165,6 +1165,7 @@ body.lock {
 .services-col-content {
   gap: 10px;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   z-index: 5;
 }
@@ -1961,6 +1962,8 @@ body.lock {
 }
 
 .sp {
+  pointer-events: none;
+  opacity: 0;
   flex: 1 1 auto;
 }
 

@@ -72,6 +72,7 @@
   padding-bottom: 35px;
   padding-left: 20px;
   padding-right: 20px;
+  overflow: hidden;
 }
 @media (max-width: 1200px) {
   .services-col-content {
@@ -145,6 +146,7 @@
 .services-col-desc {
   font-size: 16px;
   padding-bottom: 25px;
+  overflow: hidden;
 }
 @media (max-width: 1200px) {
   .services-col-desc {

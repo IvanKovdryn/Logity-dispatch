@@ -43,17 +43,6 @@
           <form class="form">
             <div class="form-title title">Add truck</div>
             <div class="form-input-wrapper">
-              <label for="id-truck-add" class="label-id label">
-                Id: (is not displayed on the page and cannot be changed)
-              </label>
-              <input
-                id="id-truck-add"
-                type="text"
-                name="id"
-                class="input input-id req"
-              />
-            </div>
-            <div class="form-input-wrapper">
               <label for="name-truck-add" class="label-name label">
                 Name:
               </label>
@@ -65,23 +54,15 @@
               />
             </div>
             <div class="form-input-wrapper">
-              <label for="url-truck-add" class="label-url label"> Url: </label>
-              <input
-                id="url-truck-add"
-                type="text"
-                name="url"
-                class="input input-url req"
-              />
-            </div>
-            <div class="form-input-wrapper">
               <label for="image-truck-add" class="label-img label">
                 Img:
               </label>
               <input
                 id="image-truck-add"
-                type="text"
+                type="file"
                 name="image"
                 class="input input-img req"
+                accept="image/*"
               />
             </div>
             <div class="form-input-wrapper">
@@ -169,7 +150,7 @@
               >
                 <form class="form">
                   <div class="form-title title">Edit truck</div>
-                  <div class="form-input-wrapper">
+                  <div class="form-input-wrapper form-input-wrapper-id">
                     <label for="id-truck-put" class="label-id label">
                       Id:
                     </label>
@@ -194,27 +175,15 @@
                     />
                   </div>
                   <div class="form-input-wrapper">
-                    <label for="url-truck-put" class="label-url label">
-                      Url:
-                    </label>
-                    <input
-                      id="url-truck-put"
-                      type="text"
-                      name="url"
-                      class="input input-url req"
-                      value="<%- truck.url %>"
-                    />
-                  </div>
-                  <div class="form-input-wrapper">
                     <label for="image-truck-put" class="label-img label">
                       Img:
                     </label>
                     <input
                       id="image-truck-put"
-                      type="text"
+                      type="file"
                       name="image"
                       class="input input-img req"
-                      value="<%- truck.image %>"
+                      accept="image/*"
                     />
                   </div>
                   <div class="form-input-wrapper">
@@ -298,7 +267,7 @@
               </div>
             </div>
             <div class="services-col-img">
-              <img src="/img/trucks/<%= truck.image %>.jpg" alt="" />
+              <img src="/images/<%- truck.image %>" alt="" />
             </div>
             <div class="services-col-content">
               <div class="services-col-name name-truck"><%= truck.name %></div>
@@ -317,8 +286,20 @@
         </div>
       </div>
     </section>
-    <script src="/summernote/jquery-3.6.4.slim.min.js"></script>
-    <script src="/summernote/summernote-lite.min.js"></script>
+    <!-- <script src="/summernote/jquery-3.6.4.slim.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.slim.min.js"
+      integrity="sha512-fYjSocDD6ctuQ1QGIo9+Nn9Oc4mfau2IiE8Ki1FyMV4OcESUt81FMqmhsZe9zWZ6g6NdczrEMAos1GlLLAipWg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!-- <script src="/summernote/summernote-lite.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"
+      integrity="sha512-lVkQNgKabKsM1DA/qbhJRFQU8TuwkLF2vSN3iU/c7+iayKs08Y8GXqfFxxTZr1IcpMovXnf2N/ZZoMgmZep1YQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="/js/admin.js"></script>
     <script src="/js/adminTrucks.js"></script>
     <script src="/js/adminPopup.js"></script>

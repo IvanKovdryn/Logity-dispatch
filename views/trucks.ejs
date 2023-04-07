@@ -20,7 +20,7 @@
             <% trucks.forEach(function(truck) { %>
             <div class="services-col" id="<%= truck.id %>">
               <div class="services-col-img">
-                <img src="/img/trucks/<%= truck.image %>.jpg" alt="" />
+                <img src="/images/<%- truck.image %>" alt="" />
               </div>
               <div class="services-col-content">
                 <div class="services-col-name"><%= truck.name %></div>

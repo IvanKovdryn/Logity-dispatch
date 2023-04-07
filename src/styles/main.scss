@@ -232,6 +232,7 @@ body.lock {
 .services-col-content {
   @include adapt("gap", 10, 7, 1);
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   z-index: 5;
 }

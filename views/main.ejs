@@ -76,10 +76,7 @@
             <% services.forEach((service) => { %>
             <a href="/services/<%= service.url %>" class="services-col">
               <div class="back-img">
-                <img
-                  src="/img/backgrounds/bg-<%= service.image %>.jpg"
-                  alt="img"
-                />
+                <img src="/images/<%= service.image %>" alt="img" />
               </div>
               <div class="services-col-content">
                 <div class="services-col-number"><%= service.id %></div>
