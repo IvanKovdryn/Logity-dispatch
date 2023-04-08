@@ -8,13 +8,18 @@ import Truck from "./schemaModels/modelTruck.js";
 import Invites from "./schemaModels/modelInvites.js";
 import Subscribe from "./schemaModels/modelSubscribe.js";
 import Contacts from "./schemaModels/modelContacts.js";
-import imageModel from "./schemaModels/modelImage.js";
 import path from "path";
-import fs from "fs";
 import multer from "multer";
-import modelImage from "./schemaModels/modelImage.js";
+import dotenv from "dotenv";
 
-const db_url2 = "mongodb://root:password@localhost:27010/";
+dotenv.config();
+
+const dbUrl = process.env.LD_DB_URL;
+if (!dbUrl) {
+  throw new Error(
+    'You should specify DB connection string in environment variable "LD_DB_URL"'
+  );
+}
 let db;
 
 const port = 8080;
@@ -598,7 +603,7 @@ app.put("/edit-truck/:id", upload.single("image"), async (req, res) => {
 
 async function start() {
   try {
-    await mongoose.connect(db_url2, {
+    await mongoose.connect(dbUrl, {
       useNewUrlParser: true,
     });
     db = mongoose.connection;
