@@ -33,7 +33,9 @@
               </div>
               <div class="header-number">
                 <a class="header-contact-link btn" href="#a">
+                  <% if (contacts) { %>
                   <span><%- contacts.tel %></span>
+                  <% } %>
                 </a>
               </div>
             </div>
@@ -71,7 +73,7 @@
             </div>
           </div>
           <div class="services-row">
-            <% services.forEach((service) => { %>
+            <% if (services) { services.forEach((service) => { %>
             <a href="/services/<%= service.url %>" class="services-col">
               <div class="back-img">
                 <img src="/images/<%= service.image %>" alt="img" />
@@ -85,7 +87,7 @@
                 <span class="icon-chevron-thin-right services-col-icon"></span>
               </div>
             </a>
-            <% }) %>
+            <% })} %>
           </div>
         </div>
       </section>

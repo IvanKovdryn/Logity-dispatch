@@ -37,7 +37,7 @@
           <div class="blog-row-wrapper swiper-container">
             <div class="blog-row swiper-wrapper">
               <div class="blog-slide swiper-slide">
-                <% articles.forEach(function(article) { %>
+                <% if (articles) { articles.forEach(function(article) { %>
                 <a href="/blog/<%= article.url %>" class="blog-col">
                   <div class="sp"></div>
                   <img
@@ -56,7 +56,7 @@
                     </div>
                   </div>
                 </a>
-                <% }); %>
+                <% })}; %>
               </div>
               <div class="blog-slide swiper-slide"></div>
             </div>

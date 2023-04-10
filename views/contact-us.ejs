@@ -22,6 +22,7 @@
                 IS OUR #1 PRIORITY
               </div>
               <div class="contact-office">Head Office</div>
+              <% if (contacts) { %>
               <div class="contact-office-exact">
                 LOGITY DISPATCH
                 <br />
@@ -35,6 +36,7 @@
               <div class="contact-email-exact">
                 <a href="#a"><%- contacts.email %></a>
               </div>
+              <% } %>
             </div>
             <%- include("include/_form") %>
           </div>

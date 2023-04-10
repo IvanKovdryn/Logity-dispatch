@@ -14,7 +14,7 @@
         <div class="container">
           <div class="title prog-title">Our Services</div>
           <div class="services-row">
-            <% services.forEach(function(service) { %>
+            <% if (services) { services.forEach(function(service) { %>
             <div class="services-col" id="<%= service.id %>">
               <div class="services-col-img">
                 <img src="/images/<%= service.image %>" alt="" />
@@ -34,7 +34,7 @@
                 </a>
               </div>
             </div>
-            <% }); %>
+            <% })}; %>
           </div>
         </div>
       </section>

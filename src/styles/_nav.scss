@@ -77,18 +77,13 @@
 .nav.active .nav-content {
   @include adapt("font-size", 22, 18, 1);
   position: absolute;
-  right: 20px;
   top: 100px;
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   align-items: end;
   justify-content: space-between;
-  @media (max-width: 768px) {
-    right: 15px;
-  }
   @media (max-width: 475px) {
-    right: 15px;
     top: 80px;
   }
   @media (max-width: 325px) {
@@ -101,15 +96,15 @@
   display: flex;
   position: relative;
   transition: color 0.2s ease;
-  @media (max-width: 992px) {
-    padding: 20px 5px;
+  @media (any-hover: none) or (max-width: 992px) {
+    width: 100%;
   }
-  @media (max-width: 768px) {
-    padding: 15px 5px;
-  }
-  @media (max-width: 475px) {
-    padding: 10px 5px;
-  }
+}
+.nav-item.active {
+  background: #252525;
+}
+.nav-item.active .nav-link {
+  color: #3390ec;
 }
 .nav-item.sub-active .nav-link {
   background: #252525;
@@ -118,17 +113,20 @@
   color: #3390ec;
   background: #252525;
 }
-.nav-link.active {
-  color: #3390ec;
-  background: #252525;
-}
 .nav-link {
   flex: 1 1 auto;
   text-align: center;
   padding: 19px 0;
   transition: all 0.2s ease;
-  @media (max-width: 992px) {
-    padding: 10px 0;
+  @media (any-hover: none) or (max-width: 992px) {
+    padding: 20px 20px;
+    text-align: end;
+  }
+  @media (max-width: 768px) {
+    padding: 15px 15px;
+  }
+  @media (max-width: 325px) {
+    padding: 10px 10px;
   }
 }
 .nav-item:hover .nav-subcontent {

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('../include/meta') %> <% service.forEach(function(item) { %>
+    <%- include('../include/meta') %> <% if (service) {
+    service.forEach(function(item) { %>
     <title><%- item.name %></title>
-    <% }) %>
+    <% })} %>
 
     <link
       rel="stylesheet"
@@ -13,7 +14,7 @@
     <%- include('../include/links', {fileCss: "services-following"}) %>
   </head>
   <body>
-    <% service.forEach(function(item) { %>
+    <% if (service) { service.forEach(function(item) { %>
     <header class="header">
       <div class="phone">
         <span class="icon-phone"></span>
@@ -72,6 +73,6 @@
     <script src="/js/swiper.js"></script>
     <script src="/js/form.js"></script>
     <script type="module" src="/js/faqQuestions.js"></script>
-    <% }) %>
+    <% })} %>
   </body>
 </html>

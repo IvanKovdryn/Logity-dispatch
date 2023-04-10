@@ -1,4 +1,4 @@
-@media (max-width: 992px) {
+@media (any-hover: none) or (max-width: 992px) {
   /* NAV */
 
   .nav-row {
@@ -6,6 +6,9 @@
   }
   .nav-content {
     display: none;
+    width: 100%;
+    position: absolute;
+    right: 0;
   }
   .nav-contact {
     flex: 1 1 auto;
@@ -16,7 +19,9 @@
   .menu-bg {
     display: block;
   }
+}
 
+@media (max-width: 992px) {
   /* FOOTER */
 
   .footer-bottom {

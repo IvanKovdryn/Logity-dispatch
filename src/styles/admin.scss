@@ -775,7 +775,7 @@ input:-internal-autofill-selected {
 
 // media
 
-@media (max-width: 992px) {
+@media (any-hover: none) or (max-width: 992px) {
   /* NAV */
 
   .nav-row {
@@ -783,17 +783,12 @@ input:-internal-autofill-selected {
   }
   .nav-content {
     display: none;
-  }
-  .nav-item {
-    padding: 10px 5px;
-    margin: 10px 0;
-  }
-  .nav-text {
-    font-size: 22px;
+    width: 100%;
+    position: absolute;
+    right: 0;
   }
   .menu-bg {
-    display: flex;
-    justify-content: end;
+    display: block;
   }
 }
 
@@ -803,7 +798,6 @@ input:-internal-autofill-selected {
   .menu::before,
   .menu::after {
     width: 30px;
-    left: 0;
   }
   .menu span {
     width: 30px;
@@ -814,7 +808,6 @@ input:-internal-autofill-selected {
 @media (max-width: 325px) {
   .nav.active .nav-content {
     font-size: 20px;
-    right: 30px;
-    top: 65px;
+    top: 75px;
   }
 }

@@ -49,6 +49,7 @@
         <div class="fot-mid-col">
           <div class="fot-mid-title">Contacts</div>
           <div class="fot-mid-list">
+            <% if (contacts) { %>
             <a href="#a" class="fot-mid-item">
               <span class="icon-mobile2 fot-mid-mobile fot-mid-icon"></span>
               <div><%- contacts.tel %></div>
@@ -61,6 +62,7 @@
               <span class="icon-location-pin fot-mid-loc fot-mid-icon"></span>
               <div><%- contacts.location %></div>
             </a>
+            <% } %>
           </div>
         </div>
       </div>

@@ -722,7 +722,6 @@
 .nav.active .nav-content {
   font-size: 22px;
   position: absolute;
-  right: 20px;
   top: 100px;
   flex: 1 1 auto;
   display: flex;
@@ -738,14 +737,8 @@
       );
   }
 }
-@media (max-width: 768px) {
-  .nav.active .nav-content {
-    right: 15px;
-  }
-}
 @media (max-width: 475px) {
   .nav.active .nav-content {
-    right: 15px;
     top: 80px;
   }
 }
@@ -762,20 +755,18 @@
   position: relative;
   transition: color 0.2s ease;
 }
-@media (max-width: 992px) {
+@media (any-hover: none) or (max-width: 992px) {
   .nav-item {
-    padding: 20px 5px;
+    width: 100%;
   }
 }
-@media (max-width: 768px) {
-  .nav-item {
-    padding: 15px 5px;
-  }
+
+.nav-item.active {
+  background: #252525;
 }
-@media (max-width: 475px) {
-  .nav-item {
-    padding: 10px 5px;
-  }
+
+.nav-item.active .nav-link {
+  color: #3390ec;
 }
 
 .nav-item.sub-active .nav-link {
@@ -787,20 +778,26 @@
   background: #252525;
 }
 
-.nav-link.active {
-  color: #3390ec;
-  background: #252525;
-}
-
 .nav-link {
   flex: 1 1 auto;
   text-align: center;
   padding: 19px 0;
   transition: all 0.2s ease;
 }
-@media (max-width: 992px) {
+@media (any-hover: none) or (max-width: 992px) {
   .nav-link {
-    padding: 10px 0;
+    padding: 20px 20px;
+    text-align: end;
+  }
+}
+@media (max-width: 768px) {
+  .nav-link {
+    padding: 15px 15px;
+  }
+}
+@media (max-width: 325px) {
+  .nav-link {
+    padding: 10px 10px;
   }
 }
 
@@ -2320,24 +2317,19 @@ input:-internal-autofill-selected {
   }
 }
 
-@media (max-width: 992px) {
+@media (any-hover: none) or (max-width: 992px) {
   /* NAV */
   .nav-row {
     justify-content: end;
   }
   .nav-content {
     display: none;
-  }
-  .nav-item {
-    padding: 10px 5px;
-    margin: 10px 0;
-  }
-  .nav-text {
-    font-size: 22px;
+    width: 100%;
+    position: absolute;
+    right: 0;
   }
   .menu-bg {
-    display: flex;
-    justify-content: end;
+    display: block;
   }
 }
 @media (max-width: 575px) {
@@ -2345,7 +2337,6 @@ input:-internal-autofill-selected {
   .menu::before,
   .menu::after {
     width: 30px;
-    left: 0;
   }
   .menu span {
     width: 30px;
@@ -2355,7 +2346,6 @@ input:-internal-autofill-selected {
 @media (max-width: 325px) {
   .nav.active .nav-content {
     font-size: 20px;
-    right: 30px;
-    top: 65px;
+    top: 75px;
   }
 }

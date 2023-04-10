@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%- include('../include/meta') %> <% truck.forEach(function(item) { %>
+    <%- include('../include/meta') %> <% if (trucks) {
+    truck.forEach(function(item) { %>
     <title><%- item.name %></title>
-    <% }); %>
+    <% })}; %>
 
     <link rel="stylesheet" href="/css/truck.css" />
     <%- include('../include/links', {fileCss: "services-following"}) %>
@@ -52,8 +53,10 @@
           <div class="truck-text"><%- item.content %></div>
           <div class="absec-btns">
             <a href="/contact-us" class="absec-contact">Contact Us</a>
+            <% if (contacts) { %>
             <a href="#a" class="absec-number"><%- contacts.tel %></a>
             <a href="#a" class="absec-email"><%- contacts.email %></a>
+            <% } %>
           </div>
         </div>
       </section>

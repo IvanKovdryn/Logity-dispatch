@@ -2,9 +2,11 @@
   <div class="container">
     <div class="choose-subtitle">Choose Your Truck Type</div>
     <div class="choose-row">
-      <% trucks.forEach((truck) => { %>
-      <a href="/trucks/<%= truck.url %>" class="choose-col"><%- truck.name %></a>
-      <% }) %>
+      <% if (trucks) { trucks.forEach((truck) => { %>
+      <a href="/trucks/<%= truck.url %>" class="choose-col"
+        ><%- truck.name %></a
+      >
+      <% })} %>
     </div>
   </div>
 </section>

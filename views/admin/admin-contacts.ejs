@@ -41,7 +41,7 @@
                 type="tel"
                 name="tel"
                 class="input req input-contacts-app input-tel-app"
-                value="<%- contacts.tel %>"
+                value="<% if (contacts) { %><%- contacts.tel %><% } %>"
               />
             </div>
             <div class="form-email-wrapper">
@@ -51,7 +51,7 @@
                 type="email"
                 name="email"
                 class="input req input-contacts-app input-email-app"
-                value="<%- contacts.email %>"
+                value="<% if (contacts) { %><%- contacts.email %><% } %>"
               />
             </div>
             <div class="form-location-wrapper">
@@ -61,7 +61,7 @@
                 type="text"
                 name="location"
                 class="input req input-contacts-app input-location-app"
-                value="<%- contacts.location %>"
+                value="<% if (contacts) { %><%- contacts.location %><% } %>"
               />
             </div>
           </div>

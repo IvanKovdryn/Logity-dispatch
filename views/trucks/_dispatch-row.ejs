@@ -1,9 +1,9 @@
 <div class="dispatch-row">
   <div class="dispatch-col-left">
-    <% truck.forEach(function(item) { %>
+    <% if (truck) { truck.forEach(function(item) { %>
     <div class="title dispatch-title"><%- item.name %></div>
     <div class="dispatch-col-list"><%- item.checks %></div>
-    <% }); %>
+    <% })}; %>
   </div>
   <div class="dispatch-form-wrapper"><%- include("../include/_form") %></div>
 </div>

@@ -5,7 +5,7 @@
       <p>work with us</p>
     </a>
     <div class="can-row">
-      <% trucks.forEach(function(truck) { %>
+      <% if (trucks) { trucks.forEach(function(truck) { %>
       <a href="/trucks/<%- truck.url %>" class="can-col">
         <div class="can-col-img-wrapper">
           <img class="can-col-img" src="/images/<%- truck.image %>" alt="img" />
@@ -15,7 +15,7 @@
           <span class="icon-chevron-thin-right can-col-arrow"></span>
         </div>
       </a>
-      <% }) %>
+      <% })} %>
     </div>
   </div>
 </section>

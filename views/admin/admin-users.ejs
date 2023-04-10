@@ -40,7 +40,7 @@
               <span class="user-label-up">Phone</span>
               <span class="user-label-up">Email</span>
             </div>
-            <% users.forEach(function(user) { %>
+            <% if (users) { users.forEach(function(user) { %>
             <li class="user-content column" id="<%= user.id %>">
               <div class="popup-wrapper">
                 <div class="popup">
@@ -82,7 +82,7 @@
                 <span class="icon-delete icon-delete-user"></span>
               </button>
             </li>
-            <% }); %>
+            <% })}; %>
           </ol>
         </div>
         <div class="users-invited">
@@ -90,7 +90,7 @@
             <div class="title">Invited users:</div>
           </div>
           <ol class="users-list">
-            <% invites.forEach(function(invite) { %>
+            <% if (invites) { invites.forEach(function(invite) { %>
             <li
               class="user-content column user-content-invite"
               id="<%= invite.id %>"
@@ -151,7 +151,7 @@
                 <span class="icon-delete icon-delete-user"></span>
               </button>
             </li>
-            <% }); %>
+            <% })}; %>
           </ol>
         </div>
         <div class="users-subscribed">
@@ -159,7 +159,7 @@
             <div class="title">Subscribed users:</div>
           </div>
           <ol class="users-list">
-            <% subscribe.forEach(function(item) { %>
+            <% if (subscribe) { subscribe.forEach(function(item) { %>
             <li
               class="user-content column user-content-subscribe"
               id="<%= item.id %>"
@@ -196,7 +196,7 @@
                 <span class="icon-delete icon-delete-user"></span>
               </button>
             </li>
-            <% }); %>
+            <% })}; %>
           </ol>
         </div>
       </div>

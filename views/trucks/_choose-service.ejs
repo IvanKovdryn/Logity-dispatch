@@ -2,11 +2,11 @@
   <div class="container">
     <div class="choose-subtitle">Choose The Service You Need</div>
     <div class="choose-row">
-      <% services.forEach((service) => { %>
+      <% if (services) { services.forEach((service) => { %>
       <a href="/services/<%= service.url %>" class="choose-col"
         ><%- service.name %></a
       >
-      <% }) %>
+      <% })} %>
     </div>
   </div>
 </section>

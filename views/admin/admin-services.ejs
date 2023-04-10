@@ -112,7 +112,7 @@
           </form>
         </div>
         <div class="services-row">
-          <% services.forEach(function(service) { %>
+          <% if (services) { services.forEach(function(service) { %>
           <div class="services-col column" id="<%= service.id %>">
             <div class="services-col-bg"></div>
             <div class="option-wrapper">
@@ -276,7 +276,7 @@
               </a>
             </div>
           </div>
-          <% }); %>
+          <% })}; %>
         </div>
       </div>
     </section>

@@ -105,8 +105,10 @@
           </div>
           <div class="absec-btns">
             <a href="/contact-us" class="absec-contact">Contact Us</a>
+            <% if (contacts) { %>
             <a href="#a" class="absec-number"><%- contacts.tel %></a>
             <a href="#a" class="absec-email"><%- contacts.email %></a>
+            <% } %>
           </div>
           <div class="absec-map">
             <iframe

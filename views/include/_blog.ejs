@@ -9,7 +9,7 @@
       </a>
     </div>
     <div class="blog-row">
-      <% articles.forEach(function(article) { %>
+      <% if (articles) { articles.forEach(function(article) { %>
       <a href="/blog/<%= article.url %>" class="blog-col">
         <div class="sp"></div>
         <img
@@ -26,7 +26,7 @@
           </div>
         </div>
       </a>
-      <% }); %>
+      <% })}; %>
     </div>
   </div>
 </section>

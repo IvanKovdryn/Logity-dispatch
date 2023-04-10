@@ -15,7 +15,7 @@
         <div class="container">
           <div class="title prog-title">Truck types</div>
           <div class="services-row">
-            <% trucks.forEach(function(truck) { %>
+            <% if (trucks) { trucks.forEach(function(truck) { %>
             <div class="services-col" id="<%= truck.id %>">
               <div class="services-col-img">
                 <img src="/images/<%- truck.image %>" alt="" />
@@ -33,7 +33,7 @@
                 </a>
               </div>
             </div>
-            <% }); %>
+            <% })}; %>
           </div>
         </div>
       </section>

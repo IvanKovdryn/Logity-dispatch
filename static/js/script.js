@@ -8,8 +8,7 @@ navLink.forEach((link) => {
     navContent.id ===
     link.getAttribute("href").replace(/[^\w]/g, " ").trim().split(" ").join("-")
   ) {
-    console.log(link);
-    link.classList.add("active");
+    link.closest(".nav-item").classList.add("active");
   }
 });
 navSubcontent.forEach((item) => {
@@ -20,14 +19,13 @@ navSubcontent.forEach((item) => {
     console.log(item);
     item.classList.add("active");
     const closestLink = item.closest(".nav-item");
-    console.log(closestLink);
     closestLink.classList.add("sub-active");
-    console.log(closestLink);
   }
 });
 
 if (menu) {
-  menu.addEventListener("click", function (e) {
+  menu.addEventListener("click", function () {
+    console.log(menu);
     menu.classList.toggle("active");
     nav.classList.toggle("active");
     document.body.classList.toggle("lock");

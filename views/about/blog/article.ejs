@@ -4,12 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <% article.forEach(function(item) { %>
+    <% if (article) { article.forEach(function(item) { %>
     <title><%= item.name %></title>
-    <% }); %> <%- include('../../include/links', {fileCss: "blog-following"}) %>
+    <% })}; %> <%- include('../../include/links', {fileCss: "blog-following"})
+    %>
   </head>
   <body>
-    <% article.forEach(function(item) { %>
+    <% if (article) { article.forEach(function(item) { %>
     <header class="header">
       <div class="phone">
         <span class="icon-phone"></span>
@@ -44,15 +45,15 @@
           <div class="title"><%= item.name %></div>
           <div class="row">
             <div class="text"><%- item.content %></div>
-            <% }); %>
+            <% })}; %>
             <div class="right-articles">
               <div class="articles-title">Popular articles</div>
-              <% articles.forEach(function(article) { %>
+              <% if (articles) { articles.forEach(function(article) { %>
               <a href="<%= article.url %>" class="article">
                 <img src="/images/<%= article.image %>" alt="" />
                 <div class="article-name"><%= article.name %></div>
               </a>
-              <% }); %>
+              <% })}; %>
             </div>
           </div>
         </div>

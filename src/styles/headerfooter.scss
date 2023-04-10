@@ -30,7 +30,7 @@ body.lock {
   cursor: pointer;
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 84, 58, 1);
+  @include adapt("bottom", 84, 42, 1);
   @include adapt("left", 70, 12, 1);
   border-radius: 50%;
   background: #0c5aa8;
@@ -41,6 +41,9 @@ body.lock {
   transition: all 0.2s ease;
   z-index: 100;
   opacity: 0.9;
+  @media (max-width: 325px) {
+    bottom: 21px;
+  }
 }
 .phone:hover,
 .massage:hover {
@@ -55,7 +58,7 @@ body.lock {
 .massage {
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 84, 58, 1);
+  @include adapt("bottom", 84, 42, 1);
   @include adapt("right", 70, 12, 1);
   background: #0c5aa8;
   position: fixed;
@@ -69,6 +72,9 @@ body.lock {
   transition: all 0.2s ease;
   z-index: 100;
   opacity: 0.9;
+  @media (max-width: 325px) {
+    bottom: 21px;
+  }
 }
 .icon-message:before {
   content: "\e900";
@@ -127,7 +133,7 @@ body.lock {
 }
 .header-img {
   width: 100%;
-  @include adapt("height", 300, 175, 1);
+  @include adapt("height", 275, 175, 1);
   object-fit: cover;
   filter: blur(4px);
 }
@@ -136,7 +142,7 @@ body.lock {
   align-items: end;
   flex-wrap: wrap;
   @include adapt("gap", 7, 3, 1);
-  padding: 20px 5px;
+  padding: 15px 5px;
   @include adapt("font-size", 16, 14, 1);
   font-weight: 700;
   border-bottom: 1px solid #939393;

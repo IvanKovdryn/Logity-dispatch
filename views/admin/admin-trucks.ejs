@@ -123,7 +123,7 @@
           </form>
         </div>
         <div class="services-row">
-          <% trucks.forEach(function(truck) { %>
+          <% if (trucks) { trucks.forEach(function(truck) { %>
           <div class="services-col column" id="<%= truck.id %>">
             <div class="services-col-bg"></div>
             <div class="option-wrapper">
@@ -282,7 +282,7 @@
               </a>
             </div>
           </div>
-          <% }); %>
+          <% })}; %>
         </div>
       </div>
     </section>
