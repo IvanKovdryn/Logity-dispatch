@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const Service = new mongoose.Schema({
   id: { type: String, required: true },
@@ -11,4 +11,4 @@ const Service = new mongoose.Schema({
   content: { type: String, required: true },
 });
 
-export default mongoose.model("service", Service);
+module.exports = mongoose.model("service", Service);

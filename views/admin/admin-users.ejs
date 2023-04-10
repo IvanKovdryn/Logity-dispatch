@@ -7,21 +7,21 @@
         <div class="nav-row">
           <div class="nav-content">
             <div class="nav-item">
-              <a href="admin-users" class="nav-text admin-users-active"
+              <a href="admin-users" class="nav-link admin-users-active"
                 >Users</a
               >
             </div>
             <div class="nav-item">
-              <a href="admin-services" class="nav-text">Services</a>
+              <a href="admin-services" class="nav-link">Services</a>
             </div>
             <div class="nav-item">
-              <a href="admin-trucks" class="nav-text">Trucks</a>
+              <a href="admin-trucks" class="nav-link">Trucks</a>
             </div>
             <div class="nav-item">
-              <a href="admin-articles" class="nav-text">Articles</a>
+              <a href="admin-articles" class="nav-link">Articles</a>
             </div>
             <div class="nav-item">
-              <a href="admin-contacts" class="nav-text">Contacts</a>
+              <a href="admin-contacts" class="nav-link">Contacts</a>
             </div>
           </div>
           <div class="menu-bg">
@@ -41,7 +41,7 @@
               <span class="user-label-up">Email</span>
             </div>
             <% users.forEach(function(user) { %>
-            <li class="user-content column">
+            <li class="user-content column" id="<%= user.id %>">
               <div class="popup-wrapper">
                 <div class="popup">
                   <div class="popup-title">Delete user</div>
@@ -91,7 +91,10 @@
           </div>
           <ol class="users-list">
             <% invites.forEach(function(invite) { %>
-            <li class="user-content column user-content-invite">
+            <li
+              class="user-content column user-content-invite"
+              id="<%= invite.id %>"
+            >
               <div class="popup-wrapper">
                 <div class="popup">
                   <div class="popup-title">Delete user</div>
@@ -157,7 +160,10 @@
           </div>
           <ol class="users-list">
             <% subscribe.forEach(function(item) { %>
-            <li class="user-content column user-content-subscribe">
+            <li
+              class="user-content column user-content-subscribe"
+              id="<%= item.id %>"
+            >
               <div class="popup-wrapper">
                 <div class="popup">
                   <div class="popup-title">Delete user</div>

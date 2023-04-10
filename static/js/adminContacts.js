@@ -1,4 +1,5 @@
 const contactForm = document.querySelector(".contacts-app-form");
+let error = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   let formReq = contactForm.querySelectorAll(".req");
@@ -12,12 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   async function formSend(e) {
     e.preventDefault();
-    contactForm.classList.remove("active");
-    let formReq = contactForm.querySelectorAll(".req");
-    formReq.forEach((item) => {
-      item.classList.remove("satisfactory");
-    });
-    let error = formValidate(contactForm);
+
+    error = formValidate(contactForm);
     let formData = new FormData(contactForm);
     let object = {};
     formData.forEach(function (value, key) {
@@ -29,6 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(error);
 
     if (contactForm && error === 0) {
+      contactForm.classList.remove("active");
+      let formReq = contactForm.querySelectorAll(".req");
+      formReq.forEach((item) => {
+        item.classList.remove("satisfactory");
+      });
       let response = await fetch("/contacts/edit", {
         method: "PUT",
         body: jsonBody,
@@ -48,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (response.ok) {
         let result = await response.json();
         console.log(result);
-        form.reset();
       } else {
         console.log("Помилка");
       }
@@ -58,19 +59,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function formValidate(contactForm) {
-    let error = 0;
     for (let index = 0; index < formReq.length; index++) {
       const input = formReq[index];
       formRemoveError(input);
       if (input.value === "") {
         formAddError(input);
         error++;
+        console.log(input);
       }
     }
     return error;
   }
   function formAddError(input) {
     input.classList.add("error");
+    input.classList.remove("satisfactory");
   }
   function formRemoveError(input) {
     input.classList.remove("error");
@@ -79,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 contactForm.addEventListener("click", (e) => {
   if (e.target.classList.contains("bttn-contacts-app-change")) {
+    error = 0;
     contactForm.classList.add("active");
   }
   if (e.target.classList.contains("bttn-contacts-app-cancel")) {

@@ -89,15 +89,6 @@
   .logo-subtext {
     height: 50px;
   }
-  .menu::before,
-  .menu::after {
-    width: 30px;
-    left: 0;
-  }
-  .menu span {
-    width: 30px;
-    left: 10px;
-  }
 
   /* HEADER */
 
@@ -180,10 +171,5 @@
   .form-email-wrapper {
     gap: 0px;
     padding: 3px;
-  }
-  .nav.active .nav-content {
-    font-size: 20px;
-    right: 30px;
-    top: 65px;
   }
 }

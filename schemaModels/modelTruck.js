@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const Truck = new mongoose.Schema({
   id: { type: String, required: true },
@@ -11,4 +11,4 @@ const Truck = new mongoose.Schema({
   content: { type: String, required: true },
 });
 
-export default mongoose.model("truck", Truck);
+module.exports = mongoose.model("truck", Truck);

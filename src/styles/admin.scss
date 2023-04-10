@@ -109,25 +109,17 @@ body.lock {
 .nav-item {
   padding: 0;
 }
-.nav-text {
-  padding: 20px 5px;
-  cursor: pointer;
+.nav-link {
   color: #fff;
   text-decoration: none;
-  transition: color 0.2s ease;
-  @media (max-width: 992px) {
-    padding: 10px 5px;
-  }
-}
-.nav-text:hover {
-  color: #74adc6;
 }
 .admin-users-active,
 .admin-services-active,
 .admin-trucks-active,
 .admin-articles-active,
 .admin-contacts-active {
-  color: #74adc6;
+  color: #3390ec;
+  background: #252525;
 }
 
 //
@@ -664,21 +656,13 @@ input:-internal-autofill-selected {
   background: #f3f4f5;
 }
 .contacts-app-form.active .form-email-wrapper input.error,
-.contacts-app-form.active
-  .form-number-wrapper
-  input.error
-  .contacts-app-form.active
-  .form-location-wrapper
-  input.error {
-  background: rgba(255, 0, 0, 0.15);
+.contacts-app-form.active .form-number-wrapper input.error,
+.contacts-app-form.active .form-location-wrapper input.error {
+  background: rgba(255, 0, 0, 0.07);
 }
 .contacts-app-form.active .form-email-wrapper input.satisfactory,
-.contacts-app-form.active
-  .form-number-wrapper
-  input.satisfactory
-  .contacts-app-form.active
-  .form-location-wrapper
-  input.satisfactory {
+.contacts-app-form.active .form-number-wrapper input.satisfactory,
+.contacts-app-form.active .form-location-wrapper input.satisfactory {
   background: #e8f0fe;
 }
 .contacts-app-row {

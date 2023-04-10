@@ -6,7 +6,7 @@
           <img src="/img/main/header/logo.svg" alt="" />
         </a>
       </div>
-      <div class="nav-content">
+      <div class="nav-content" id="<%- path %>">
         <div class="nav-item">
           <a href="/about" class="nav-link">
             <span class="nav-text">About</span>
@@ -25,14 +25,14 @@
             <span class="nav-text">Services</span>
           </a>
           <div class="nav-subcontent">
-            <% services.forEach(function(service) { %>
+            <% if (services) { services.forEach(function(service) { %>
             <a
               href="/services/<%= service.url %>"
               class="nav-subcontent-item"
               id="<%= service.url %>"
               ><%= service.name %></a
             >
-            <% }); %>
+            <% })}; %>
           </div>
         </div>
         <div class="nav-item">
@@ -40,14 +40,14 @@
             <span class="nav-text">Truck types</span>
           </a>
           <div class="nav-subcontent">
-            <% trucks.forEach(function(truck) { %>
+            <% if (trucks) { trucks.forEach(function(truck) { %>
             <a
               href="/trucks/<%= truck.url %>"
               class="nav-subcontent-item"
               id="<%= truck.url %>"
               ><%= truck.name %></a
             >
-            <% }); %>
+            <% })}; %>
           </div>
         </div>
         <div class="nav-item">
@@ -73,7 +73,9 @@
       </div>
       <div class="nav-contact">
         <a class="nav-contact-link" href="#a">
+          <% if (contacts) { %>
           <span><%= contacts.tel %></span>
+          <% } %>
         </a>
       </div>
       <div class="menu-bg">

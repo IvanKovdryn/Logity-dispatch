@@ -1,23 +1,30 @@
 const menu = document.querySelector(".menu-bg");
 const nav = document.querySelector(".nav");
-const footerDesc = document.querySelector(".footer-desc");
-const aboutNavigationPage = document.getElementById("about-more");
-const servicesNavigationPage = document.getElementById("services-more");
-const trucksNavigationPage = document.getElementById("trucks-more");
-const navigationItemActive = document.getElementById("navigation-item-active");
-const aboutPage = document.getElementById("about");
-const servicesPage = document.getElementById("services");
-const trucksPage = document.getElementById("trucks");
-const howToStartPage = document.getElementById("how-to-start");
-const shippersPage = document.getElementById("shippers");
-const faqPage = document.getElementById("faq");
-const contactPage = document.getElementById("contact-us");
-const navPages = document.querySelectorAll(".nav-text");
-const main = document.querySelector(".main");
-const navSubcontentItem = document.querySelectorAll(".nav-subcontent-item");
-const footerBottom = document.querySelector(".footer-bottom");
-const massage = document.querySelector(".massage");
-const phone = document.querySelector(".phone");
+const navContent = document.querySelector(".nav-content");
+const navLink = document.querySelectorAll(".nav-link");
+const navSubcontent = document.querySelectorAll(".nav-subcontent-item");
+navLink.forEach((link) => {
+  if (
+    navContent.id ===
+    link.getAttribute("href").replace(/[^\w]/g, " ").trim().split(" ").join("-")
+  ) {
+    console.log(link);
+    link.classList.add("active");
+  }
+});
+navSubcontent.forEach((item) => {
+  if (
+    navContent.id ===
+    item.getAttribute("href").replace(/[^\w]/g, " ").trim().split(" ").join("-")
+  ) {
+    console.log(item);
+    item.classList.add("active");
+    const closestLink = item.closest(".nav-item");
+    console.log(closestLink);
+    closestLink.classList.add("sub-active");
+    console.log(closestLink);
+  }
+});
 
 if (menu) {
   menu.addEventListener("click", function (e) {

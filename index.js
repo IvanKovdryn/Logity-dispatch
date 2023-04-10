@@ -1,16 +1,16 @@
-import express from "express";
-import mongoose from "mongoose";
-import cookieParser from "cookie-parser";
-import Form from "./schemaModels/modelForm.js";
-import Article from "./schemaModels/modelArticle.js";
-import Service from "./schemaModels/modelService.js";
-import Truck from "./schemaModels/modelTruck.js";
-import Invites from "./schemaModels/modelInvites.js";
-import Subscribe from "./schemaModels/modelSubscribe.js";
-import Contacts from "./schemaModels/modelContacts.js";
-import path from "path";
-import multer from "multer";
-import dotenv from "dotenv";
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
+const Form = require("./schemaModels/modelForm.js");
+const Article = require("./schemaModels/modelArticle.js");
+const Service = require("./schemaModels/modelService.js");
+const Truck = require("./schemaModels/modelTruck.js");
+const Invites = require("./schemaModels/modelInvites.js");
+const Subscribe = require("./schemaModels/modelSubscribe.js");
+const Contacts = require("./schemaModels/modelContacts.js");
+const path = require("path");
+const multer = require("multer");
+const dotenv = require("dotenv");
 
 dotenv.config();
 
@@ -42,6 +42,7 @@ app.get("/page/:name", (req, res) => {
 });
 
 app.get("/", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const articles = await db.collection("articles").find().toArray();
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
@@ -51,12 +52,14 @@ app.get("/", async (req, res) => {
     contacts: contacts,
     services: services,
     articles: articles,
+    path: path,
   });
 });
 
 // about
 
 app.get("/about", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const contacts = await db.collection("contacts").findOne();
@@ -64,6 +67,7 @@ app.get("/about", async (req, res) => {
     trucks: trucks,
     contacts: contacts,
     services: services,
+    path: path,
   });
 });
 app.get("/careers", async (req, res) => {
@@ -134,12 +138,14 @@ app.get("/video", async (req, res) => {
 // services
 
 app.get("/services", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const contacts = await db.collection("contacts").findOne();
   res.render("services", {
     trucks: trucks,
     contacts: contacts,
+    path: path,
     services: services,
   });
 });
@@ -149,6 +155,7 @@ app.get("/services", async (req, res) => {
 // trucks
 
 app.get("/trucks", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const contacts = await db.collection("contacts").findOne();
@@ -156,6 +163,7 @@ app.get("/trucks", async (req, res) => {
     trucks: trucks,
     contacts: contacts,
     services: services,
+    path: path,
   });
 });
 
@@ -164,6 +172,7 @@ app.get("/trucks", async (req, res) => {
 // how to start
 
 app.get("/how-to-start", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const contacts = await db.collection("contacts").findOne();
@@ -171,12 +180,14 @@ app.get("/how-to-start", async (req, res) => {
     trucks: trucks,
     contacts: contacts,
     services: services,
+    path: path,
   });
 });
 
 // shippers
 
 app.get("/shippers", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const articles = await db.collection("articles").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
@@ -186,6 +197,7 @@ app.get("/shippers", async (req, res) => {
     contacts: contacts,
     services: services,
     articles: articles,
+    path: path,
   });
 });
 
@@ -194,15 +206,22 @@ app.get("/shippers", async (req, res) => {
 // FAQ
 
 app.get("/faq", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const contacts = await db.collection("contacts").findOne();
-  res.render("faq", { trucks: trucks, contacts: contacts, services: services });
+  res.render("faq", {
+    trucks: trucks,
+    contacts: contacts,
+    services: services,
+    path: path,
+  });
 });
 
 // contact us
 
 app.get("/contact-us", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const contacts = await db.collection("contacts").findOne();
@@ -210,12 +229,14 @@ app.get("/contact-us", async (req, res) => {
     trucks: trucks,
     contacts: contacts,
     services: services,
+    path: path,
   });
 });
 
 // terms of service
 
 app.get("/terms-of-service", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const contacts = await db.collection("contacts").findOne();
@@ -223,12 +244,14 @@ app.get("/terms-of-service", async (req, res) => {
     trucks: trucks,
     contacts: contacts,
     services: services,
+    path: path,
   });
 });
 
 // privacy policy
 
 app.get("/privacy-policy", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const services = await db.collection("services").find().toArray();
   const trucks = await db.collection("trucks").find().toArray();
   const contacts = await db.collection("contacts").findOne();
@@ -236,6 +259,7 @@ app.get("/privacy-policy", async (req, res) => {
     trucks: trucks,
     contacts: contacts,
     services: services,
+    path: path,
   });
 });
 
@@ -293,11 +317,15 @@ app.get("/admin-contacts", async (req, res) => {
 // add/delete users in/from data base
 
 app.post("/contact-us/save", async (req, res) => {
+  const fileName = await create("blacklist_the_beatles");
+  console.log("Created:", fileName);
+  let id = Date.now();
   const { name, phone, email, check } = req.body;
-  const form = await Form.create({ name, phone, email, check });
+  const form = await Form.create({ id, name, phone, email, check });
   res.end(JSON.stringify({ status: "ok", result: form }));
 });
 app.post("/invites/save", async (req, res) => {
+  let id = Date.now();
   const {
     referrer_name,
     referrer_email,
@@ -307,6 +335,7 @@ app.post("/invites/save", async (req, res) => {
     check,
   } = req.body;
   const invite = await Invites.create({
+    id,
     referrer_name,
     referrer_email,
     invite_name,
@@ -318,23 +347,24 @@ app.post("/invites/save", async (req, res) => {
 });
 app.post("/subscribe/save", async (req, res) => {
   const { email } = req.body;
-  const subscribe = await Subscribe.create({ email });
+  let id = Date.now();
+  const subscribe = await Subscribe.create({ id, email });
   res.end(JSON.stringify({ status: "ok", result: subscribe }));
 });
 
-app.delete("/delete-user/:email", (req, res) => {
-  const email = req.params.email;
-  const users = db.collection("contact-us").deleteOne({ email: email });
+app.delete("/delete-user/:id", (req, res) => {
+  const id = req.params.id;
+  const users = db.collection("contact-us").deleteOne({ id: id });
   res.end();
 });
-app.delete("/delete-invited/:email", (req, res) => {
-  const email = req.params.email;
-  const invites = db.collection("invites").deleteOne({ invite_email: email });
+app.delete("/delete-invited/:id", (req, res) => {
+  const id = req.params.id;
+  const invites = db.collection("invites").deleteOne({ id: id });
   res.end();
 });
-app.delete("/delete-subscribed/:email", (req, res) => {
-  const email = req.params.email;
-  const subscribes = db.collection("subscribes").deleteOne({ email: email });
+app.delete("/delete-subscribed/:id", (req, res) => {
+  const id = req.params.id;
+  const subscribes = db.collection("subscribes").deleteOne({ id: id });
   res.end();
 });
 
@@ -393,6 +423,7 @@ app.post("/articles/save", upload.single("image"), async (req, res) => {
 });
 
 app.get("/blog/:article", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const articleUrl = req.params.article;
   const trucks = await db.collection("trucks").find().toArray();
   const services = await db.collection("services").find().toArray();
@@ -410,6 +441,7 @@ app.get("/blog/:article", async (req, res) => {
       contacts: contacts,
       trucks: trucks,
       services: services,
+      path: path,
     });
     return;
   }
@@ -471,6 +503,7 @@ app.post("/service/save", upload.single("image"), async (req, res) => {
   res.end(JSON.stringify({ status: "ok", result: service }));
 });
 app.get("/services/:service", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const serviceUrl = req.params.service;
   const trucks = await db.collection("trucks").find().toArray();
   const services = await db.collection("services").find().toArray();
@@ -488,6 +521,7 @@ app.get("/services/:service", async (req, res) => {
       trucks: trucks,
       contacts: contacts,
       articles: articles,
+      path: path,
     });
     return;
   }
@@ -549,6 +583,7 @@ app.post("/truck/save", upload.single("image"), async (req, res) => {
   res.end(JSON.stringify({ status: "ok", result: truck }));
 });
 app.get("/trucks/:truck", async (req, res) => {
+  const path = req.path.replace(/[^\w]/g, " ").trim().split(" ").join("-");
   const truckUrl = req.params.truck;
   const services = await db.collection("services").find().toArray();
   const articles = await db.collection("articles").find().toArray();
@@ -563,6 +598,7 @@ app.get("/trucks/:truck", async (req, res) => {
       contacts: contacts,
       services: services,
       articles: articles,
+      path: path,
     });
     return;
   }

@@ -91,22 +91,22 @@ deleteBtn.forEach((btn) => {
         navItem.forEach((item) => {
           if (item.innerText === "Users") {
             if (e.target.classList.contains("popup-delete-sended")) {
-              const email = column.querySelector(".user-email").innerText;
-              const deleteUser = fetch(`/delete-user/${email}`, {
+              const id = column.id;
+              const deleteUser = fetch(`/delete-user/${id}`, {
                 method: "DELETE",
               })
                 .then((data) => console.log(data))
                 .catch((err) => console.log(err));
             } else if (e.target.classList.contains("popup-delete-invited")) {
-              const email = column.querySelector(".user-email").innerText;
-              const deleteInvited = fetch(`/delete-invited/${email}`, {
+              const id = column.id;
+              const deleteInvited = fetch(`/delete-invited/${id}`, {
                 method: "DELETE",
               })
                 .then((data) => console.log(data))
                 .catch((err) => console.log(err));
             } else if (e.target.classList.contains("popup-delete-subscribed")) {
-              const email = column.querySelector(".user-email").innerText;
-              const deleteSubscribed = fetch(`/delete-subscribed/${email}`, {
+              const id = column.id;
+              const deleteSubscribed = fetch(`/delete-subscribed/${id}`, {
                 method: "DELETE",
               })
                 .then((data) => console.log(data))

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const imageModel = new mongoose.Schema({
   name: String,
@@ -8,4 +8,4 @@ const imageModel = new mongoose.Schema({
     contentType: String,
   },
 });
-export default mongoose.model("Image", imageModel);
+module.exports = mongoose.model("Image", imageModel);

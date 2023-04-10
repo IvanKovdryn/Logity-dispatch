@@ -43,15 +43,6 @@
 @media (max-width: 575px) {
   /* HEADER */
 
-  .menu::before,
-  .menu::after {
-    width: 30px;
-    left: 0;
-  }
-  .menu span {
-    width: 30px;
-    left: 10px;
-  }
   .logo-text {
     font-size: 25px;
     padding: 0 10px;
@@ -96,15 +87,5 @@
   }
   .fot-logo {
     display: none;
-  }
-}
-
-@media (max-width: 325px) {
-  /* HEADER */
-
-  .nav.active .nav-content {
-    font-size: 20px;
-    right: 30px;
-    top: 65px;
   }
 }

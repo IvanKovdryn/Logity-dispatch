@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const Article = new mongoose.Schema({
   id: { type: String, required: true },
@@ -9,4 +9,4 @@ const Article = new mongoose.Schema({
   content: { type: String, required: true },
 });
 
-export default mongoose.model("article", Article);
+module.exports = mongoose.model("article", Article);
