@@ -428,6 +428,52 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  .form {
+    width: 100%;
+  }
+}
+
+.form-name-wrapper,
+.form-password-wrapper {
+  position: relative;
+}
+
+.form-name-wrapper::before,
+.form-password-wrapper::before {
+  content: "the field must be at least 3 in length";
+  position: absolute;
+  bottom: -10px;
+  font-size: 12px;
+  left: 7px;
+  color: rgba(255, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+@media (max-width: 1200px) {
+  .form-name-wrapper::before,
+  .form-password-wrapper::before {
+    bottom: calc(
+        -5px + -5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .form-name-wrapper::before,
+  .form-password-wrapper::before {
+    font-size: calc(
+        8px + 4 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+
+.form-name-wrapper.error::before,
+.form-password-wrapper.error::before {
+  opacity: 1;
+}
+
 .form-password-wrapper {
   display: flex;
   flex-direction: column;

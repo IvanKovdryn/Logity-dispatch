@@ -8,6 +8,8 @@ const Truck = require("./schemaModels/modelTruck.js");
 const Invites = require("./schemaModels/modelInvites.js");
 const Subscribe = require("./schemaModels/modelSubscribe.js");
 const Contacts = require("./schemaModels/modelContacts.js");
+const Admin = require("./schemaModels/modelAdmin.js");
+
 const path = require("path");
 const multer = require("multer");
 const dotenv = require("dotenv");
@@ -21,6 +23,7 @@ if (!dbUrl) {
   );
 }
 let db;
+console.log(dbUrl);
 
 const port = 8080;
 const host = "0.0.0.0";
@@ -279,49 +282,47 @@ app.get("/privacy-policy", async (req, res) => {
 
 // auth/admin/add user in admin
 
-app.get("/admin", async (req, res) => {
-  if (req.cookies.name == "Ivan" && req.cookies.password == "12345") {
-    const users = await db.collection("contact-us").find().toArray();
-    const invites = await db.collection("invites").find().toArray();
-    const subscribe = await db.collection("subscribes").find().toArray();
-    if (users) {
-      res.render("admin/admin-users", {
-        users: users,
-        invites: invites,
-        subscribe: subscribe,
-      });
-    } else {
-      console.log("Fail");
+app.get("/admin/:route", async (req, res) => {
+  const admin = await db.collection("admins").findOne();
+  if (
+    !req.cookies.login ||
+    admin.password !== req.cookies.password ||
+    admin.login !== req.cookies.login
+  ) {
+    res.render("auth");
+  } else {
+    if (!admin) throw new Error("No such admin in system.");
+
+    switch (req.params.route) {
+      case "trucks":
+        const trucks = await db.collection("trucks").find().toArray();
+        res.render("admin/admin-trucks", { trucks: trucks });
+        return;
+      case "services":
+        const services = await db.collection("services").find().toArray();
+        res.render("admin/admin-services", { services: services });
+        return;
+      case "users":
+        const users = await db.collection("contact-us").find().toArray();
+        const invites = await db.collection("invites").find().toArray();
+        const subscribe = await db.collection("subscribes").find().toArray();
+        res.render("admin/admin-users", {
+          users: users,
+          invites: invites,
+          subscribe: subscribe,
+        });
+        return;
+      case "articles":
+        const articles = await db.collection("articles").find().toArray();
+        res.render("admin/admin-articles", { articles: articles });
+        return;
+      case "contacts":
+        const contacts = await db.collection("contacts").findOne();
+        console.log(contacts);
+        res.render("admin/admin-contacts", { contacts: contacts });
+        return;
     }
-    return;
   }
-  res.render("auth");
-});
-app.get("/admin-services", async (req, res) => {
-  const services = await db.collection("services").find().toArray();
-  res.render("admin/admin-services", { services: services });
-});
-app.get("/admin-trucks", async (req, res) => {
-  const trucks = await db.collection("trucks").find().toArray();
-  res.render("admin/admin-trucks", { trucks: trucks });
-});
-app.get("/admin-users", async (req, res) => {
-  const users = await db.collection("contact-us").find().toArray();
-  const invites = await db.collection("invites").find().toArray();
-  const subscribe = await db.collection("subscribes").find().toArray();
-  res.render("admin/admin-users", {
-    users: users,
-    invites: invites,
-    subscribe: subscribe,
-  });
-});
-app.get("/admin-articles", async (req, res) => {
-  const articles = await db.collection("articles").find().toArray();
-  res.render("admin/admin-articles", { articles: articles });
-});
-app.get("/admin-contacts", async (req, res) => {
-  const contacts = await db.collection("contacts").findOne();
-  res.render("admin/admin-contacts", { contacts: contacts });
 });
 
 //
@@ -406,7 +407,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 //
-
 // add/get article in/from data base
 
 app.post("/articles/save", upload.single("image"), async (req, res) => {
@@ -648,7 +648,6 @@ app.put("/edit-truck/:id", upload.single("image"), async (req, res) => {
 //
 
 // start app
-
 async function start() {
   try {
     await mongoose.connect(dbUrl, {

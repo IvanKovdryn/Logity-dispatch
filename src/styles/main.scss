@@ -21,7 +21,7 @@ body.lock {
   cursor: pointer;
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 84, 58, 1);
+  @include adapt("bottom", 84, 42, 1);
   @include adapt("left", 70, 12, 1);
   border-radius: 50%;
   background: #0c5aa8;

@@ -33,15 +33,29 @@ body {
     padding: 0 10px;
   }
 }
-.form-wrapper {
-}
 .form {
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
-.form-title {
+.form-name-wrapper,
+.form-password-wrapper {
+  position: relative;
 }
-.form-inputs {
+.form-name-wrapper::before,
+.form-password-wrapper::before {
+  content: "the field must be at least 3 in length";
+  position: absolute;
+  @include adapt("bottom", -10, -5, 1);
+  @include adapt("font-size", 12, 8, 1);
+  left: 7px;
+  color: rgba(255, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 0.1s ease;
 }
-.form-name-wrapper {
+.form-name-wrapper.error::before,
+.form-password-wrapper.error::before {
+  opacity: 1;
 }
 .form-password-wrapper {
   display: flex;
@@ -66,16 +80,6 @@ body {
 }
 .form-password-wrapper input:focus {
   background: #e8f0fe;
-}
-._req {
-}
-.input {
-}
-.form-password-wrapper {
-}
-.password {
-}
-.form-button-wrapper {
 }
 .btn {
   background: #3390ec;

@@ -54,7 +54,7 @@ body.lock {
 @media (max-width: 1200px) {
   .phone {
     bottom: calc(
-        58px + 26 *
+        42px + 42 *
           ((100vw - 320px) / 880)
       );
   }
