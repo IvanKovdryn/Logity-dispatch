@@ -207,6 +207,7 @@ body.lock {
   border-bottom: 1px solid #252525;
   height: 60px;
   z-index: 90;
+  overflow: hidden;
   transition: all 0.2s ease;
 }
 @media (max-width: 992px) {
@@ -335,11 +336,6 @@ body.lock {
   position: relative;
   transition: color 0.2s ease;
 }
-@media (any-hover: none) or (max-width: 992px) {
-  .nav-item {
-    width: 100%;
-  }
-}
 
 .nav-item.active {
   background: #252525;
@@ -364,10 +360,9 @@ body.lock {
   padding: 19px 0;
   transition: all 0.2s ease;
 }
-@media (any-hover: none) or (max-width: 992px) {
+@media (max-width: 992px) {
   .nav-link {
-    padding: 20px 20px;
-    text-align: end;
+    padding: 19px 0;
   }
 }
 @media (max-width: 768px) {
@@ -2376,7 +2371,7 @@ body.lock {
   color: #df3f40;
 }
 
-@media (any-hover: none) or (max-width: 992px) {
+@media (max-width: 992px) {
   /* NAV */
   .nav-row {
     justify-content: start;
