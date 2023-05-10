@@ -154,6 +154,7 @@ body.lock {
   }
 }
 .user-content {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 0.5fr;
   align-items: center;
@@ -222,11 +223,17 @@ body.lock {
   transition: all 0.2s ease;
   @media (max-width: 768px) {
     position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
     justify-self: end;
   }
 }
 .user-delete-invite {
   position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
   justify-self: end;
 }
 .user-delete:hover {
@@ -453,8 +460,8 @@ input:-internal-autofill-selected {
 }
 .status-text {
   left: unset;
-  right: -15px;
   top: -30px;
+  right: 0;
   @include adapt("font-size", 24, 20, 1);
 }
 .textarea {
@@ -502,8 +509,8 @@ input:-internal-autofill-selected {
 }
 .option-wrapper {
   position: absolute;
-  right: 15px;
-  top: 15px;
+  @include adapt("right", 15, 10, 1);
+  @include adapt("top", 15, 10, 1);
 }
 .option-wrapper.active .option-bg {
   opacity: 1;
@@ -565,6 +572,7 @@ input:-internal-autofill-selected {
 }
 .option-content {
   padding: 40px 5px 5px;
+  @include adapt("padding-top", 40, 30, 1);
   opacity: 0;
   pointer-events: none;
   width: 150px;
@@ -576,6 +584,8 @@ input:-internal-autofill-selected {
 .option-item-wrapper {
   cursor: pointer;
   padding: 8px 16px;
+  @include adapt("padding-top", 8, 6, 1);
+  @include adapt("padding-bottom", 8, 6, 1);
   border-radius: 5px;
   display: grid;
   align-items: center;

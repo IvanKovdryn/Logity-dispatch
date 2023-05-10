@@ -425,7 +425,7 @@ body.lock {
   cursor: pointer;
   height: 70px;
   width: 70px;
-  bottom: 84px;
+  bottom: 75px;
   left: 70px;
   border-radius: 50%;
   background: #0c5aa8;
@@ -456,7 +456,7 @@ body.lock {
 @media (max-width: 1200px) {
   .phone {
     bottom: calc(
-        42px + 42 *
+        45px + 30 *
           ((100vw - 320px) / 880)
       );
   }
@@ -464,7 +464,20 @@ body.lock {
 @media (max-width: 1200px) {
   .phone {
     left: calc(
-        12px + 58 *
+        15px + 55 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 575px) {
+  .phone {
+    bottom: 75px;
+  }
+}
+@media (max-width: 575px) and (max-width: 1200px) {
+  .phone {
+    bottom: calc(
+        20px + 55 *
           ((100vw - 320px) / 880)
       );
   }
@@ -498,7 +511,7 @@ body.lock {
 .massage {
   height: 70px;
   width: 70px;
-  bottom: 84px;
+  bottom: 75px;
   right: 70px;
   background: #0c5aa8;
   position: fixed;
@@ -532,7 +545,7 @@ body.lock {
 @media (max-width: 1200px) {
   .massage {
     bottom: calc(
-        42px + 42 *
+        45px + 30 *
           ((100vw - 320px) / 880)
       );
   }
@@ -540,7 +553,20 @@ body.lock {
 @media (max-width: 1200px) {
   .massage {
     right: calc(
-        12px + 58 *
+        15px + 55 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 575px) {
+  .massage {
+    bottom: 75px;
+  }
+}
+@media (max-width: 575px) and (max-width: 1200px) {
+  .massage {
+    bottom: calc(
+        20px + 55 *
           ((100vw - 320px) / 880)
       );
   }
@@ -779,6 +805,11 @@ body.lock {
   position: relative;
   transition: color 0.2s ease;
 }
+@media (max-width: 992px) {
+  .nav-item {
+    width: 100%;
+  }
+}
 
 .nav-item.active {
   background: #252525;
@@ -805,7 +836,9 @@ body.lock {
 }
 @media (max-width: 992px) {
   .nav-link {
-    padding: 19px 0;
+    padding: 19px 20px;
+    width: 100%;
+    text-align: end;
   }
 }
 @media (max-width: 768px) {
@@ -1238,13 +1271,13 @@ body.lock {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 @media (max-width: 1200px) {
   .footer-bottom {
     padding-top: calc(
-        20px + 20 *
+        15px + 15 *
           ((100vw - 320px) / 880)
       );
   }
@@ -1252,14 +1285,10 @@ body.lock {
 @media (max-width: 1200px) {
   .footer-bottom {
     padding-bottom: calc(
-        20px + 20 *
+        15px + 15 *
           ((100vw - 320px) / 880)
       );
   }
-}
-
-.footer-bottom:hover .massage {
-  bottom: 100px;
 }
 
 .fot-socials {

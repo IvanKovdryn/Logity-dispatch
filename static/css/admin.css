@@ -756,6 +756,11 @@
   position: relative;
   transition: color 0.2s ease;
 }
+@media (max-width: 992px) {
+  .nav-item {
+    width: 100%;
+  }
+}
 
 .nav-item.active {
   background: #252525;
@@ -782,7 +787,9 @@
 }
 @media (max-width: 992px) {
   .nav-link {
-    padding: 19px 0;
+    padding: 19px 20px;
+    width: 100%;
+    text-align: end;
   }
 }
 @media (max-width: 768px) {
@@ -1199,6 +1206,7 @@ body.lock {
 }
 
 .user-content {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 0.5fr;
   align-items: center;
@@ -1326,12 +1334,18 @@ body.lock {
 @media (max-width: 768px) {
   .user-delete {
     position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
     justify-self: end;
   }
 }
 
 .user-delete-invite {
   position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
   justify-self: end;
 }
 
@@ -1724,8 +1738,8 @@ input:-internal-autofill-selected {
 
 .status-text {
   left: unset;
-  right: -15px;
   top: -30px;
+  right: 0;
   font-size: 24px;
 }
 @media (max-width: 1200px) {
@@ -1794,6 +1808,22 @@ input:-internal-autofill-selected {
   position: absolute;
   right: 15px;
   top: 15px;
+}
+@media (max-width: 1200px) {
+  .option-wrapper {
+    right: calc(
+        10px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .option-wrapper {
+    top: calc(
+        10px + 5 *
+          ((100vw - 320px) / 880)
+      );
+  }
 }
 
 .option-wrapper.active .option-bg {
@@ -1867,6 +1897,7 @@ input:-internal-autofill-selected {
 
 .option-content {
   padding: 40px 5px 5px;
+  padding-top: 40px;
   opacity: 0;
   pointer-events: none;
   width: 150px;
@@ -1875,16 +1906,42 @@ input:-internal-autofill-selected {
   font-weight: 600;
   transition: all 0.2s ease;
 }
+@media (max-width: 1200px) {
+  .option-content {
+    padding-top: calc(
+        30px + 10 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
 
 .option-item-wrapper {
   cursor: pointer;
   padding: 8px 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   border-radius: 5px;
   display: grid;
   align-items: center;
   grid-template-columns: 20% 80%;
   gap: 10px;
   transition: all 0.2s ease;
+}
+@media (max-width: 1200px) {
+  .option-item-wrapper {
+    padding-top: calc(
+        6px + 2 *
+          ((100vw - 320px) / 880)
+      );
+  }
+}
+@media (max-width: 1200px) {
+  .option-item-wrapper {
+    padding-bottom: calc(
+        6px + 2 *
+          ((100vw - 320px) / 880)
+      );
+  }
 }
 
 .option-item-wrapper:hover {

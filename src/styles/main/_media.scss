@@ -24,9 +24,9 @@
 @media (max-width: 992px) {
   /* FOOTER */
 
-  .footer-bottom {
-    padding: 35px 0;
-  }
+  // .footer-bottom {
+  //   padding: 35px 0;
+  // }
 }
 
 @media (max-width: 768px) {
@@ -54,7 +54,7 @@
     flex-direction: column;
     gap: 30px;
     align-items: unset;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* STAT */
@@ -81,7 +81,7 @@
     max-width: 100%;
   }
   .footer-bottom {
-    padding: 25px 0;
+    // padding: 25px 0;
   }
 }
 

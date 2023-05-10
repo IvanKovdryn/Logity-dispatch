@@ -30,8 +30,8 @@ body.lock {
   cursor: pointer;
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 84, 42, 1);
-  @include adapt("left", 70, 12, 1);
+  @include adapt("bottom", 75, 45, 1);
+  @include adapt("left", 70, 15, 1);
   border-radius: 50%;
   background: #0c5aa8;
   position: fixed;
@@ -41,6 +41,9 @@ body.lock {
   transition: all 0.2s ease;
   z-index: 100;
   opacity: 0.9;
+  @media (max-width: 575px) {
+    @include adapt("bottom", 75, 20, 1);
+  }
   @media (max-width: 325px) {
     bottom: 21px;
   }
@@ -58,8 +61,8 @@ body.lock {
 .massage {
   @include adapt("height", 70, 40, 1);
   @include adapt("width", 70, 40, 1);
-  @include adapt("bottom", 84, 42, 1);
-  @include adapt("right", 70, 12, 1);
+  @include adapt("bottom", 75, 45, 1);
+  @include adapt("right", 70, 15, 1);
   background: #0c5aa8;
   position: fixed;
   border-radius: 16px;
@@ -72,6 +75,9 @@ body.lock {
   transition: all 0.2s ease;
   z-index: 100;
   opacity: 0.9;
+  @media (max-width: 575px) {
+    @include adapt("bottom", 75, 20, 1);
+  }
   @media (max-width: 325px) {
     bottom: 21px;
   }
@@ -265,11 +271,8 @@ body.lock {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @include adapt("padding-top", 40, 20, 1);
-  @include adapt("padding-bottom", 40, 20, 1);
-}
-.footer-bottom:hover .massage {
-  bottom: 100px;
+  @include adapt("padding-top", 30, 15, 1);
+  @include adapt("padding-bottom", 30, 15, 1);
 }
 .fot-socials {
   display: flex;
