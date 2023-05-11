@@ -330,8 +330,6 @@ app.get("/admin/:route", async (req, res) => {
 // add/delete users in/from data base
 
 app.post("/contact-us/save", async (req, res) => {
-  const fileName = await create("blacklist_the_beatles");
-  console.log("Created:", fileName);
   let id = Date.now();
   const { name, phone, email, check } = req.body;
   const form = await Form.create({ id, name, phone, email, check });
