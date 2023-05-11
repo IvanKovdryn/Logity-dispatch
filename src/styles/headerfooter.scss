@@ -170,6 +170,7 @@ body.lock {
   position: relative;
   width: 100vw;
   z-index: -5;
+  overflow-x: hidden;
 }
 .footer-bg {
   position: absolute;

@@ -566,6 +566,7 @@ body.lock {
 .header {
   position: relative;
   width: 100vw;
+  overflow-x: hidden;
 }
 
 .header-img {
@@ -2161,6 +2162,7 @@ body.lock {
   position: relative;
   width: 100vw;
   z-index: -5;
+  overflow-x: hidden;
 }
 
 .footer-bg {
