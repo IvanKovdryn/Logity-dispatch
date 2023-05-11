@@ -301,7 +301,6 @@ app.get("/admin/:route", async (req, res) => {
       case "services":
         const services = await db.collection("services").find().toArray();
         res.render("admin/admin-services", { services: services });
-        res.end();
         return;
       case "users":
         const users = await db.collection("contact-us").find().toArray();
