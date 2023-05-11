@@ -1,4 +1,17 @@
 $(document).ready(function () {
+  $(".textarea-add").summernote({
+    tabsize: 2,
+    height: 200,
+    toolbar: [
+      ["style", ["style"]],
+      ["font", ["bold", "underline", "clear"]],
+      ["color", ["color"]],
+      ["para", ["ul", "ol", "paragraph"]],
+      ["table", ["table"]],
+      ["insert", ["link", "picture", "video"]],
+      ["view", ["fullscreen", "codeview"]],
+    ],
+  });
   $(".option-edit-wrapper").click(function () {
     const optionParent = this.closest(".option-wrapper");
     const textarea = optionParent.querySelectorAll(".textarea");
