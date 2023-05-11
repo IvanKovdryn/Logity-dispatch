@@ -565,17 +565,17 @@ body.lock {
 
 .header {
   position: relative;
-  overflow: hidden;
   width: 100vw;
 }
 
 .header-img {
   position: absolute;
   z-index: -1;
-  width: 100%;
+  width: 110%;
   height: 100%;
   top: 0;
   left: 0;
+  margin-left: -5%;
   object-fit: cover;
   filter: blur(3px) brightness(0.3);
 }
@@ -2160,14 +2160,16 @@ body.lock {
   color: #fff;
   position: relative;
   width: 100vw;
+  z-index: -5;
 }
 
 .footer-bg {
   position: absolute;
-  width: 100%;
+  width: 110%;
+  margin-left: -5%;
   height: 100%;
   object-fit: cover;
-  filter: blur(5px) brightness(0.1);
+  filter: blur(4px) brightness(0.1);
   z-index: -1;
 }
 
