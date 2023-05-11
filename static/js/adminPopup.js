@@ -87,34 +87,29 @@ deleteBtn.forEach((btn) => {
       }
       if (e.target.classList.contains("popup-delete")) {
         column.classList.remove("active");
-        const navItem = document.querySelectorAll(".nav-text");
-        navItem.forEach((item) => {
-          if (item.innerText === "Users") {
-            if (e.target.classList.contains("popup-delete-sended")) {
-              const id = column.id;
-              const deleteUser = fetch(`/delete-user/${id}`, {
-                method: "DELETE",
-              })
-                .then((data) => console.log(data))
-                .catch((err) => console.log(err));
-            } else if (e.target.classList.contains("popup-delete-invited")) {
-              const id = column.id;
-              const deleteInvited = fetch(`/delete-invited/${id}`, {
-                method: "DELETE",
-              })
-                .then((data) => console.log(data))
-                .catch((err) => console.log(err));
-            } else if (e.target.classList.contains("popup-delete-subscribed")) {
-              const id = column.id;
-              const deleteSubscribed = fetch(`/delete-subscribed/${id}`, {
-                method: "DELETE",
-              })
-                .then((data) => console.log(data))
-                .catch((err) => console.log(err));
-            }
-          }
-          column.remove();
-        });
+        if (e.target.classList.contains("popup-delete-sended")) {
+          const id = column.id;
+          const deleteUser = fetch(`/delete-user/${id}`, {
+            method: "DELETE",
+          })
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+        } else if (e.target.classList.contains("popup-delete-invited")) {
+          const id = column.id;
+          const deleteInvited = fetch(`/delete-invited/${id}`, {
+            method: "DELETE",
+          })
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+        } else if (e.target.classList.contains("popup-delete-subscribed")) {
+          const id = column.id;
+          const deleteSubscribed = fetch(`/delete-subscribed/${id}`, {
+            method: "DELETE",
+          })
+            .then((data) => console.log(data))
+            .catch((err) => console.log(err));
+        }
+        column.remove();
       }
     });
   });
