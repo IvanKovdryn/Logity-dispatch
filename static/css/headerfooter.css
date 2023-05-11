@@ -1069,13 +1069,14 @@ body.lock {
   color: #fff;
   position: relative;
   width: 100vw;
-  z-index: -5;
-  overflow-x: hidden;
+  overflow: hidden;
+  padding-top: 3%;
 }
 
 .footer-bg {
   position: absolute;
   width: 110%;
+  bottom: -3%;
   margin-left: -5%;
   height: 100%;
   object-fit: cover;
